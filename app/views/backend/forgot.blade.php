@@ -22,34 +22,28 @@
     <link href="#" rel="stylesheet" id="theme-color">
     <!-- END  MANDATORY STYLE -->
     <!-- BEGIN PAGE LEVEL STYLE -->
-    <link href="/assets/css/animate-custom.css" rel="stylesheet">
-
-    <style>
-    #bg {
-    	position: fixed; 
-    	top: 0; 
-    	left: 0; 
-
-    	/* Preserve aspet ratio */
-    	min-width: 100%;
-    	min-height: 100%;
-    }
-    </style>
+    <link href="/assets/css/animate-custom.css" rel="stylesheet">    
     <!-- END PAGE LEVEL STYLE -->
     <script src="/assets/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 
 <body class="login fade-in" data-page="login" >
-	<img src="/assets/img/bg_login.jpg" id="bg" alt="">
     <!-- START SIGNUP BOX -->
     <div class="container" id="login-block">
         <div class="row">
             <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
-                @include('backend.layouts.alert')
+                @include('backend.partials.alert')
                 <div class="login-box clearfix animated flipInY">
                     <div class="page-icon animated bounceInDown">
                         <img src="/assets/img/account/login-questionmark-icon.png" alt="Register icon" />
                     </div>
+
+                    <div class="login-logo">
+                        <a href="#">
+                            <img src="{{ asset('assets/img/account/login-logo.png') }}" alt="Company Logo">
+                        </a>
+                    </div>
+                    <hr>
 
                     <div class="login-form">
                         <!-- Start Error box -->

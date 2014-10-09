@@ -31,12 +31,13 @@
     <div class="container" id="login-block">
         <div class="row">
             <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+                @include('backend.partials.alert')
                 <div class="login-box clearfix animated flipInY">
                     <div class="page-icon animated bounceInDown">
                         <img src="{{ asset('assets/img/account/user-icon.png') }}" alt="Key icon">
                     </div>
                     <div class="login-logo">
-                        <a href="login.html#?login-theme-3">
+                        <a href="#">
                             <img src="{{ asset('assets/img/account/login-logo.png') }}" alt="Company Logo">
                         </a>
                     </div>

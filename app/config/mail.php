@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'noreply@sabuesoonline.com', 'name' => 'SabuesOOnline.com'),
+	'from' => array('address' => 'noreply@opcioninmuebles.com', 'name' => 'Opción Inmuebles'),
 
 	/*
 	|--------------------------------------------------------------------------
