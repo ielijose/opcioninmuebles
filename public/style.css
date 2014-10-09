@@ -1,0 +1,35 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body{
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+.error_message{
+    color:red;
+}
+
+.remember-me{
+	font-weight: normal;
+	color: #fff;
+}
+
+.align-center
+{
+	text-align: center;	
+}
+
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse{
+	margin: 0.9em;
+}
+
+span.label-success,
+span.label-warning
+{
+	color: white!important;
+	font-weight: bold!important;	
+	padding: .5em!important;
+}
+
+span.label-success {
+	padding: .5em 1.4em!important;
+}
