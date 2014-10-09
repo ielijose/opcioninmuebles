@@ -3,16 +3,12 @@
 class CityTableSeeder extends Seeder {
 	public function run()
 	{
-		City::create([
-			'name' => 'Barranquilla'
-		]);
+		$cities = ['Barranquilla', 'Bucaramanga', 'Bogota', 'Cali', 'Medellin', 'Santa Marta']; 
 
-		City::create([
-			'name' => 'Bogot�'
-		]);
-		
-		City::create([
-			'name' => 'Medell�n'
-		]);	
+        foreach ($cities as $key => $city) {
+            City::create([
+                'name' => $city
+            ]);
+        }
 	}
 }

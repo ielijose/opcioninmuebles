@@ -389,11 +389,21 @@ if ($('.animate-number').length && $.fn.numerator) {
 }
 
 /****  Custom Select Input  ****/
-if ($('select').length && $.fn.selectpicker) {
+/*if ($('select').length && $.fn.selectpicker) {
   setTimeout(function(){
     $('select').selectpicker();
   },50);
+}*/
+
+
+if ($('select').length && $.fn.selectpicker) {
+    if(!$(this).data('noselect')=='noselect'){
+        $('select').selectpicker();    
+    }    
 }
+
+
+
 /****  Show Tooltip  ****/
 if ($('[data-rel="tooltip"]').length && $.fn.tooltip) {
     $('[data-rel="tooltip"]').tooltip();
