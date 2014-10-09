@@ -3,6 +3,12 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('/assets/plugins/wizard/wizard.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/plugins/jquery-steps/jquery.steps.css') }}">
+<style>
+.wizard-inline > .content
+{
+    min-height: 27em !important;
+}
+</style>
 @stop
 
 @section('content')
