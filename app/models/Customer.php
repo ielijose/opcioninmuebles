@@ -5,7 +5,7 @@ class Customer extends Model {
     protected $table = 'customers';
     public $timestamp = true;
 
-    protected $fillable = ['name','lastname','email','phone','code','estado','category_id','city_id','portal_id','service_id', 'user_id'];
+    protected $fillable = ['name','lastname','email','phone','code','estado','observation','category_id','city_id','portal_id','service_id', 'user_id'];
 
 
 	protected static $rules = [

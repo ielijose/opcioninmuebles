@@ -7,11 +7,11 @@ class CustomerController extends BaseController {
 	 * GET /customer
 	 *
 	 * @return Response
-	 */
+	 */        
 	public function index()
 	{
 		$customers = Customer::all();
-		return View::make('backend.generalmanager.customers.index', ['customers' => $customers]);
+		return View::make('backend.generalmanager.customers.index', compact('customers'));
 	}
 
 	/**
@@ -22,7 +22,11 @@ class CustomerController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('backend.generalmanager.customers.create');
+		$categories = Category::all();
+		$cities = City::all();
+		$portals = Portal::all();
+		$services = Service::all();
+		return View::make('backend.generalmanager.customers.create', compact('categories', 'cities', 'portals', 'services'));
 	}
 
 	/**
@@ -39,10 +43,10 @@ class CustomerController extends BaseController {
 		$customer = new Customer($inputs);
 		if ($customer->save())
 		{
-			return Redirect::to('/customers')->with('alert', ['type' => 'success', 'message' => 'El cliente ha sido registrado.']);;			
+			return Redirect::to('/customer')->with('alert', ['type' => 'success', 'message' => 'El cliente ha sido registrado.']);;			
 		}        
 		dd($customer->getErrors());
-        return Redirect::to('/customers')->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);;
+        return Redirect::to('/customer')->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);;
 
 	}
 
@@ -55,7 +59,13 @@ class CustomerController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$categories = Category::all();
+		$cities = City::all();
+		$portals = Portal::all();
+		$services = Service::all();
+
+		$customer = Customer::findOrFail($id);
+		return View::make('backend.generalmanager.customers.show', compact('customer', 'categories', 'cities', 'portals', 'services'));
 	}
 
 	/**
@@ -67,7 +77,7 @@ class CustomerController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+
 	}
 
 	/**
@@ -79,7 +89,15 @@ class CustomerController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$inputs = Input::all();
+		$customer = Customer::findOrFail($id);
+		$customer->fill($inputs);
+		if ($customer->save())
+		{
+			return Redirect::to('/customer/' . $id)->with('alert', ['type' => 'success', 'message' => 'Datos guardados.']);			
+		}        
+		dd($customer->getErrors());
+        return Redirect::to('/customer/' . $id)->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);
 	}
 
 	/**
@@ -91,7 +109,8 @@ class CustomerController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Customer::destroy($id);
+		return Redirect::to('/customer')->with('alert', ['type' => 'success', 'message' => 'El cliente ha sido borrado.']);
 	}
 
 	public function verify()

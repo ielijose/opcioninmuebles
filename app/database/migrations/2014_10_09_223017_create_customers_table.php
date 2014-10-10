@@ -22,6 +22,8 @@ class CreateCustomersTable extends Migration {
 			$table->string('code', 100);	
 			$table->enum('estado', ['prospecto']);
 
+			$table->string('observation');
+
 			$table->integer('category_id')->unsigned();
 			$table->foreign('category_id')->references('id')->on('categories');
 

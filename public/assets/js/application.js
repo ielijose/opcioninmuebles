@@ -293,7 +293,7 @@ if($.cookie('style-color')){
     $('#theme-color').attr("href", "assets/css/colors/" + color_ + ".css");
 }
 else{
-    $('#theme-color').attr("href", "assets/css/colors/color-dark.css");
+    //$('#theme-color').attr("href", "assets/css/colors/color-dark.css");
 }
 
 //*********************************** CUSTOM FUNCTIONS *****************************//

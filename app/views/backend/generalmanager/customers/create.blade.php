@@ -8,6 +8,11 @@
 {
     min-height: 27em !important;
 }
+.wizard-inline > .steps > ul > li
+{
+    width: 33.3%;
+}
+
 </style>
 @stop
 
@@ -76,7 +81,7 @@
                                         <label for="category_id">Categoría *</label>
                                         <select class="form-control required" id="category_id" name="category_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach (Category::all() as $key => $category)
+                                            @foreach ($categories as $key => $category)
                                                 <option value="{{ $category->id }}">{{ $category->category }}</option>
                                             @endforeach                                                              
                                         </select>
@@ -86,7 +91,7 @@
                                         <label for="city_id">Ciudad *</label>
                                         <select class="form-control required" id="city_id" name="city_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach (City::all() as $key => $city)
+                                            @foreach ($cities as $key => $city)
                                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
                                             @endforeach                                                              
                                         </select>
@@ -96,7 +101,7 @@
                                         <label for="portal_id">Portal *</label>
                                         <select class="form-control required" id="portal_id" name="portal_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach (Portal::all() as $key => $portal)
+                                            @foreach ($portals as $key => $portal)
                                                 <option value="{{ $portal->id }}">{{ $portal->portal }}</option>
                                             @endforeach                                                              
                                         </select>
@@ -106,7 +111,7 @@
                                         <label for="service_id">Servicio *</label>
                                         <select class="form-control required" id="service_id" name="service_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach (Service::all() as $key => $service)
+                                            @foreach ($services as $key => $service)
                                                 <option value="{{ $service->id }}">{{ $service->service }}</option>
                                             @endforeach                                                              
                                         </select>
