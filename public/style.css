@@ -33,8 +33,3 @@ span.label-warning
 span.label-success {
 	padding: .5em 1.4em!important;
 }
-
-.wizard-inline > .content
-{
-	height: 27em!important;
-}	
