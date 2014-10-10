@@ -2,3 +2,11 @@
 .env.*.php
 .env.php
 /vendor
+.buildpath
+.settings/*
+.git*
+.project
+app/config/local/database.php
+.DS_Store
+Thumbs.db
+app/config/local/database.php

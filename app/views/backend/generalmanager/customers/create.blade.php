@@ -38,12 +38,12 @@
                                     </div>                                  
 
                                     <div class="form-group col-md-6">
-                                        <label for="email">Correo electronico *</label>
+                                        <label for="email">Correo electrónico *</label>
                                         <input id="email" name="email" type="text" class="form-control required email">
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="phone">Télefono</label>
+                                        <label for="phone">Teléfono</label>
                                         <input id="phone" name="phone" type="text" class="form-control">
                                     </div>
                                                                      

@@ -6,10 +6,10 @@ class BranchTableSeeder extends Seeder {
 	{
 		Branch::create([
             'id'    => 1,
-            'sucursalId'  => '031',
+            'branchId'  => '031',
             'street'  => 'Calle 332',
             'city'  => 'Barranquilla',
-            'state'  => 'Bogotá',
+            'state'  => 'Bogotï¿½',
             'zipcode'  => 'XXXX',
             'country'  => 'Colombia',
             'phone'  => '0312323232',
@@ -17,10 +17,10 @@ class BranchTableSeeder extends Seeder {
 		
         Branch::create([
             'id'    => 2,
-            'sucursalId'  => '033',
+            'branchId'  => '033',
             'street'  => 'Calle 3321',
             'city'  => 'Barranquilla',
-            'state'  => 'Bogotá',
+            'state'  => 'Bogotï¿½',
             'zipcode'  => 'XXXX',
             'country'  => 'Colombia',
             'phone'  => '012212111',

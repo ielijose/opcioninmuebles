@@ -8,7 +8,7 @@ class Branch extends Model {
     protected $fillable = ['sucursalId','street','city','state','zipcode','country','phone'];
     
 	protected static $rules = [
-        'sucursalId' => 'required',
+        'branchId' => 'required',
 		'street' => 'required',
 		'city' => 'required',
 		'state' => 'required',
@@ -19,7 +19,7 @@ class Branch extends Model {
 
     //Use this for custom messages
     protected static $messages = [
-        'sucursalId.required' => 'Campo obligatorio.',
+        'branchId.required' => 'Campo obligatorio.',
         'street.required' => 'Campo obligatorio.',
         'city.required' => 'Campo obligatorio.',
         'state.required' => 'Campo obligatorio.',

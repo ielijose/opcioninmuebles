@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('ielijose'),
+	'local' => array('ielijose', 'swf-01'),
 	'production' => array('ielijose-server'),
 
 ));
