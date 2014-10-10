@@ -7,6 +7,7 @@ class CityTableSeeder extends Seeder {
 
         foreach ($cities as $key => $city) {
             City::create([
+            	'estate_id' => 1,
                 'name' => $city
             ]);
         }

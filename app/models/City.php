@@ -5,7 +5,7 @@ class City extends Model {
     protected $table = 'cities';
     public $timestamp = true;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['estate_id', 'name'];
 
 	protected static $rules = [
         'name' => 'required|unique:cities',

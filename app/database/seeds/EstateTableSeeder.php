@@ -7,14 +7,16 @@ class EstateTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
-
-		foreach(range(1, 10) as $index)
-		{
-			Estate::create([
-
-			]);
-		}
+		Estate::create([
+			'id' => 1,
+			'name' => 'Bogotá'
+		]);
+		
+		Estate::create([
+			'id' => 2,
+			'name' => 'Cali'
+		]);
+		
 	}
 
 }
