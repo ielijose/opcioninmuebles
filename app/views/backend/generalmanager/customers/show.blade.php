@@ -153,8 +153,7 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Observación: <span class="asterisk">*</span>
-                                        </label>
+                                        <label class="col-sm-2 control-label">Observación:</label>
                                         <div class="col-sm-7">
                                             <textarea rows="6" name="observation" class="form-control">{{ $customer->observation }}</textarea>
                                         </div>

@@ -9,12 +9,14 @@ class EstateTableSeeder extends Seeder {
 	{
 		Estate::create([
 			'id' => 1,
-			'name' => 'Bogotá'
+			'name' => 'Bogotá',
+			'country_id' => 1
 		]);
 		
 		Estate::create([
 			'id' => 2,
-			'name' => 'Cali'
+			'name' => 'Cali',
+			'country_id' => 1
 		]);
 		
 	}

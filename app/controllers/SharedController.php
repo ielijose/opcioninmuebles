@@ -9,37 +9,30 @@ class SharedController extends BaseController {
 
 	public function profile()
 	{
-		return View::make('backend.shared.profile');
+		$user = Auth::user();
+		return View::make('backend.shared.profile', compact('user'));
 	}
 
 	public function post_profile()
 	{
 		$inputs = Input::all();
 		//dd($inputs);
-		/* Formas de pago */
-		$methods = ['efectivo', 'debito', 'transferencia', 'cheque', 'visa', 'mastercard'];
-
-		$inputs['user_id'] = Auth::user()->id;
-
-		$pid = (isset(Auth::user()->payment->id)) ? Auth::user()->payment->id : null;
-
-		$payment = Payment::firstOrNew(array('id' => $pid));
-
-		foreach($methods as $key => $method){
-			$payment->$method = 0;
-		}
-
-		$payment->fill($inputs);
-		$payment->save();
-		/* :Formas de pago */
 
 		$rules = User::$rules;
 		$messages = User::$messages;
 
+		if($inputs['password'] == ''){
+			unset($rules['password']);
+			unset($inputs['password']);
+
+			unset($rules['password_confirmation']);
+			unset($inputs['password_confirmation']);
+		}else{
+			$rules['password'] .= '|confirmed';			
+		}
+
 		unset($rules['type']);
 		$rules['email'] .= ',email,' . Auth::user()->id;
-
-		$inputs['password'] = Auth::user()->password;
 		
 		$v = Validator::make($inputs, $rules, $messages);
 		
@@ -47,13 +40,12 @@ class SharedController extends BaseController {
 		{
 			$user = User::find(Auth::user()->id);
 			$user->fill($inputs);
-			$user->save();
-			return Redirect::to('/panel/profile')->with('alert', ['type' => 'success', 'message' => 'Su perfil se ha actualizado.']);
-		}else{
-			return Redirect::back()->withInput()->withErrors($v->messages());
+			if ($user->save()){
+				return Redirect::to('/profile')->with('alert', ['type' => 'success', 'message' => 'Su perfil se ha actualizado.']);
+			}
+			
 		}
-
-		return View::make('backend.shared.profile');
+		return Redirect::back()->withInput()->withErrors($v->messages());
 	}	
 
 }

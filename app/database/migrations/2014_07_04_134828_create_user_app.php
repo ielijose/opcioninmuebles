@@ -18,6 +18,7 @@ class CreateUserApp extends Migration {
 			$table->string('full_name', 100);
 			$table->string('email', 50)->unique();
 			$table->string('password');
+			$table->string('profile_picture');
 			$table->enum('type', ['GeneralManager', 'ManagerZone','Agent', 'Receptionist']);
 			$table->string('remember_token')->nullable;			
 			$table->timestamps();

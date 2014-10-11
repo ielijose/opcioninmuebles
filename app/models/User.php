@@ -30,7 +30,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public static $rules = [
     'full_name' => 'required',
     'email' => 'required|email|unique:users',
-    'password' => 'required',
+    'password' => 'required|min:4',
     'type' => 'required',
     ];
 
@@ -147,7 +147,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         }
     }
 
-
+    /* ---------- */
     
     public function getHumanDate()
     {
@@ -180,5 +180,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
         $txt .= $unit;
         return Lang::choice($txt, $delta, compact('delta'));
+    }
+
+    public function getProfilePicture()
+    {
+        if($this->profile_picture){
+            return Croppa::url($this->profile_picture,200);
+        }else{
+            return Identicon::getImageDataUri($this->id, 200);            
+        }
     }
 }
