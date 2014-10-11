@@ -22,6 +22,11 @@ class Country extends Model {
 
     /* Relationships */
 
+    public function estates()
+    {
+        return $this->hasMany('Estate');
+    }
+
 
     /* Function */
 

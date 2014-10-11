@@ -5,10 +5,11 @@ class Estate extends Model {
     protected $table = 'estates';
     public $timestamp = true;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'country_id'];
 
 	protected static $rules = [
-        'name' => 'required|unique:cities',
+        'name' => 'required|unique:estates',
+        'country_id' => 'required',
     ];
 
     //Use this for custom messages
@@ -21,6 +22,11 @@ class Estate extends Model {
     
 
     /* Relationships */
+
+    public function cities()
+    {
+        return $this->hasMany('City');
+    }
 
 
     /* Function */

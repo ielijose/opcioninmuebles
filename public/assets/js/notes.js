@@ -36,14 +36,14 @@ $(function (){
         $currentNoteTitle: $(null),
         $currentNoteDescription: $(null),
         addNote: function () {
-            var $note = $('<a href="#" class="note-item media current fade in"><button class="close" data-dismiss="alert">×</button><div><div><h4 class="note-name">Untitled</h4></div><p class="note-desc">No content</p><p><small class="pull-right note-date"></small></p></div></a>');
+            /*var $note = $('<a href="#" class="note-item media current fade in"><button class="close" data-dismiss="alert">×</button><div><div><h4 class="note-name">Untitled</h4></div><p class="note-desc">No content</p><p><small class="pull-right note-date"></small></p></div></a>');
             notes.$notesList.prepend($note);
             notes.$notesList.find('a').removeClass('current');
             $note.addClass('current');
             notes.$writeNote.focus();
             notes.checkCurrentNote();
             CurrentDate('.note-date'); 
-            customScroll();
+            customScroll();*/
         },
         checkCurrentNote: function () {
             var $current_note = notes.$notesList.find('a.current').first();

@@ -23,7 +23,7 @@
                             <h3>Ingreso de <strong>Sucursal</strong></h3>
                             <p>Completa el siguiente formulario:</p>
                             <!-- BEGIN FORM WIZARD WITH VALIDATION -->
-                            <form class="form-wizard" action="/customer" method="POST">
+                            <form class="form-wizard" action="/branch" method="POST">
                                 
                                 <h1>Datos de la Sucursal</h1>
                                 <section>
@@ -42,7 +42,7 @@
                                         <label for="city_id">Ciudad *</label>
                                         <select class="form-control required" id="city_id" name="city_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach (City::all() as $key => $city)
+                                            @foreach ($cities as $key => $city)
                                                 <option value="{{ $city->id }}">{{ $city->name }}</option>
                                             @endforeach                                                              
                                         </select>
@@ -70,7 +70,7 @@
                                         <label for="country">País *</label>
                                         <select class="form-control required" id="country_id" name="country_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach (Country::all() as $key => $country)
+                                            @foreach ($countries as $key => $country)
                                                 <option value="{{ $country->id }}">{{ $country->name }}</option>
                                             @endforeach                                                              
                                         </select>
