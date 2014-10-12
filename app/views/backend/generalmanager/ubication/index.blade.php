@@ -15,16 +15,7 @@
                 <div class="col-lg-4 col-md-4 list-notes" id="countries" ng-controller="CountryListCtrl">
                     <div class="panel panel-default">
                         <div class="panel-body notes">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-group input-group-lg border-bottom">
-                                        <span class="input-group-btn">
-                                            <a href="" class="btn"><i class="fa fa-search c-gray-light"></i></a>
-                                        </span>
-                                        <input type="text" class="form-control bd-0 bd-white" id="notes-finder" placeholder="Search a note...">
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <div data-rel="tooltip" data-placement="left" data-original-title="Add a note" id="add-note" ng-click="createCountry()">
@@ -54,16 +45,7 @@
                 <div class="col-lg-4 col-md-4 list-notes hide" id="estates" ng-controller="EstateListCtrl">
                     <div class="panel panel-default">
                         <div class="panel-body notes">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-group input-group-lg border-bottom">
-                                        <span class="input-group-btn">
-                                            <a href="" class="btn"><i class="fa fa-search c-gray-light"></i></a>
-                                        </span>
-                                        <input type="text" class="form-control bd-0 bd-white" id="notes-finder" placeholder="Search a note...">
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <div data-rel="tooltip" data-placement="left" data-original-title="Add a note" id="add-note" ng-click="createEstate()">
@@ -92,16 +74,7 @@
                 <div class="col-lg-4 col-md-4 list-notes hide" id="cities" ng-controller="CityListCtrl">
                     <div class="panel panel-default">
                         <div class="panel-body notes">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-group input-group-lg border-bottom">
-                                        <span class="input-group-btn">
-                                            <a href="" class="btn"><i class="fa fa-search c-gray-light"></i></a>
-                                        </span>
-                                        <input type="text" class="form-control bd-0 bd-white" id="notes-finder" placeholder="Search a note...">
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                     <div data-rel="tooltip" data-placement="left" data-original-title="Add a note" id="add-note" ng-click="createCity()">
@@ -134,23 +107,5 @@
     <script src="{{ asset('/assets/plugins/quicksearch/jquery.quicksearch.js') }}"></script>
     <script src="{{ asset('/assets/js/notes.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.5/angular.min.js"></script>
-
     <script src="{{ asset('/assets/js/ubication.angular.js')}}"></script>   
-
-    <script>
-
-
-    $(document).on("ready", function(){
-        var country;
-        var estate;
-        var city;
-
-        $(".country").on("click", function(){
-            
-            //$("#estates").animate({width:'toggle'},350);
-        });
-    });
-
-
-    </script>
 @stop
