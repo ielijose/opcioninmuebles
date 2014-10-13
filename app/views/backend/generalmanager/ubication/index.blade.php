@@ -5,6 +5,11 @@
     .country, .estate{
         cursor: pointer;
     }
+
+    .sel {
+        background-color: #EF4836 !important
+    }
+
 </style> 
 @stop
 
@@ -25,7 +30,7 @@
                             </div>
                             <div id="notes-list" class="panel panel-default withScroll" data-height="window" data-padding="129" >
 
-                                <div class="note-item media current fade in" ng-repeat="country in countries">
+                                <div class="note-item media current fade in" ng-repeat="country in countries" ng-class="{sel: country.id == selected}">
                                     <button class="close" data-dismiss="alert" data-rel="tooltip" data-placement="left" data-original-title="Borrar" ng-click="deleteCountry(country.id)">×</button>
                                     <div>
                                         <div>
@@ -55,7 +60,7 @@
                             </div>
                             <div id="notes-list" class="panel panel-default withScroll" data-height="window" data-padding="129" >
 
-                                <div class="note-item media current fade in" ng-repeat="estate in estates">
+                                <div class="note-item media current fade in" ng-repeat="estate in estates" ng-class="{sel: estate.id== selected}">
                                     <button class="close" data-dismiss="alert" data-rel="tooltip" data-placement="left" data-original-title="Borrar" ng-click="deleteEstate(estate.id)">×</button>
                                     <div>
                                         <div>

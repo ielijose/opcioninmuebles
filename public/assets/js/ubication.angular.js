@@ -2,7 +2,8 @@ var ubicationApp = angular.module('ubicationApp', []);
 
 ubicationApp.controller('CountryListCtrl', function ($scope, $http) {
     $scope.formData = {};
-
+    $scope.selected = -1;
+   
     $http.get('/api/country')
     .success(function(data) {
         $scope.countries = data;
@@ -25,6 +26,9 @@ ubicationApp.controller('CountryListCtrl', function ($scope, $http) {
     };
     // delete a country
     $scope.deleteCountry = function(id) {
+        $("#estates").addClass('hide');
+        $("#cities").addClass('hide');
+
         $http.delete('/api/country/' + id)
         .success(function(data) {
             $scope.countries = data;
@@ -36,7 +40,11 @@ ubicationApp.controller('CountryListCtrl', function ($scope, $http) {
 
     // delete a country
     $scope.showEstates = function(id) {
+        $scope.selected = id; 
+        $scope.$root.$broadcast("select", {});
+
         $("#estates").removeClass('hide');
+        $("#cities").addClass('hide');
 
         $scope.$root.$broadcast("estates", {
             id: id
@@ -49,6 +57,12 @@ ubicationApp.controller('CountryListCtrl', function ($scope, $http) {
 ubicationApp.controller('EstateListCtrl', function ($scope, $http) {
     $scope.formData = {};
     $scope.country;
+
+    $scope.selected = -1;
+
+    $scope.$on("select", function (event, args) {
+        $scope.selected = -1;
+    });
 
     $scope.$on("estates", function (event, args) {
         $scope.country = args.id;
@@ -77,6 +91,7 @@ ubicationApp.controller('EstateListCtrl', function ($scope, $http) {
     };
     // delete a country
     $scope.deleteEstate = function(id) {
+        $("#cities").addClass('hide');
         $http.delete('/api/estate/' + id)
         .success(function(data) {
             $scope.estates = data;
@@ -88,6 +103,7 @@ ubicationApp.controller('EstateListCtrl', function ($scope, $http) {
 
     // delete a country
     $scope.showCities = function(id) {
+        $scope.selected = id; 
         $("#cities").removeClass('hide');
 
         $scope.$root.$broadcast("cities", {

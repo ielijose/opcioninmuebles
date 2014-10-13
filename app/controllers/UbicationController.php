@@ -38,8 +38,16 @@ class UbicationController extends BaseController {
 
 	public function country_destroy($id)
 	{
+		foreach(Country::find($id)->estates as $estate){
+			foreach(Estate::find($estate->id)->cities as $city){
+				City::destroy($city->id);
+			}
+			Estate::destroy($estate->id);
+		}
 		Country::destroy($id);
-		return Redirect::to('/api/country');
+		
+		$country = Country::all();
+		return $country->toJson();
 	}
 
 	/* Estate */
@@ -66,6 +74,10 @@ class UbicationController extends BaseController {
 
 	public function estate_destroy($id)
 	{
+		foreach(Estate::find($id)->cities as $city){
+			City::destroy($city->id);
+		}
+
 		$estate = Estate::find($id);
 		Estate::destroy($id);
 
