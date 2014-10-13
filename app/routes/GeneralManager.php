@@ -9,7 +9,10 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/verify-email', ['uses' => 'CustomerController@verify']);
 	
 	/* Branch */
-	Route::resource('branch', 'BranchController');	
+	Route::resource('branch', 'BranchController');
+
+	/* User */
+	Route::resource('user', 'UserController');	
 	
 	/* Ubication */
 	Route::get('/ubication', ['uses' => 'UbicationController@index']);

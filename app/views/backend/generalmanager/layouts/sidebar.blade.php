@@ -8,7 +8,7 @@
                 <a href="/branch"><i class="glyph-icon flaticon-panels"></i><span class="sidebar-text">Sucursales</span></a>                
             </li>
             <li>
-                <a href="#"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Usuarios</span></a>
+                <a href="/user"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Usuarios</span></a>
             </li>
             <li>
                 <a href="#"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Agente Comercial</span><span class="fa arrow"></span></a>
