@@ -6,7 +6,11 @@
 <style>
 .wizard-inline > .content
 {
-    min-height: 27em !important;
+    min-height: 29em !important;
+}
+.wizard-inline > .steps > ul > li
+{
+    width: 100%;
 }
 </style>
 @stop
@@ -24,69 +28,57 @@
                             <p>Completa el siguiente formulario:</p>
                             <!-- BEGIN FORM WIZARD WITH VALIDATION -->
                             <form class="form-wizard" action="/branch" method="POST">
-                                
+
                                 <h1>Datos de la Sucursal</h1>
                                 <section>
                                     <div class="form-group col-md-6">
                                         <label for="branchid">Número de Sucursal *</label>
-                                        <input id="branchid" name="branchid" type="text" class="form-control required">
+                                        <input id="branchid" name="branchid" type="text" class="form-control " disabled value="{{ $id['id'] }}">
                                     </div>
-   			
-   			                        <div class="form-group col-md-6">
-                                        <label for="street">Dirección *</label>
-                                        <input id="street" name="street" type="text" class="form-control required street">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="country_id">País *</label>
+                                        <select class="form-control required" id="country_id" name="country_id">
+                                            <option selected="selected" disabled>-- Seleccione --</option>          
+                                        </select>
+                                    </div> 
+
+                                    <div class="form-group col-md-6">
+                                        <label for="estate_id">Estado *</label>
+                                        <select class="form-control required" id="estate_id" name="estate_id">
+                                            <option selected="selected" disabled>-- Seleccione --</option>
+                                        </select>
                                     </div>
-   			
-   									
-   									<div class="form-group col-md-6">
+
+                                    <div class="form-group col-md-6">
                                         <label for="city_id">Ciudad *</label>
                                         <select class="form-control required" id="city_id" name="city_id">
-                                            <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach ($cities as $key => $city)
-                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                            @endforeach                                                              
+                                            <option selected="selected" disabled>-- Seleccione --</option>                                                                                                          
                                         </select>
-                                    </div>                                
+                                    </div>   
+
+
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="estado">Estado *</label>
-                                        <select class="form-control required" id="estado" name="estado">
-                                            <option selected="selected" disabled>-- Seleccione --</option>
-                                            <option value="prospecto">Prospecto</option>
-                                        </select>
+                                        <label for="address">Dirección *</label>
+                                        <input id="address" name="address" type="text" class="form-control required">
                                     </div>
-                                    
-									<div class="form-group col-md-6">
-                                        <label for="state">Provincia *</label>
-                                        <input id="state" name="state" type="text" class="form-control required state">
-                                    </div>
+
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="xipcode">Código Postal *</label>
-                                        <input id="xipcode" name="xipcode" type="text" class="form-control required xipcode">
-                                    </div>
-			
-			                        <div class="form-group col-md-6">
-                                        <label for="country">País *</label>
-                                        <select class="form-control required" id="country_id" name="country_id">
-                                            <option selected="selected" disabled>-- Seleccione --</option>
-                                            @foreach ($countries as $key => $country)
-                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                            @endforeach                                                              
-                                        </select>
-                                    </div>     
+                                        <label for="zipcode">Código Postal *</label>
+                                        <input id="zipcode" name="zipcode" type="text" class="form-control required">
+                                    </div>		
+
                                     
                                     <div class="form-group col-md-6">
                                         <label for="phone">Teléfono</label>
                                         <input id="phone" name="phone" type="text" class="form-control">
                                     </div>                                                                 
 
-                                    <p>(*) Obligatorio</p>
+                                    <p class="pull-left m-20">(*) Obligatorio</p>
 
-                                    <div class="alert alert-danger fade in hide" id="email-alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                        <strong>Alerta!</strong> El Número de sucursal ya esta registrada en nuestra base de datos.                                        
-                                    </div>
+                                    
                                 </section>                                
                             </form>
                             <!-- END FORM WIZARD WITH VALIDATION -->
@@ -121,10 +113,7 @@ $(document).on("ready", function(){
             if (currentIndex > newIndex) {
                 return true;
             } 
-            // Forbid suppressing "Warning" step if the user is to young
-            if (newIndex === 1 && email == false) {
-                return false;
-            }
+            
 
             var form = $(this);
             // Clean up if user went backward before
@@ -139,8 +128,8 @@ $(document).on("ready", function(){
             return form.valid();
         },
         onStepChanged: function (event, currentIndex, priorIndex) {
-            
-            
+
+
         },
         onFinishing: function (event, currentIndex) {
             var form = $(this);
@@ -160,19 +149,64 @@ $(document).on("ready", function(){
 
     /* ajax */
 
-    $("#email").on("change", function(){
-        var e = $(this).val();
+    var $countries = $("#country_id");
+    var $estates = $("#estate_id");
+    var $cities = $("#city_id");
 
-        $.post('/verify-email', {email: e}, function(data, textStatus, xhr) {
-            if(data == 'false'){
-                email = false;
-                $("#email-alert").removeClass('hide');
-            }else if(data == 'true'){
-                email = true;
-                $("#email-alert").addClass('hide');
-            }
+
+    $.get('/api/country', function(data, textStatus, xhr) {
+        $.each(data, function(index, val) {            
+            var option = '<option value="' + val.id + '">' + val.name + '</option>';
+            $countries.append(option);
         });
+    }, 'json');
+
+    $countries.on("change", function() {
+        var id = $(this).val();
+        loadEstates(id);
     });
+
+    function resetEstates() {
+        $estates.empty();
+        var option = '<option> -- Seleccione --</option>';
+        $estates.append(option);
+    }
+
+    function loadEstates(id) {
+        resetEstates();
+
+        $.get('/api/country/' + id, function(data, textStatus, xhr) {
+            $.each(data, function(index, val) {
+                var option = '<option value="' + val.id + '">' + val.name + '</option>';                
+                $estates.append(option);
+            });
+        }, 'json');
+
+    }
+
+    $estates.on("change", function() {
+        var id = $(this).val();
+        loadCities(id);
+    });
+
+    function resetCities() {
+        $cities.empty();
+        var option = '<option> -- Seleccione --</option>';
+        $cities.append(option);
+    }
+
+    function loadCities(id) {
+        resetCities();
+
+        $.get('/api/estate/' + id, function(data, textStatus, xhr) {
+            $.each(data, function(index, val) {
+                var option = '<option value="' + val.id + '">' + val.name + '</option>';                
+                $cities.append(option);
+            });
+        }, 'json');
+
+    }
+    
 });
 
 

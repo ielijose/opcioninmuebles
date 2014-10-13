@@ -18,7 +18,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading bg-blue">
-                    <h3 class="panel-title"><strong>Listado</strong> de clientes</h3>
+                    <h3 class="panel-title"><strong>Listado</strong> de sucursales</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -27,8 +27,9 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-hover table-dynamic">
                                 <thead>
                                     <tr>
-                                        <th>Nombres y Apellidos</th>
-                                        <th>Email</th>
+                                        <th>ID</th>
+                                        <th>Dirección</th>
+                                        <th>Ciudad</th>
                                         <th>Teléfono</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -36,8 +37,9 @@
                                 <tbody>
                                     @foreach ($branches as $key => $branch)      
                                     <tr>
-                                        <td>{{ $branch->name }} {{ $branch->street }}</td>
-                                        <td> {{ $branch->email }} </td>
+                                        <td>{{ $branch->id }}</td>
+                                        <td>{{ $branch->address }}</td>
+                                        <td> {{ $branch->city->name }} </td>
                                         <td>{{ $branch->phone }}</td>
                                         <td><a href="/branch/{{ $branch->id }}" class="btn btn-info">Ver mas</a></td>
                                     </tr>

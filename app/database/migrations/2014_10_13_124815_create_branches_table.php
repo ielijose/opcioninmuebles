@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateBranchesTable extends Migration {
 
@@ -15,13 +15,12 @@ class CreateBranchesTable extends Migration {
 		Schema::create('branches', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('branchId', 100);
-			$table->string('street', 150);
-			$table->string('city', 70);
-			$table->string('state', 50);
-			$table->string('zipcode', 10);
-			$table->string('country', 50);
-			$table->string('phone', 150);			
+			$table->string('address');
+			$table->integer('country_id');
+			$table->integer('estate_id');
+			$table->integer('city_id');
+			$table->string('zipcode', 12);
+			$table->string('phone', 100);			
 			$table->timestamps();
 		});
 	}

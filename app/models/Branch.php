@@ -5,26 +5,25 @@ class Branch extends Model {
     protected $table = 'branches';
     public $timestamp = true;
 
-    protected $fillable = ['sucursalId','street','city','state','zipcode','country','phone'];
-    
+    protected $fillable = ['address', 'country_id', 'estate_id', 'city_id', 'zipcode', 'phone'];
+
+
 	protected static $rules = [
-        'branchId' => 'required',
-		'street' => 'required',
-		'city' => 'required',
-		'state' => 'required',
+        'address' => 'required',
+		'country_id' => 'required',
+		'estate_id' => 'required',
+		'city_id' => 'required',
 		'zipcode' => 'required',
-		'country' => 'required',
 		'phone' => 'required',
     ];
 
     //Use this for custom messages
     protected static $messages = [
-        'branchId.required' => 'Campo obligatorio.',
-        'street.required' => 'Campo obligatorio.',
-        'city.required' => 'Campo obligatorio.',
-        'state.required' => 'Campo obligatorio.',
+        'address.required' => 'Campo obligatorio.',
+        'country_id.required' => 'Campo obligatorio.',
+        'estate_id.required' => 'Campo obligatorio.',
+        'city_id.required' => 'Campo obligatorio.',
         'zipcode.required' => 'Campo obligatorio.',
-        'country.required' => 'Campo obligatorio.',
         'phone.required' => 'Campo obligatorio.',
     ];
 
@@ -32,6 +31,11 @@ class Branch extends Model {
     
 
     /* Relationships */
+
+    public function city()
+    {
+        return $this->belongsTo('City');
+    }
 
 
     /* Function */

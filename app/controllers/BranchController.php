@@ -26,7 +26,15 @@ class BranchController extends BaseController {
 		$cities = City::all();
 		$countries = Country::all();
 
-		return View::make('backend.generalmanager.branches.create', compact('categories', 'cities', 'countries'));
+		$b = DB::table('branches')->orderBy('id', 'desc')->first();
+
+		if($b){
+			$id['id'] = $b->id + 1;
+		}else{
+			$id['id'] = 1;
+		}
+
+		return View::make('backend.generalmanager.branches.create', compact('categories', 'cities', 'countries', 'id'));
 	}
 
 	/**
@@ -42,9 +50,9 @@ class BranchController extends BaseController {
 		$branch = new Branch($inputs);
 		if ($branch->save())
 		{
-			return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'El cliente ha sido registrado.']);;			
+			return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido guardada.']);;			
 		}        
-		dd($branch->getErrors());
+		//dd($branch->getErrors());
         return Redirect::to('/branch')->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);;
 
 	}
@@ -64,7 +72,7 @@ class BranchController extends BaseController {
 		$services = Service::all();
 
 		$branch = branch::findOrFail($id);
-		return View::make('backend.generalmanager.branchs.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
+		return View::make('backend.generalmanager.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
 	}
 
 	/**
@@ -109,22 +117,7 @@ class BranchController extends BaseController {
 	public function destroy($id)
 	{
 		branch::destroy($id);
-		return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'El cliente ha sido borrado.']);
-	}
-
-	public function verify()
-	{
-		$email = Input::get('email');
-
-		$c = branch::where('email', $email)->get();
-
-		$available = true;
-
-		if(count($c) > 0){
-			$available = false;
-		}	
-
-		return json_encode($available);
-	}
+		return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido borrada.']);
+	}	
 
 }
