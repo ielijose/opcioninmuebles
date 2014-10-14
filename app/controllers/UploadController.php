@@ -1,32 +1,57 @@
 <?php
 
 class UploadController extends BaseController {
-    # Product´s Image Upload
+    # Avatar Upload
     public function post_upload()
-    {    
+    {
         $file = Input::file('file');
-        $destinationPath = public_path() . '/uploads/classified/';
+        $destinationPath = public_path() . '/uploads/';
         $filename = str_random(16)."_".$file->getClientOriginalName();
         $upload_success = Input::file('file')->move($destinationPath, $filename);
 
         if ($upload_success) {
-            Session::push('imgs', $filename);
-            return Response::json('success', 200);
+            $avatar = '/uploads/' . $filename;
+
+            Session::put('upload', $avatar);
+            $response = ['avatar' => $avatar, 'success' => 200];
+
+            return Response::json($response);
         } else {
             return Response::json('error', 400);
         }
     }
-    # Product Image Get
-    public function session()
+    # Avatar Crop
+    public function post_upload_crop()
     {
-        $destinationPath = public_path() . '/uploads/classified/';
-        if(count(Session::get('imgs')))
-        foreach (Session::get('imgs') as $key => $value) {
-            if(!file_exists($destinationPath . $value)){
-                Session::forget('imgs')[$key];
-            }
-        }
-        echo json_encode(array("images" => Session::get('imgs') || []));
+        $i = Input::all();
+        extract($i);
+        $avatar = public_path() . Session::get('upload');
+        $img = Intervention::make($avatar);
+        // determine if the image is portrait or landscape
+        $scalew = $img->width() / $i; 
+        $scaleh = $img->height() / $h;
+
+        $img->resize($i, $img->height()/$scalew);
+        $img->crop($h, $w, $x, $y);
+        $img->save($avatar);
+
+        return Response::json(['avatar' => Session::get('upload')]);
+    }
+    # Get Avatar
+    public function get_upload()
+    {
+        $upload = (Session::has('upload')) ? Session::get('upload') : Auth::user()->getProfilePicture();
+        return Response::json(['upload' => $upload]);        
+    }
+    #Avatar Rotate
+    public function post_upload_rotate()
+    {
+        $avatar = public_path() . Session::get('upload');
+        $img = Intervention::make($avatar);
+        //delete previous image and cache
+        $img->rotate(Input::get('angle'))->save();
+
+        return Response::json(['avatar' => Session::get('upload')]);
     }
     # Avatar Upload
     public function post_avatar()
@@ -53,7 +78,7 @@ class UploadController extends BaseController {
         $i = Input::all();
         extract($i);
 
-        $avatar = public_path() . Session::get('avatar');
+        $avatar = public_path() . Session::get('upload');
 
         $img = Intervention::make($avatar);
 

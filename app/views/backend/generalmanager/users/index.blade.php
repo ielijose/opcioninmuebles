@@ -7,7 +7,8 @@
 
 <div id="main-content">
             <div class="page-title"> <i class="icon-custom-left"></i>
-                <h2>Usuarios <small> listado general</small></h2>
+                <h2 class="pull-left">Usuarios <small> listado general</small></h2>
+                <a href="/user/create" class="btn btn-success pull-right m-20"> Nuevo usuario </a>
             </div>
             <div class="row">
                 <div class="col-md-12">

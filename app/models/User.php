@@ -25,7 +25,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     protected $hidden = array('password', 'remember_token');
 
-    protected $fillable = ['full_name', 'email', 'password', 'type'];
+    protected $fillable = ['full_name', 'email', 'password', 'type', 'profile_picture'];
 
     public static $rules = [
     'full_name' => 'required',
@@ -45,6 +45,26 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     'password_confirmation.required' => 'La confirmación de contraseña es obligatoria.',
     'type.required' => 'El plan es obligatorio.',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($user)
+        {   
+            $p = str_random(8);
+            $user->password = $p;
+            $data = ['name' => $user->full_name, 'email' => $user->email, 'password' => $p ,'url' => 'http://opcioninmuebles.com/admin/'];
+
+            Mail::send('emails.auth.registration', $data, function($message) use ($user)
+            {
+                $message->from('noreply@opcioninmuebles.com', 'Registro de usuario');
+                $message->to($user->email, $user->full_name)->subject('Registro! - OpcionInmuebles.com');
+            });
+
+        });
+
+    }
 
     public function setPasswordAttribute($value)
     {

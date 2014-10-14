@@ -22,19 +22,8 @@ class UserController extends BaseController {
 	 */
 	public function create()
 	{
-		$categories = Category::all();
-		$cities = City::all();
-		$countries = Country::all();
 
-		$b = DB::table('branches')->orderBy('id', 'desc')->first();
-
-		if($b){
-			$id['id'] = $b->id + 1;
-		}else{
-			$id['id'] = 1;
-		}
-
-		return View::make('backend.generalmanager.branches.create', compact('categories', 'cities', 'countries', 'id'));
+		return View::make('backend.generalmanager.users.create');
 	}
 
 	/**
@@ -47,13 +36,28 @@ class UserController extends BaseController {
 	{
 		$inputs = Input::all();
 
-		$branch = new Branch($inputs);
-		if ($branch->save())
+		if(Session::has('upload')){		
+
+			if(File::exists(public_path() . Session::get('upload'))){
+				$f = Session::get('upload');
+				$filename = pathinfo($f, PATHINFO_BASENAME);
+
+				File::move(public_path() .Session::get('upload'), public_path() .'/uploads/avatar/' . $filename);
+				$inputs['profile_picture'] = '/uploads/avatar/' . $filename;
+				Session::forget('upload');
+			}
+			
+		}
+		
+		//dd($inputs);
+
+		$user = new User($inputs);
+		if ($user->save())
 		{
-			return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido guardada.']);;			
+			return Redirect::to('/user')->with('alert', ['type' => 'success', 'message' => 'El usuario ha sido registrado.']);;			
 		}        
 		//dd($branch->getErrors());
-        return Redirect::to('/branch')->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);;
+        return Redirect::to('/user')->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);;
 
 	}
 
@@ -119,5 +123,21 @@ class UserController extends BaseController {
 		branch::destroy($id);
 		return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido borrada.']);
 	}	
+
+
+	public function verify()
+	{
+		$email = Input::get('email');
+
+		$c = User::where('email', $email)->get();
+
+		$available = true;
+
+		if(count($c) > 0){
+			$available = false;
+		}	
+
+		return json_encode($available);
+	}
 
 }
