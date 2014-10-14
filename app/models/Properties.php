@@ -5,7 +5,7 @@ class Customer extends Model {
     protected $table = 'customers';
     public $timestamp = true;
 
-    protected $fillable = ['plattformCode','address','country_id', 'estate_id','city_id','zipcode','description','status','image'];
+    protected $fillable = ['plattformCode','address','country_id', 'estate_id','city_id','zipcode','description','stratus','image'];
 
 
 	protected static $rules = [
@@ -14,7 +14,7 @@ class Customer extends Model {
 		'country_id' => 'required',		
 		'estate_id' => 'required',
 		'city' => 'required',	
-        'status' => 'required'        
+        'stratus' => 'required'        
     ];
 
     //Use this for custom messages
@@ -24,7 +24,7 @@ class Customer extends Model {
         'country_id.required' => 'Campo obligatorio.',
         'estate_id.required' => 'Campo obligatorio.',        
         'city_id.required' => 'Campo obligatorio.',
-        'status.required' => 'Campo obligatorio.',            
+        'stratus.required' => 'Campo obligatorio.',            
 	];
 
     /* Scopes */
