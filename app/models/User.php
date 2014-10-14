@@ -73,7 +73,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         static::deleting(function($user)
         {   
             if(File::exists( public_path() . $user->profile_picture )){
-                Croppa::delete(public_path() . $user->profile_picture);
+                Croppa::delete($user->profile_picture);
                // File::delete(   ); 
             }
             
