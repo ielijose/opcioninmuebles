@@ -13,10 +13,6 @@
             <li>
                 <a href="#"><i class="fa fa-male"></i><span class="sidebar-text">Agente Comercial</span><span class="fa arrow"></span></a>
                 <ul class="submenu collapse">
-                    <li><a href="#"><span class="sidebar-text">Crear</span></a></li>
-                    <li><a href="login.html"><span class="sidebar-text">Modificar</span></a></li>
-                    <li><a href="signup.html"><span class="sidebar-text">Eliminar</span></a></li>
-                    <li><a href="password_forgot.html"><span class="sidebar-text">Consultar</span></a></li>
                     <li><a href="lockscreen.html"><span class="sidebar-text">Asignación Gerente</span></a></li>
                 </ul>
             </li>
