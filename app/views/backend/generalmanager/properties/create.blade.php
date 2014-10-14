@@ -79,8 +79,8 @@
                                     
                                   
                                     <div class="form-group col-md-12">
-                                        <label for="observation">Descripción </label>
-                                        <textarea name="observation" rows="5" class="form-control" placeholder=""></textarea>
+                                        <label for="description">Descripción </label>
+                                        <textarea name="description" rows="5" class="form-control" placeholder=""></textarea>
                                     </div>
                                     
                                     <p class="pull-left m-20">(*) Obligatorio</p>
