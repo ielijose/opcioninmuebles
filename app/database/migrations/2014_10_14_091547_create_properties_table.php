@@ -18,13 +18,20 @@ class CreatePropertiesTable extends Migration {
 			
 			$table->string('plattformCode');
 			$table->string('address');
-			$table->string('estate');
-			$table->string('city');
+			$table->integer('country_id')->unsigned();
+			$table->integer('estate_id')->unsigned();				
+			$table->integer('city_id')->unsigned();				
 			$table->string('zipcode', 10);
 			$table->text('description');
 			$table->integer('status')->unsigned(); //estrato
 			$table->string('image'); //foto de la propiedad
+			
 			$table->timestamps();
+			
+			$table->foreign('country_id')->references('id')->on('countries');
+			$table->foreign('city_id')->references('id')->on('cities');
+			$table->foreign('estate_id')->references('id')->on('estates');
+				
 		});
 	}
 
