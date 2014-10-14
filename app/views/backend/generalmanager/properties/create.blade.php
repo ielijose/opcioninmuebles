@@ -71,6 +71,12 @@
                                         <label for="zipcode">Código Postal *</label>
                                         <input id="zipcode" name="zipcode" type="text" class="form-control required">
                                     </div>		
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="stratus">Estrato *</label>
+                                        <input id="stratus" name="stratus" type="text" class="form-control required">
+									</div>   
+                                    
                                   
                                     <div class="form-group col-md-12">
                                         <label for="observation">Descripción </label>

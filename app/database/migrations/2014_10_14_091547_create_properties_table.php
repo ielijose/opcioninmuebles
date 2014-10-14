@@ -23,7 +23,7 @@ class CreatePropertiesTable extends Migration {
 			$table->integer('city_id')->unsigned();				
 			$table->string('zipcode', 10);
 			$table->text('description');
-			$table->integer('status')->unsigned(); //estrato
+			$table->integer('stratus')->unsigned(); //estrato
 			$table->string('image'); //foto de la propiedad
 			
 			$table->timestamps();
