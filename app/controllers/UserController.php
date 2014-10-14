@@ -120,8 +120,7 @@ class UserController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		branch::destroy($id);
-		return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido borrada.']);
+		User::destroy($id);
 	}	
 
 

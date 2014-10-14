@@ -52,9 +52,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
         static::creating(function($user)
         {   
-            $p = str_random(8);
-            $user->password = $p;
-            $data = ['name' => $user->full_name, 'email' => $user->email, 'password' => $p ,'url' => 'http://opcioninmuebles.com/admin/'];
+            
+            if(!$user->password){
+                $p = str_random(8);
+                $user->password = $p;
+            }
+                
+            $pa = (isset($p)) ? $p : $user->password;
+
+            $data = ['name' => $user->full_name, 'email' => $user->email, 'password' => $pa ,'url' => 'http://opcioninmuebles.com/admin/'];
 
             Mail::send('emails.auth.registration', $data, function($message) use ($user)
             {
@@ -62,6 +68,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
                 $message->to($user->email, $user->full_name)->subject('Registro! - OpcionInmuebles.com');
             });
 
+        });
+
+        static::deleting(function($user)
+        {   
+            if(File::exists( public_path() . $user->profile_picture )){
+                Croppa::delete(public_path() . $user->profile_picture);
+               // File::delete(   ); 
+            }
+            
+            
         });
 
     }

@@ -28,6 +28,7 @@
                                             <div>
                                                 <p><i class="fa fa-envelope-o c-gray-light p-r-10"></i> {{ $user->email }}</p>
                                                 <p><i class="fa fa-briefcase c-gray-light p-r-10"></i> {{ $user->getTypeName() }}</p>
+                                                <p><button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}"> Eliminar</button> </p>
                                             </div>                                            
                                         </div>
                                     </div>
@@ -61,4 +62,30 @@
 @section('javascript')
     <script src="{{ asset('/assets/plugins/quicksearch/jquery.quicksearch.js') }}"></script>
     <script src="{{ asset('/assets/js/members.js') }}"></script>
+
+    <script>
+
+    $(document).on("ready", function(){
+        $(".delete-user").on("click", function(event){
+            event.preventDefault();
+
+            var u = $(this);
+
+            if(confirm("Desea eliminar el usuario?\nNo se puede revertir.")){
+                var id = $(this).data('id');
+                u.closest('div.member-entry').hide();                
+                $.ajax({
+                    url: '/user/' + id,
+                    type: 'DELETE',
+                    success: function(result) {
+                        console.log(result);
+                        
+                    }
+                });
+            }
+
+        })
+    })
+
+    </script>
 @stop
