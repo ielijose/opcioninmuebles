@@ -11,7 +11,7 @@
                 <a href="/user"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Usuarios</span></a>
             </li>
             <li>
-                <a href="#"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Agente Comercial</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-male"></i><span class="sidebar-text">Agente Comercial</span><span class="fa arrow"></span></a>
                 <ul class="submenu collapse">
                     <li><a href="#"><span class="sidebar-text">Crear</span></a></li>
                     <li><a href="login.html"><span class="sidebar-text">Modificar</span></a></li>
