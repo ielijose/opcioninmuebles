@@ -78,7 +78,7 @@ class UploadController extends BaseController {
         $i = Input::all();
         extract($i);
 
-        $avatar = public_path() . Session::get('upload');
+        $avatar = public_path() . Session::get('avatar');
 
         $img = Intervention::make($avatar);
 
