@@ -18,6 +18,11 @@ Route::group(array('before' => 'auth'), function()
 	/* Ubication */
 	Route::get('/ubication', ['uses' => 'UbicationController@index']);
 
+	/* Property */
+	Route::resource('property', 'PropertyController');
+	Route::post('/property/image', ['uses' => 'PropertyController@add_image']);
+
+
 	Route::get('/api/country', ['uses' => 'UbicationController@country_index']);
 	Route::post('/api/country', ['uses' => 'UbicationController@country_store']);
 	Route::delete('/api/country/{id}', ['uses' => 'UbicationController@country_destroy']);

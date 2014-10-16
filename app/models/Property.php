@@ -1,8 +1,8 @@
 <?php
 
-class Customer extends Model {
+class Property extends Model {
 
-    protected $table = 'customers';
+    protected $table = 'properties';
     public $timestamp = true;
 
     protected $fillable = ['plattformCode','address','country_id', 'estate_id','city_id','zipcode','description','stratus','image'];
@@ -13,7 +13,7 @@ class Customer extends Model {
 		'address' => 'required',
 		'country_id' => 'required',		
 		'estate_id' => 'required',
-		'city' => 'required',	
+		'city_id' => 'required',	
         'stratus' => 'required'        
     ];
 
@@ -32,6 +32,25 @@ class Customer extends Model {
 
     /* Relationships */
 
+    public function city()
+    {
+        return $this->belongsTo('City');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo('Country');
+    }
+
 
     /* Function */
+
+    public function getImage()
+    {
+        if($this->image){
+            return Croppa::url($this->image,100);
+        }else{
+            return Identicon::getImageDataUri($this->id, 100);            
+        }
+    }
 }

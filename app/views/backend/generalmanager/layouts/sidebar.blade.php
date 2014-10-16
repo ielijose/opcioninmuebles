@@ -34,10 +34,7 @@
                 <a href="/ubication"><i class="fa fa-globe"></i><span class="sidebar-text">Ubicaciones</span></a>
             </li>
             <li>
-                <a href="/properties"><i class="fa fa-home"></i><span class="sidebar-text">Inmuebles</span></a>
-            </li>
-            <li class="m-b-245">
-                <a href="charts.html"><i class="glyph-icon flaticon-charts2"></i><span class="sidebar-text">Charts</span><span class="pull-right badge badge-primary">6</span></a>
+                <a href="/property"><i class="fa fa-home"></i><span class="sidebar-text">Inmuebles</span></a>
             </li>
             <br>
 
