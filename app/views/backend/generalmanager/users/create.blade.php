@@ -259,7 +259,6 @@ $(document).on("ready", function(){
         $.post('/upload/crop',options, function(data, textStatus, xhr) {
             console.log(data);
            $("#avatar img").prop('src', data.avatar+'?nocahe='+Math.random());
-           $("#user-header img").prop('src', data.avatar+'?nocahe='+Math.random());
            crop.destroy();
        }, 'json');
     })
