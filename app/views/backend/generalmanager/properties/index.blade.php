@@ -32,6 +32,7 @@
                                         <th>Ciudad</th>
                                         <th>País</th>
                                         <th>Imagen</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
