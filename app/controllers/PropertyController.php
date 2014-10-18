@@ -56,13 +56,9 @@ class PropertyController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$categories = Category::all();
-		$cities = City::all();
-		$portals = Portal::all();
-		$services = Service::all();
 
-		$branch = branch::findOrFail($id);
-		return View::make('backend.generalmanager.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
+		$property = Property::findOrFail($id);
+		return View::make('backend.generalmanager.properties.show', compact('property'));
 	}
 
 	/**
@@ -87,14 +83,14 @@ class PropertyController extends BaseController {
 	public function update($id)
 	{
 		$inputs = Input::all();
-		$branch = branch::findOrFail($id);
-		$branch->fill($inputs);
-		if ($branch->save())
+		$property = Property::findOrFail($id);
+		$property->fill($inputs);
+		if ($property->save())
 		{
-			return Redirect::to('/branch/' . $id)->with('alert', ['type' => 'success', 'message' => 'Datos guardados.']);			
+			return Redirect::to('/property/' . $id)->with('alert', ['type' => 'success', 'message' => 'Datos guardados.']);			
 		}        
-		dd($branch->getErrors());
-        return Redirect::to('/branch/' . $id)->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);
+		dd($property->getErrors());
+        return Redirect::to('/property/' . $id)->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);
 	}
 
 	/**
@@ -106,8 +102,8 @@ class PropertyController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		branch::destroy($id);
-		return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido borrada.']);
+		Property::destroy($id);
+		return Redirect::to('/property')->with('alert', ['type' => 'success', 'message' => 'El inmueble ha sido borrado.']);
 	}
 
 	public function add_image()
@@ -128,11 +124,5 @@ class PropertyController extends BaseController {
         } else {
             return Response::json('error', 400);
         }
-
-
-	}	
-
-
-	
-
+	}
 }

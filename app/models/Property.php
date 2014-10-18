@@ -27,6 +27,17 @@ class Property extends Model {
         'stratus.required' => 'Campo obligatorio.',            
 	];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function($property)
+        {   
+            if(File::exists( public_path() . $property->image )){
+                Croppa::delete($property->image);
+            }            
+        });
+    }
+
     /* Scopes */
     
 

@@ -37,20 +37,19 @@
                                         <div class="caption"><i class="fa fa-home c-gray m-r-10"></i> Datos de la propiedad</div>
                                     </div>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="propertyid">Código de Inmueble *</label>
-                                        <input id="propertyid" name="propertyid" type="text" class="form-control " disabled value="{{ $id['id'] }}">
-                                    </div>
                                     
-                                    <div class="form-group col-md-6">
-                                        <label for="plattformcode">Código de Plataforma</label>
-                                        <input id="plattformcode" name="plattformcode" type="text" class="form-control">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Código de Plataforma: <span class="asterisk">*</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="plattformCode" class="form-control" value="{{ $property->plattformCode }}">
+                                        </div>
                                     </div>  
                                     
 									<div class="form-group">
                                         <label class="col-sm-2 control-label">Dirección: <span class="asterisk">*</span></label>
                                         <div class="col-sm-7">
-                                            <input type="text" name="address" class="form-control" value="{{ $branch->address }}">
+                                            <input type="text" name="address" class="form-control" value="{{ $property->address }}">
                                         </div>
                                     </div>
                                     
@@ -84,19 +83,23 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Código postal: <span class="asterisk">*</span></label>
                                         <div class="col-sm-7">
-                                            <input type="text" name="zipcode" class="form-control" value="{{ $branch->zipcode }}">
+                                            <input type="text" name="zipcode" class="form-control" value="{{ $property->zipcode }}">
                                         </div>
-                                    </div>                                    
-
-                                    <div class="form-group col-md-6">
-                                        <label for="stratus">Estrato *</label>
-                                        <input id="stratus" name="stratus" type="text" class="form-control required">
-									</div>   
-									
- 									<div class="form-group col-md-12">
-                                        <label for="description">Descripción </label>
-                                        <textarea name="description" rows="5" class="form-control" placeholder=""></textarea>
                                     </div> 
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Estrato: <span class="asterisk">*</span></label>
+                                        <div class="col-sm-7">
+                                            <input id="stratus" name="stratus" type="text" class="form-control required" value="{{ $property->stratus }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Descripción: <span class="asterisk">*</span></label>
+                                        <div class="col-sm-7">
+                                            <textarea name="description" rows="5" class="form-control" placeholder="">{{ $property->description }}</textarea>
+                                        </div>
+                                    </div>                                   
                                       
                                     <input type="hidden" id="id" name="id" value="{{ $property->id }}">
 
@@ -149,14 +152,14 @@ $(document).on("ready", function() {
     $(".delete-ad").on('click', function(event) {
         event.preventDefault();
 
-        if (confirm("Desea eliminar la sucursal? \nNo se puede revertir.")) {
+        if (confirm("Desea eliminar el inmueble? \nNo se puede revertir.")) {
             location.href = $(this).attr('href');
-            $("#branch-delete").submit();
+            $("#property-delete").submit();
         }
     });
 
     $("#submit-update").on("click", function() {
-        $("#branch-update").submit();
+        $("#property-update").submit();
     });
 
     /* ajax */
