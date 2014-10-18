@@ -51,6 +51,10 @@ class Notification extends Model {
             case 'question':
             return "/panel/question/" . $this->type_id . "?ref=notify&n=" . $this->id;
             break;
+
+            case 'new_customer':
+            return "/customer/" . $this->type_id . "?ref=notify&n=" . $this->id;
+            break;
             
             default:
                 # code...
@@ -60,7 +64,7 @@ class Notification extends Model {
 
     public function getReminder(){
         if($this->sent_id){
-            return '<strong>' . User::find($this->sent_id)->name .  '</strong>';
+            return '<strong>' . User::find($this->sent_id)->full_name .  '</strong>';
         }
     }
 

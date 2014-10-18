@@ -156,6 +156,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->email;
     }
 
+    /* Scopes */
+
+    public function scopeAdmin($query)
+    {
+        return $query->where('type', '=', 'GeneralManager');
+    }
+
     /* Functions */
 
     public function name(){
@@ -218,12 +225,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return Lang::choice($txt, $delta, compact('delta'));
     }
 
-    public function getProfilePicture()
+    public function getProfilePicture($width = 200)
     {
         if($this->profile_picture){
-            return Croppa::url($this->profile_picture,200);
+            return Croppa::url($this->profile_picture, $width);
         }else{
-            return Identicon::getImageDataUri($this->id, 200);            
+            return Identicon::getImageDataUri($this->id, $width);            
         }
     }
 }

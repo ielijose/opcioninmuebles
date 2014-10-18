@@ -51,9 +51,19 @@
                                         <label for="phone">Teléfono</label>
                                         <input id="phone" name="phone" type="text" class="form-control">
                                     </div>
-                                                                     
 
-                                    <p>(*) Obligatorio</p>
+                                    <div class="form-group col-md-6">
+                                        <label for="branch_id">Sucursal</label>
+                                        <select class="form-control required" id="branch_id" name="branch_id">
+                                            <option selected="selected" disabled>-- Seleccione --</option>
+                                            @foreach ($branches as $key => $branch)
+                                                <option value="{{ $branch->id }}">{{ $branch->address }} ({{ $branch->id }})</option>
+                                            @endforeach                                                              
+                                        </select>
+                                    </div>
+                                                                    
+                                    
+                                    <p class="col-md-12">(*) Obligatorio</p>
 
                                     <div class="alert alert-danger fade in hide" id="email-alert">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

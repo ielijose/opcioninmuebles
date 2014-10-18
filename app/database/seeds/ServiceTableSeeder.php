@@ -8,6 +8,7 @@ class ServiceTableSeeder extends Seeder {
 
         foreach ($services as $key => $service) {
             Service::create([
+                'id' => $key+1,
                 'service' => $service,
             ]);
         }

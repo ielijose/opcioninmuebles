@@ -19,6 +19,7 @@ class CreateBranchesTable extends Migration {
 			$table->integer('country_id');
 			$table->integer('estate_id');
 			$table->integer('city_id');
+			
 			$table->string('zipcode', 12);
 			$table->string('phone', 100);			
 			$table->timestamps();

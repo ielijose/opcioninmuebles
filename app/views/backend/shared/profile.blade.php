@@ -139,7 +139,7 @@
 
 
     <div class="modal fade" id="modal-view" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <form action="#">
                     <div class="modal-header">
@@ -184,6 +184,8 @@
 $(document).on("ready", function(){
     var crop;
 
+    var h = $( window ).height();
+    h = (h/100) *60;
     $("#avatar figcaption i").on("click", function(){
         var angle = 0;
         if($(this).hasClass('fa-rotate-right')){
@@ -204,6 +206,7 @@ $(document).on("ready", function(){
         url: "/avatar/",
         createImageThumbnails : false,
         init: function() {
+
             this.on("success", function(file) { 
                 $(".font-animation").css('display', 'none');
                 
@@ -211,7 +214,7 @@ $(document).on("ready", function(){
                 $.get('/avatar', function(data) {                    
                     //$("#avatar img").prop('src', data.avatar);
 
-                    $("#image-body").html('<img src="" id="image_crop2" style="max-width: 100%"/>');
+                    $("#image-body").html('<img src="" id="image_crop2" style="max-width:100%"/>');
 
                     $("#image_crop2").prop('src', data.avatar+'?nocahe='+Math.random());
                     $("#modal-view").modal();
