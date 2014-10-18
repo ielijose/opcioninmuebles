@@ -56,12 +56,12 @@ class Property extends Model {
 
     /* Function */
 
-    public function getImage()
+    public function getImage($width = 100)
     {
         if($this->image){
-            return Croppa::url($this->image,100);
+            return Croppa::url($this->image, $width);
         }else{
-            return Identicon::getImageDataUri($this->id, 100);            
+            return Identicon::getImageDataUri($this->id, $width);            
         }
     }
 }

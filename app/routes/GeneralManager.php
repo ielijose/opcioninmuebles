@@ -40,5 +40,10 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('upload', ['uses' => 'UploadController@get_upload']);	
 	Route::any('upload/crop', ['uses' => 'UploadController@post_upload_crop']);
 	Route::any('upload/rotate', ['uses' => 'UploadController@post_upload_rotate']);
+
+	/* imagen de inmueble */
+	Route::post('/property/image/{id}', ['uses' => 'PropertyController@post_image']);
+	Route::get('/property/image/{id}', ['uses' => 'PropertyController@get_image']);	
+	Route::any('/property/image/{id}/crop', ['uses' => 'PropertyController@image_crop']);
 	
 });

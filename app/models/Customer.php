@@ -37,6 +37,26 @@ class Customer extends Model {
         'user_id.required' => 'Campo obligatorio.',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function($property)
+        {   
+           /* $n = new Notification([
+                'notification' => $noti, 
+                'type' => 'question', 
+                'type_id' => $question->id,
+                'user_id' => $u->id, 
+                'sent_id' => $question->user_id
+                ]);
+            $n->save();*/
+
+        });
+    }
+
+
+    
+
     /* Scopes */
     
 

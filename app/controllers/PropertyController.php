@@ -125,4 +125,47 @@ class PropertyController extends BaseController {
             return Response::json('error', 400);
         }
 	}
+
+
+	/* Imagen */
+
+	# Imagen Upload
+    public function post_image($id)
+    {
+    	$property = Property::findOrFail($id);
+    	if($property){
+    		$file = Input::file('file');
+	        $destinationPath = public_path() . '/uploads/properties/';
+	        $filename = str_random(16)."_".$file->getClientOriginalName();
+	        $upload_success = Input::file('file')->move($destinationPath, $filename);
+
+	        if ($upload_success) {
+	            $image = '/uploads/properties/' . $filename;
+
+	            if(File::exists( public_path() . $property->image )){
+	            	Croppa::delete($property->image);
+	            }
+
+	            $property->image = $image;
+	            $property->save();
+
+	            $response = ['image' => $image, 'success' => 200];
+
+	            return Response::json($response);
+	        } else {
+	            return Response::json('error', 400);
+	        }
+    	}
+        
+    }
+    
+    # Get Imagen
+    public function get_image($id)
+    {
+    	$property = Property::findOrFail($id);
+    	if($property){
+        	return Response::json(['image' => $property->getImage(200)]);
+    	}
+                
+    }
 }
