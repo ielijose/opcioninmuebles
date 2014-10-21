@@ -64,10 +64,10 @@
                                                                     
                                     
                                     <p class="col-md-12">(*) Obligatorio</p>
-
-                                    <div class="alert alert-danger fade in hide" id="email-alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                        <strong>Alerta!</strong> El correo electronico ya esta registrado en nuestra base de datos.                                        
+                                    <div class="form-group col-md-12 text-center">
+                                        <div class="alert alert-danger fade in col-md-12 hide" id="email-alert">
+                                            <strong>Alerta!</strong> El correo electronico ya esta registrado en nuestra base de datos.                                        
+                                        </div>
                                     </div>
 
 
@@ -76,7 +76,8 @@
                                 <section>
                                     <div class="form-group col-md-6">
                                         <label for="code">Código del inmueble *</label>
-                                        <input id="code" name="code" type="text" class="form-control required">
+                                        <input id="code" name="code" type="hidden" class="form-control required">
+                                        <button class="btn btn-primary" id="code-select">Seleccionar</button>
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -146,6 +147,33 @@
     </div>
 </div>
 
+
+
+<div class="modal fade" id="modal" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"><strong>Selecciona</strong> el inmueble </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    @foreach ($properties as $key => $property) 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label"><strong>#{{ $property->plattformCode }} </strong>- {{ $property->address }}</label>
+                            <img src="{{ $property->getImage() }} " alt="">
+                            <button class="btn btn-success select-property" data-id="{{ $property->id }}"  data-code="{{ $property->plattformCode }}">Seleccionar</button>
+                        </div>
+                    </div>  
+                    @endforeach                  
+                </div>
+                
+            </div>            
+        </div>
+    </div>
+</div>
+
 @stop
 
 @section('javascript')
@@ -161,6 +189,7 @@
 $(document).on("ready", function(){
 
     var email = false;
+    var property = false;
 
     /****  Inline Form Wizard with Validation  ****/
     $(".form-wizard").steps({
@@ -173,6 +202,14 @@ $(document).on("ready", function(){
             if (newIndex === 1 && email == false) {
                 return false;
             }
+
+            // Forbid suppressing "Warning" step if the user is to young
+            if (newIndex === 2 && property == false) {
+                alert("Debe seleccionar alguna propiedad.");
+                return false;
+            }
+
+            
 
             var form = $(this);
             // Clean up if user went backward before
@@ -221,6 +258,23 @@ $(document).on("ready", function(){
             }
         });
     });
+
+    /* modal */
+    $("#code-select").on("click", function(){
+        $("#modal").modal();
+    });
+
+    $(".select-property").on("click", function(){
+        $("#modal").modal('hide');
+        var id = $(this).data('id');
+        var code = $(this).data('code');
+
+        $("#code").val(id); 
+
+        $("#code-select").text("#"+code + " (Cambiar)");
+        property = true;
+    });
+    
 
 })
 

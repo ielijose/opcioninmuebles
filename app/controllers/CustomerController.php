@@ -29,7 +29,9 @@ class CustomerController extends BaseController {
 
 		$branches = Branch::all();
 
-		return View::make('backend.generalmanager.customers.create', compact('categories', 'cities', 'portals', 'services', 'branches'));
+		$properties = Property::all();
+
+		return View::make('backend.generalmanager.customers.create', compact('categories', 'cities', 'portals', 'services', 'branches', 'properties'));
 	}
 
 	/**
