@@ -68,32 +68,31 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
                 $message->to($user->email, $user->full_name)->subject('Registro! - OpcionInmuebles.com');
             });
 
+            if (Hash::needsRehash($user->password))
+            {
+                $user->password = \Hash::make($user->password);
+            }
+
         });
 
         static::deleting(function($user)
         {   
             if(File::exists( public_path() . $user->profile_picture )){
-                Croppa::delete($user->profile_picture);
-               // File::delete(   ); 
+                Croppa::delete($user->profile_picture);               
+            }            
+        });
+
+        static::updating(function($user)
+        {
+            if (Hash::needsRehash($user->password))
+            {
+                $user->password = \Hash::make($user->password);
             }
-            
-            
         });
 
     }
 
-    public function setPasswordAttribute($value)
-    {
-        if ( ! empty ($value))
-        {
-            if (Hash::needsRehash($value))
-            {
-                $this->attributes['password'] = \Hash::make($value);
-            }else{
-                $this->attributes['password'] = $value; 
-            }
-        }
-    }   
+    
 
     /**
      * Get the unique identifier for the user.
