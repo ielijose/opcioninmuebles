@@ -22,7 +22,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::resource('property', 'PropertyController');
 	Route::post('/property/image', ['uses' => 'PropertyController@add_image']);
 
-
+	/* API */
 	Route::get('/api/country', ['uses' => 'UbicationController@country_index']);
 	Route::post('/api/country', ['uses' => 'UbicationController@country_store']);
 	Route::delete('/api/country/{id}', ['uses' => 'UbicationController@country_destroy']);
@@ -34,6 +34,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/api/estate/{id}', ['uses' => 'UbicationController@city_index']);
 	Route::post('/api/city', ['uses' => 'UbicationController@city_store']);
 	Route::delete('/api/city/{id}', ['uses' => 'UbicationController@city_destroy']);
+
+	/* API Property */
+	Route::get('/api/property', ['uses' => 'PropertyController@api_index']);
 
 	/* Avatar de usuario */
 	Route::post('upload', ['uses' => 'UploadController@post_upload']);

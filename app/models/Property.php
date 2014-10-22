@@ -64,4 +64,14 @@ class Property extends Model {
             return Identicon::getImageDataUri($this->id, $width);            
         }
     }
+
+    public function getImageAttribute()
+    {
+        if($this->attributes['image']){
+            return Croppa::url($this->attributes['image'], 200);
+        }else{
+            return Identicon::getImageDataUri($this->attributes['id'], 200);            
+        }
+    }
+    
 }

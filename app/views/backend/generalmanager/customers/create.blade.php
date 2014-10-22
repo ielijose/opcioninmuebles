@@ -14,11 +14,13 @@
 }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.5/angular.min.js"></script>
+<script src="{{ asset('/assets/js/property.angular.js')}}"></script>
 @stop
 
 @section('content')
-
-<div id="main-content">    
+<div ng-app="propertyApp">
+<div id="main-content" >   
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -149,31 +151,30 @@
 
 
 
-<div class="modal fade" id="modal" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="modal" aria-hidden="true" style="display: none;" ng-controller="PropertyListCtrl">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title"><strong>Selecciona</strong> el inmueble </h4>
+                <input type="text" class="form-control" placeholder="Filtrar inmuebles" ng-model="query">
             </div>
             <div class="modal-body">
                 <div class="row">
-                    @foreach ($properties as $key => $property) 
-                    <div class="col-md-6">
+                    <div class="col-md-6" ng-repeat="property in properties | filter:query">
                         <div class="form-group">
-                            <label for="field-1" class="control-label"><strong>#{{ $property->plattformCode }} </strong>- {{ $property->address }}</label>
-                            <img src="{{ $property->getImage() }} " alt="">
-                            <button class="btn btn-success select-property" data-id="{{ $property->id }}"  data-code="{{ $property->plattformCode }}">Seleccionar</button>
+                            <label for="field-1" class="control-label"><strong>#@{{ property.plattformCode }} </strong>- @{{ property.address }}</label>
+                            <img src="@{{ property.image }} " alt="" class="image-responsive">
+                            <button class="btn btn-success select-property" data-id="@{{ property.id }}"  data-code="@{{ property.plattformCode }}">Seleccionar</button>
                         </div>
                     </div>  
-                    @endforeach                  
                 </div>
                 
             </div>            
         </div>
     </div>
 </div>
-
+</div>
 @stop
 
 @section('javascript')
@@ -182,6 +183,8 @@
 <script type="text/javascript" src="{{ asset('/assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 <script src="{{ asset('/assets/plugins/wizard/wizard.js') }}"></script>
 <script src="{{ asset('/assets/plugins/jquery-steps/jquery.steps.js') }}"></script>
+
+
 
 
 
@@ -264,7 +267,7 @@ $(document).on("ready", function(){
         $("#modal").modal();
     });
 
-    $(".select-property").on("click", function(){
+    $(document).on("click", '.select-property', function(){
         $("#modal").modal('hide');
         var id = $(this).data('id');
         var code = $(this).data('code');

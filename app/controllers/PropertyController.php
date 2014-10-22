@@ -168,4 +168,12 @@ class PropertyController extends BaseController {
     	}
                 
     }
+
+    public function api_index()
+    {
+    	$property = Property::all();
+		return $property->toJson();
+    }
+
+    
 }

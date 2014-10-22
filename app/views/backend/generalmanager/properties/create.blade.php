@@ -84,10 +84,10 @@
                                     
                                     <p class="pull-left m-20">(*) Obligatorio</p>
                                 </section>  
-                                <h1>Imagenes</h1>
+                                <h1>Imagen</h1>
                                 <section>
                                     <div class="col-md-12">
-                                        <h3 align="center">Arrastra las imagenes hasta aqui.</h3>
+                                        <h3 align="center">Arrastra la imagen hasta aqui.</h3>
                                         <div id="dropzone" class="dropzone"></div>
                                     </div>
                                 </section>                                      
