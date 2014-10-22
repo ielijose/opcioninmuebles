@@ -1,5 +1,3 @@
-Tareas:
- 
 5- crear la pantalla de estadisticas adjunto la imagen
 
 ----------------------
