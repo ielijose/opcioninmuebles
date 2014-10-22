@@ -50,6 +50,7 @@ class Customer extends Model {
                 $admins = User::admin()->get();
 
                 foreach ($admins as $key => $admin) {
+                    /* Notification */
                     $noti = "Tiene un potencial cliente asignado.";
                     $n = new Notification([
                         'notification' => $noti, 
@@ -59,6 +60,16 @@ class Customer extends Model {
                         'sent_id' => Auth::user()->id
                         ]);
                     $n->save();
+
+                    /* Email */
+
+                    $data = ['recepcionista' => Auth::user()->full_name, 'sucursal' => $customer->branch->address, 'id' => $customer->id ,'cliente' => $customer->name .' '. $customer->lastname];
+
+                    Mail::send('emails.notify.new-customer', $data, function($message) use ($admin)
+                    {
+                        $message->from('noreply@opcioninmuebles.com', 'Nuevo cliente asignado');
+                        $message->to($admin->email, $admin->full_name)->subject('Nuevo cliente! - OpcionInmuebles.com');
+                    });
                 }
             }
            
@@ -73,6 +84,11 @@ class Customer extends Model {
     
 
     /* Relationships */
+
+    public function branch()
+    {
+        return $this->belongsTo('Branch');
+    }
 
 
     /* Function */
