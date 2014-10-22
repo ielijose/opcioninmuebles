@@ -22,6 +22,11 @@ class Notification extends Model {
     public function scopeUnread($query)
     {
         return $query->where('is_read', '=', 0)->where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC');
+    }
+
+    public function scopeCustomer($query, $id)
+    {
+        return $query->where('type', '=', "new_customer")->where('type_id', $id);
     } 
 
     public function getClass()

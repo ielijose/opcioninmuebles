@@ -75,10 +75,30 @@ class Customer extends Model {
            
 
         });
+
+        static::deleted(function($customer)
+        {   
+            /* Notification */
+            $notifications = Notification::customer($customer->id)->get();
+            
+            foreach ($notifications as $key => $notification) {
+                $notification->delete();
+            }
+
+            $admins = User::admin()->get();
+            foreach ($admins as $key => $admin) {                
+                /* Email */
+                $data = ['recepcionista' => Auth::user()->full_name, 'sucursal' => $customer->branch->address, 'id' => $customer->id ,'cliente' => $customer->name .' '. $customer->lastname];
+
+                Mail::send('emails.notify.delete-customer', $data, function($message) use ($admin)
+                {
+                    $message->from('noreply@opcioninmuebles.com', 'Cliente eliminado');
+                    $message->to($admin->email, $admin->full_name)->subject('Cliente eliminado! - OpcionInmuebles.com');
+                });
+            }
+
+        });
     }
-
-
-    
 
     /* Scopes */
     

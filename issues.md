@@ -1,7 +1,5 @@
 Tareas:
  
-3- si la recepcionista borra un cliente porque se equivoco debería eliminarse de las notificaciones del general manager y mandarle un mail indicando el nombre De la recepcionista que lo elimino
-
 5- crear la pantalla de estadisticas adjunto la imagen
 
 ----------------------
@@ -17,3 +15,4 @@ Hecho:
 (EJ) 6- branch_id para usuarios
 (EJ) 2- validar el código del inmueble en el cliente y se podría poner un botón de consulta de inmuebles para que seleccione
 (EJ) 4- Si la recepcionista da de alta un cliente mandar un mail al General Manager con el nombre de la recepcionista que dio de alta
+(EJ) 3- si la recepcionista borra un cliente porque se equivoco debería eliminarse de las notificaciones del general manager y mandarle un mail indicando el nombre De la recepcionista que lo elimino
