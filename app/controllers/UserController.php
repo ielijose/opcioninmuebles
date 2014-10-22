@@ -22,8 +22,8 @@ class UserController extends BaseController {
 	 */
 	public function create()
 	{
-
-		return View::make('backend.generalmanager.users.create');
+		$branches = Branch::all();
+		return View::make('backend.generalmanager.users.create', compact('branches'));
 	}
 
 	/**

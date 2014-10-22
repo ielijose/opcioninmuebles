@@ -101,6 +101,18 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="row">
+                                                        <div class="control-label col-md-3">Sucursal:</div> 
+                                                        <div class="col-md-6">
+                                                            <select class="form-control required" id="branch_id" name="branch_id">
+                                                            <option selected="selected" disabled>-- Seleccione --</option>
+                                                            @foreach ($branches as $key => $branch)
+                                                            <option value="{{ $branch->id }}">{{ $branch->address }} ({{ $branch->id }})</option>
+                                                            @endforeach                                                              
+                                                        </select>
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
                                             </div>

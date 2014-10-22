@@ -25,7 +25,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     protected $hidden = array('password', 'remember_token');
 
-    protected $fillable = ['full_name', 'email', 'password', 'type', 'profile_picture'];
+    protected $fillable = ['full_name', 'email', 'password', 'type', 'profile_picture', 'branch_id'];
 
     public static $rules = [
     'full_name' => 'required',
@@ -230,6 +230,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             return Croppa::url($this->profile_picture, $width);
         }else{
             return Identicon::getImageDataUri($this->id, $width);            
+        }
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo('Branch');
+    }
+
+    public function getBranch()
+    {
+        if(isset($this->branch->address)){
+            return $this->branch->address;
+        }else{
+            return "";
         }
     }
 }

@@ -28,6 +28,9 @@
                                             <div>
                                                 <p><i class="fa fa-envelope-o c-gray-light p-r-10"></i> {{ $user->email }}</p>
                                                 <p><i class="fa fa-briefcase c-gray-light p-r-10"></i> {{ $user->getTypeName() }}</p>
+                                                @if($user->getBranch() != "")
+                                                <p><i class="fa fa-home c-blue p-r-10"></i> {{ $user->getBranch() }}</p>
+                                                @endif
                                                 <p><button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}"> Eliminar</button> </p>
                                             </div>                                            
                                         </div>
