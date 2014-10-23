@@ -42,7 +42,7 @@
                                         <td>{{ $property->address }}</td>
                                         <td> {{ $property->city->name }} </td>
                                         <td>{{ $property->country->name }}</td>
-                                        <td><img src="{{ $property->getImage() }} " alt=""></td>
+                                        <td><img src="{{ $property->image }} " alt=""></td>
                                         <td><a href="/property/{{ $property->id }}" class="btn btn-info">Ver mas</a></td>
                                     </tr>
                                     @endforeach                                           
