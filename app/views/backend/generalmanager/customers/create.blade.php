@@ -161,7 +161,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-6" ng-repeat="property in properties | filter:query">
+                    <div class="col-md-12" ng-repeat="property in properties | filter:query">
                         <div class="form-group">
                             <label for="field-1" class="control-label"><strong>#@{{ property.plattformCode }} </strong>- @{{ property.address }}</label>
                             <img src="@{{ property.image }} " alt="" class="image-responsive">
