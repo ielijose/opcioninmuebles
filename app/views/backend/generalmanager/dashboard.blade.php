@@ -177,9 +177,8 @@
                         <div class="col-md-12">
                             <div id="graph-wrapper">
                                 <div class="graph-info p-r-10">
-                                    <a href="javascript:void(0)" class="btn bg-green">Visitors</a>
-                                    <a href="javascript:void(0)" class="btn bg-blue">Returning
-                                        Visitors</a>
+                                    <a href="javascript:void(0)" class="btn bg-green">Correos</a>
+                                    <a href="javascript:void(0)" class="btn bg-blue">Visitas</a>
                                     <button href="#" id="bars" class="btn" disabled>
                                         <span></span>
                                     </button>

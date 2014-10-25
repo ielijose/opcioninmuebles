@@ -1,17 +1,55 @@
 //****************** LINE & BAR SWITCH CHART ******************//
-    var d1 = [
+    
+    var x;
+    $.ajax({
+        url: '/api/statistics',
+        type: 'POST',
+        dataType: 'json',
+        async: false
+    })
+    .done(function(data) {
+        x = data;
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+    });
+      
+
+    console.log("x => " + x);
+
+    /* */
+    var tickArray = ['Janv', 'Fev', 'Mars', 'Apri', 'May', 'June', 'July', 'Augu', 'Sept', 'Nov'];
+    var ticks = [];
+    var visits = [];
+    var mails = [];
+
+    var i = 0;
+
+    $.each(x, function(index, val) {
+        var c = index.substring(5);
+        c = c.substring(0,2) + "/" + c.substring(3); 
+         ticks.push([i,c]);
+         visits.push([i,(val.visit || 0)]);
+         mails.push([i,(val.mail || 0)]);
+         i++;
+    });
+
+    /*var d1 = [
         [0, 950], [1, 1300], [2, 1600], [3, 1900], [4, 2100], [5, 2500], [6, 2200], [7, 2000], [8, 1950], [9, 1900], [10, 2000], [11, 2120], [12, 950], [13, 1300], [14, 1600], [15, 1900], [16, 2100], [17, 2500], [18, 2200], [19, 2000], [20, 1950], [21, 1900], [22, 2000], [23, 2120]
     ];
-    /*var d2 = [
+    var d2 = [
         [0, 450], [1, 500], [2, 600], [3, 550], [4, 600], [5, 800], [6, 900], [7, 800], [8, 850], [9, 830], [10, 1000], [11, 1150]
     ];*/
 
-    var tickArray = ['Janv', 'Fev', 'Mars', 'Apri', 'May', 'June', 'July', 'Augu', 'Sept', 'Nov'];
+    
 
     /****  Line Chart  ****/
         var graph_lines = [{
-        label: "Line 1",
-        data: d1,
+        label: "Visitas",
+        data: visits,
         lines: {
             lineWidth: 2
         },
@@ -19,7 +57,7 @@
         color: '#0090D9'
     }, {
         label: "Line 1",
-        data: d1,
+        data: visits,
         points: {
             show: true,
             fill: true,
@@ -28,9 +66,9 @@
             lineWidth: 3
         },
         color: '#fff'
-    }/*, {
-        label: "Line 2",
-        data: d2,
+    }, {
+        label: "Correos",
+        data: mails,
         animator: {
             steps: 300,
             duration: 1000,
@@ -42,8 +80,8 @@
         },
         color: '#18A689'
     }, {
-        label: "Line 2",
-        data: d2,
+        label: "Correos",
+        data: mails,
         points: {
             show: true,
             fill: true,
@@ -52,7 +90,7 @@
             lineWidth: 3
         },
         color: '#fff'
-    },*/ ];
+    }, ];
 
     function lineCharts(){
         var line_chart = $.plotAnimator($('#graph-lines'), graph_lines, {
@@ -60,9 +98,7 @@
                 tickLength: 0,
                 tickDecimals: 0,
                 min: 0,
-                ticks: [
-                    [0, 'Ene'], [1, 'Fev'], [2, 'Mar'], [3, 'Apr'], [4, 'May'], [5, 'Jun'], [6, 'Jul'], [7, 'Aug'], [8, 'Sept'],  [9, 'Oct'], [10, 'Nov'], [11, 'Dec']
-                ],
+                ticks: ticks,
                 font: {
                     lineHeight: 12,
                     weight: "bold",
@@ -97,23 +133,25 @@
                 show: false
             }
         });
+
+console.log(line_chart);
     }
     lineCharts();
 
     /****  Bars Chart  ****/
     var graph_bars = [{
         // Visitors
-        data: d1,
+        data: visits,
         color: '#00b5f3'
-    }, /*{
+    }, {
         // Returning Visitors
-        data: d2,
+        data: mails,
         color: '#008fc0',
         points: {
             radius: 4,
             fillColor: '#008fc0'
         }
-    }*/];
+    }];
 
     function barCharts(){
         bar_chart = $.plotAnimator($('#graph-bars'), graph_bars, {
@@ -128,9 +166,7 @@
             },
             xaxis: {
                 tickColor: 'transparent',
-                ticks: [
-                    [0, 'Jan'], [1, 'Fev'], [2, 'Mar'], [3, 'Apr'], [4, 'May'], [5, 'Jun'], [6, 'Jul'], [7, 'Aug'], [8, 'Sept'], [9, 'Oct'], [10, 'Nov'], [11, 'Dec']
-                ],
+                ticks: ticks,
                 font: {
                     lineHeight: 12,
                     weight: "bold",
@@ -217,7 +253,7 @@
                 $("#flot-tooltip").remove();
                 var x = item.datapoint[0].toFixed(0),
                     y = item.datapoint[1].toFixed(0);
-                showTooltip(item.pageX, item.pageY, y + " visitors");
+                showTooltip(item.pageX, item.pageY, y + "");
             }
         } else {
             $("#flot-tooltip").remove();
