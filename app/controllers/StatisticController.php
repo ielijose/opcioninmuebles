@@ -11,7 +11,7 @@ class StatisticController extends BaseController {
 	public function store($id, $type)
 	{
 		header('Access-Control-Allow-Origin: *');
-		
+
 		$property = Property::find($id);
 		if(isset($property->id)){
 			$data['property_id'] = $id;
@@ -37,12 +37,18 @@ class StatisticController extends BaseController {
 	{
 		$property = Property::find($id);
 		if(isset($property->id)){
-			$s = DB::table('statistics')
+			$statistics = DB::table('statistics')
 		      ->select(DB::raw('DATE(created_at) as date'), DB::raw('property_id, type'), DB::raw('count(*) as views'))
 		      ->groupBy('property_id', 'date', 'type')
+		      ->where('property_id', $id)
 		      ->get();
+		      $data = ['id' => $id];
+		      foreach ($statistics as $key => $statistic) {
+		      	$data[$statistic->property_id][$statistic->type] = ['date' => $statistic->date, 'views' => $statistic->views];
 
-		      return json_encode($s);
+		      }
+
+		      return json_encode($data);
 		}
 		
 	}
