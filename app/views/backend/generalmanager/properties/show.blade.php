@@ -40,9 +40,9 @@
                                     <li>
                                         <figure id="avatar">
 
-                                            <img id="dropzone" src="{{ $property->getImage(200) }}" alt="{{ $property->address }}"/>    
+                                            <img id="dropzone" src="{{ $property->image }}" alt="{{ $property->address }}"/>    
                                             <figcaption>
-                                                <p>Cambiar imagen</p>
+                                                <p>Cambiar imagen</p> 
                                             </figcaption>
 
                                         </figure>

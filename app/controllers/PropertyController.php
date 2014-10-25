@@ -164,7 +164,7 @@ class PropertyController extends BaseController {
     {
     	$property = Property::findOrFail($id);
     	if($property){
-        	return Response::json(['image' => $property->getImage(200)]);
+        	return Response::json(['image' => $property->image]);
     	}
                 
     }
