@@ -38,17 +38,15 @@ class StatisticController extends BaseController {
 		$property = Property::find($id);
 		if(isset($property->id)){
 			$statistics = DB::table('statistics')
-		      ->select(DB::raw('DATE(created_at) as date'), DB::raw('property_id, type'), DB::raw('count(*) as views'))
-		      ->groupBy('property_id', 'date', 'type')
-		      ->where('property_id', $id)
-		      ->get();
-		      $data = ['id' => $id];
-		      foreach ($statistics as $key => $statistic) {
-		      	$data[$statistic->property_id][$statistic->type] = ['date' => $statistic->date, 'views' => $statistic->views];
-
-		      }
-
-		      return json_encode($data);
+			->select(DB::raw('DATE(created_at) as date'), DB::raw('property_id, type'), DB::raw('count(*) as views'))
+			->groupBy('date', 'type')
+			->where('property_id', $id)
+			->get();
+			$data = [];
+			foreach ($statistics as $key => $statistic) {
+				$data[$statistic->date][$statistic->type] = $statistic->views;
+			}
+			return json_encode($data);
 		}
 		
 	}

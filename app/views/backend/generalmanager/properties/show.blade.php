@@ -139,6 +139,36 @@
                                 {{ Form::close() }}
                             </div>
                         </div>
+
+                        <hr>
+
+                        <div class="panel-title line">
+                            <div class="caption"><i class="fa fa-bar-chart-o c-gray m-r-10"></i> Estadísticas</div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="graph-wrapper">
+                                    <div class="graph-info p-r-10">
+                                        <a href="javascript:void(0)" class="btn bg-green">Correos</a>
+                                        <a href="javascript:void(0)" class="btn bg-blue">Visitas</a>
+                                        <button href="#" id="bars" class="btn" disabled>
+                                            <span></span>
+                                        </button>
+                                        <button href="#" id="lines" class="btn active" disabled>
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                    <div class="h-300">
+                                        <div class="h-300" id="graph-lines" style="width: 100%"></div>
+                                        <div class="h-300" id="graph-bars" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="chart-property-id" value="{{ $property->id }}">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,6 +198,16 @@
 <script src="{{ asset('/assets/js/table_dynamic.js') }}"></script>
 <script src="{{ asset('/assets/js/ecommerce.js') }}"></script>
 <script src="{{ asset('/assets/plugins/dropzone/dropzone.min.js') }}"></script>
+
+
+
+<script src="{{ asset('assets/plugins/charts-flot/jquery.flot.js') }}"></script>
+<script src="{{ asset('assets/plugins/charts-flot/jquery.flot.animator.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/charts-flot/jquery.flot.resize.js') }}"></script>
+<script src="{{ asset('assets/plugins/charts-flot/jquery.flot.time.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/charts-morris/raphael.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/charts-morris/morris.min.js') }}"></script>
+<script src="{{ asset('assets/js/dashboard.angular.js') }}"></script>
 
 
 <script>

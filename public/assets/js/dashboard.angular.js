@@ -1,8 +1,11 @@
 //****************** LINE & BAR SWITCH CHART ******************//
     
     var x;
+
+    var url = ($("#chart-property-id").length>0) ? ('/api/statistic/' + $("#chart-property-id").val()) : '/api/statistics'; 
+    debugger;
     $.ajax({
-        url: '/api/statistics',
+        url: url,
         type: 'POST',
         dataType: 'json',
         async: false
