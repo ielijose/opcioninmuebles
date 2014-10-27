@@ -3,7 +3,7 @@
     var x;
 
     var url = ($("#chart-property-id").length>0) ? ('/api/statistic/' + $("#chart-property-id").val()) : '/api/statistics'; 
-    debugger;
+
     $.ajax({
         url: url,
         type: 'POST',
