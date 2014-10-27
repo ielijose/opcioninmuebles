@@ -64,6 +64,11 @@ class CustomerController extends BaseController {
 	 */
 	public function show($id)
 	{
+		if(Input::has('ref') && Input::get('ref') == 'notify'){
+			$n = Notification::unread()->find((int) Input::get('n'));
+			$n->read();			
+		}
+		
 		$categories = Category::all();
 		$cities = City::all();
 		$portals = Portal::all();

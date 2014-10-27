@@ -199,7 +199,7 @@
         </div>
     </div>
     
-    <div class="row">        
+    {{--<div class="row">        
         <div class="col-lg-12 m-b-20">
             <div class="modal fade" id="event-modal">
                 <div class="modal-dialog">
@@ -273,7 +273,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
 </div>
 
 @endsection
