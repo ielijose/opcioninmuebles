@@ -7,7 +7,6 @@
 Haciendo:
 ---------------------------------------------------------------------------------
 En inmuebles 
-1- poner una columna mas que muestre las estadisticas de visitas y correos 
 2- poner un filtro desde hasta en las estadisticas
 
 ---------------------------------------------------------------------------------
@@ -51,3 +50,7 @@ Hecho:
 (EJ) 3- si la recepcionista borra un cliente porque se equivoco debería eliminarse de las notificaciones del general manager y mandarle un mail indicando el nombre De la recepcionista que lo elimino
 (EJ) 5- crear la pantalla de estadisticas adjunto la imagen
 (EJ) -marcar notificaciones como leidas
+
+
+
+1- poner una columna mas que muestre las estadisticas de visitas y correos 

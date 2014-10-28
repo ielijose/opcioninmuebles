@@ -18,12 +18,7 @@
 @section('content')
 <div id="main-content">
     <div class="page-title">
-        <i class="icon-custom-left"></i>
-        <h3><small>Propiedad #{{ $property->id }}</small><br><strong>{{ $property->address }}</strong></h3>
-        <br>
-
         @include('backend.partials.alert')
-
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -51,6 +46,25 @@
                                         </div>
                                     </li>
                                 </ul>
+
+
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col-md-12 profile-info">
+                                            <h1>{{ $property->address }}</h1>
+                                            <p style="font-size:18px">Propiedad #{{ $property->id }}</p>
+                                            <div class="m-t-10"></div>
+                                            <ul class="list-unstyled list-inline">
+                                                <li class="m-r-20" style="font-size:24px"><i class="fa fa-bar-chart-o p-r-5 c-blue"></i> {{ $property->getStatistic('visit')}} Visitas</li>
+                                                <li class="m-r-20" style="font-size:24px"><i class="fa fa-envelope p-r-5 c-green"></i> {{ $property->getStatistic('mail')}} Correos</li>
+                                            </ul>
+                                            <div class="m-t-20"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                             </div>
                         </div>
 

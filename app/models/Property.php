@@ -73,5 +73,25 @@ class Property extends Model {
             return Identicon::getImageDataUri($this->attributes['id'], 200);            
         }
     }
+
+
+    public function getStatistic($type)
+    {
+        $statistics = DB::table('statistics')
+        ->select(DB::raw('type'), DB::raw('count(*) as views'))
+        ->groupBy('type')
+        ->where('property_id', $this->id)
+        ->get();
+        $val = 0;
+
+        foreach ($statistics as $key => $sta) {
+            if($sta->type == $type){
+                $val = $sta->views;
+            }
+        }
+
+
+        return json_encode($val);
+    }
     
 }
