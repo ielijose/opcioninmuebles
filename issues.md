@@ -5,6 +5,32 @@
 ----------------------
 
 Haciendo:
+---------------------------------------------------------------------------------
+En inmuebles 
+1- poner una columna mas que muestre las estadisticas de visitas y correos 
+2- poner un filtro desde hasta en las estadisticas
+
+---------------------------------------------------------------------------------
+
+En Clientes\Asignación de clientes crear pantalla
+
+1- traer los  gerentes de sucursales disponibles
+
+2- asignar el cliente que recibi de la recepcionista a un gerente de sucursal
+
+3- Saco la notificacion de la bandeja de notificaciones del general manager
+
+4- Mando Notificación al General Zone.
+
+
+---------------------------------------------------------------------------------
+
+Crear Listado de clientes que solo lo puede ver el General Manager 
+
+hacer filtro por estados
+
+Nombre, Apellido, Estado (en negociacion, interesado, compró) , Inmueble en el que esta intereasado, sucursal asignada, nombre del gerente, nombre del agente
+
 
 
 ----------------------
