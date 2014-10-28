@@ -143,22 +143,26 @@ $inpage_menu=vibe_inpagemenu();
 }
 ?>
 <section class="main">
-	<div class="container">
+  <div class="container">
             <div class="row">
                <?php
                         
                         get_template_part( 'listing', $show['template']);
                 ?>   
             </div>
-	</div>
+  </div>
 </section>   
 <script>    
-    var url = "//localhost:8001";
-
-    <?php echo "var id = '" . getPostMeta($post->ID,'vibe_property-id')." ';"; ?>
-    
-    jQuery.get(url + '/api/statistic/' + id + '/visit', function(data) {
-    }, 'json');
+  var url = "//localhost:8001";
+  /* obtenemos el ID */
+  <?php echo "var id = '" . getPostMeta($post->ID,'vibe_property-id')."';"; ?>
+  /* al cargar la pagina contamos una visita */
+  jQuery.get(url + '/api/statistic/' + id + '/visit', function(data) {
+  }, 'json');
+  /* al enviar el formulario contamos un mail */
+  jQuery(".form_submit").on("click", function(e){
+    jQuery.get(url + '/api/statistic/' + id + '/mail', function(data) {}, 'json');
+  });
 </script>
 
 <?php
