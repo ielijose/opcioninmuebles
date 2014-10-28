@@ -22,6 +22,13 @@ En Clientes\Asignación de clientes crear pantalla
 
 4- Mando Notificación al General Zone.
 
+--------------------------------------------------------------------------------
+
+En Agentes Comerciales\Asignación de clientes crear pantalla
+
+El General Zone puede asignarse a si mismo el cliente o asignarlo a los Agentes 
+comerciales que tenga a disposcion esa sucursal
+y se mandará una notificación al agente y un mail al General Manager.
 
 ---------------------------------------------------------------------------------
 
