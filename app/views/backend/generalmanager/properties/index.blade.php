@@ -32,6 +32,8 @@
                                         <th>Ciudad</th>
                                         <th>País</th>
                                         <th>Imagen</th>
+                                        <th align="center">Visitas</th>
+                                        <th align="center">Correos</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -43,6 +45,8 @@
                                         <td> {{ $property->city->name }} </td>
                                         <td>{{ $property->country->name }}</td>
                                         <td><img src="{{ $property->image }} " alt=""></td>
+                                        <td align="center" style="font-size:18px">{{ $property->getStatistic('visit')}}</td>
+                                        <td align="center" style="font-size:18px">{{ $property->getStatistic('mail')}}</td>
                                         <td><a href="/property/{{ $property->id }}" class="btn btn-info">Ver mas</a></td>
                                     </tr>
                                     @endforeach                                           
