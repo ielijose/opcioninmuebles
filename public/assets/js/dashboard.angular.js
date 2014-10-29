@@ -149,7 +149,7 @@ console.log(line_chart);
     }, {
         // Returning Visitors
         data: mails,
-        color: '#008fc0',
+        color: '#18A689',
         points: {
             radius: 4,
             fillColor: '#008fc0'
