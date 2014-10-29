@@ -1,4 +1,4 @@
-@extends('backend.generalmanager.layouts.master')
+@extends('backend.layouts.master')
 
 @section('css')
 @stop

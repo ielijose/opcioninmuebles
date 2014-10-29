@@ -10,7 +10,7 @@ class UbicationController extends BaseController {
 	 */        
 	public function index()
 	{
-		return View::make('backend.generalmanager.ubication.index');
+		return View::make('backend.ubication.index');
 	}
 	
 

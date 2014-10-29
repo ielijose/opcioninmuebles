@@ -11,7 +11,7 @@ class PropertyController extends BaseController {
 	public function index()
 	{
 		$properties = Property::all();
-		return View::make('backend.generalmanager.properties.index', compact('properties'));
+		return View::make('backend.properties.index', compact('properties'));
 	}
 
 	/**
@@ -22,7 +22,7 @@ class PropertyController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('backend.generalmanager.properties.create');
+		return View::make('backend.properties.create');
 	}
 
 	/**
@@ -58,7 +58,7 @@ class PropertyController extends BaseController {
 	{
 
 		$property = Property::findOrFail($id);
-		return View::make('backend.generalmanager.properties.show', compact('property'));
+		return View::make('backend.properties.show', compact('property'));
 	}
 
 	/**

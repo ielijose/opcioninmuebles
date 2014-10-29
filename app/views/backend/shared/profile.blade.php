@@ -1,4 +1,4 @@
-@extends('backend.generalmanager.layouts.master')
+@extends('backend.layouts.master')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/assets/plugins/font-awesome-animation/font-awesome-animation.min.css') }}">

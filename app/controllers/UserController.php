@@ -11,7 +11,7 @@ class UserController extends BaseController {
 	public function index()
 	{
 		$users = User::paginate(8);
-		return View::make('backend.generalmanager.users.index', compact('users'));
+		return View::make('backend.users.index', compact('users'));
 	}
 
 	/**
@@ -23,7 +23,7 @@ class UserController extends BaseController {
 	public function create()
 	{
 		$branches = Branch::all();
-		return View::make('backend.generalmanager.users.create', compact('branches'));
+		return View::make('backend.users.create', compact('branches'));
 	}
 
 	/**
@@ -76,7 +76,7 @@ class UserController extends BaseController {
 		$services = Service::all();
 
 		$branch = branch::findOrFail($id);
-		return View::make('backend.generalmanager.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
+		return View::make('backend.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
 	}
 
 	/**

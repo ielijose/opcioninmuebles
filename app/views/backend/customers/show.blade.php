@@ -1,4 +1,4 @@
-@extends('backend.generalmanager.layouts.master')
+@extends('backend.layouts.master')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/assets/plugins/magnific/magnific-popup.css') }}">    
@@ -75,8 +75,11 @@
                                     
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Código del inmueble: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-5">
                                             <input type="text" name="code" class="form-control" value="{{ $customer->code }}">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <a href="/property/{{ $customer->code }}" class="btn btn-info" target="_blank"> Ver</a>
                                         </div>
                                     </div>
 

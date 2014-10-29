@@ -4,7 +4,7 @@ class ManagerzoneController extends BaseController {
 
 	public function dashboard()
 	{
-		return View::make('backend.managerzone.dashboard');
+		return View::make('backend.dashboard');
 	}
 
 }

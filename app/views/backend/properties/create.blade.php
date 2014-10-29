@@ -1,16 +1,18 @@
-@extends('backend.generalmanager.layouts.master')
+@extends('backend.layouts.master')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('/assets/plugins/wizard/wizard.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/plugins/jquery-steps/jquery.steps.css') }}">
+<link rel="stylesheet" href="{{ asset('/assets/plugins/dropzone/dropzone.css') }}">
+
 <style>
 .wizard-inline > .content
 {
-    min-height: 29em !important;
+    min-height: 34em !important;
 }
 .wizard-inline > .steps > ul > li
 {
-    width: 100%;
+    width: 50%;
 }
 </style>
 @stop
@@ -24,62 +26,71 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3>Ingreso de <strong>Sucursal</strong></h3>
+                            <h3>Ingreso de <strong>Inmuebles</strong></h3>
                             <p>Completa el siguiente formulario:</p>
                             <!-- BEGIN FORM WIZARD WITH VALIDATION -->
-                            <form class="form-wizard" action="/branch" method="POST">
+                            <form class="form-wizard" action="/property" method="POST">
 
-                                <h1>Datos de la Sucursal</h1>
-                                <section>
+                                <h1>Datos del Inmueble</h1>
+                                <section>                                   	
                                     <div class="form-group col-md-6">
-                                        <label for="branchid">Número de Sucursal *</label>
-                                        <input id="branchid" name="branchid" type="text" class="form-control " disabled value="{{ $id['id'] }}">
-                                    </div>
+                                        <label for="plattformCode">Código de Plataforma</label>
+                                        <input id="plattformCode" name="plattformCode" type="text" class="form-control">
+                                    </div>   
 
                                     <div class="form-group col-md-6">
+                                        <label for="stratus">Estrato *</label>
+                                        <input id="stratus" name="stratus" type="text" class="form-control required">
+                                    </div> 
+
+
+
+                                    <div class="form-group col-md-4">
                                         <label for="country_id">País *</label>
                                         <select class="form-control required" id="country_id" name="country_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>          
                                         </select>
                                     </div> 
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="estate_id">Estado *</label>
                                         <select class="form-control required" id="estate_id" name="estate_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="city_id">Ciudad *</label>
                                         <select class="form-control required" id="city_id" name="city_id">
                                             <option selected="selected" disabled>-- Seleccione --</option>                                                                                                          
                                         </select>
                                     </div>   
 
-
-                                    
-                                    <div class="form-group col-md-6">
-                                        <label for="address">Dirección *</label>
-                                        <input id="address" name="address" type="text" class="form-control required">
-                                    </div>
-
-                                    
                                     <div class="form-group col-md-6">
                                         <label for="zipcode">Código Postal *</label>
                                         <input id="zipcode" name="zipcode" type="text" class="form-control required">
                                     </div>		
-
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="phone">Teléfono</label>
-                                        <input id="phone" name="phone" type="text" class="form-control">
-                                    </div>                                                                 
-
-                                    <p class="pull-left m-20">(*) Obligatorio</p>
-
+                                        <label for="address">Dirección *</label>
+                                        <input id="address" name="address" type="text" class="form-control required">
+                                    </div> 
                                     
-                                </section>                                
+
+                                    <div class="form-group col-md-12">
+                                        <label for="description">Descripción </label>
+                                        <textarea name="description" rows="5" class="form-control" placeholder=""></textarea>
+                                    </div>
+                                    
+                                    <p class="pull-left m-20">(*) Obligatorio</p>
+                                </section>  
+                                <h1>Imagen</h1>
+                                <section>
+                                    <div class="col-md-12">
+                                        <h3 align="center">Arrastra la imagen hasta aqui.</h3>
+                                        <div id="dropzone" class="dropzone"></div>
+                                    </div>
+                                </section>                                      
                             </form>
                             <!-- END FORM WIZARD WITH VALIDATION -->
                         </div>
@@ -98,8 +109,7 @@
 <script type="text/javascript" src="{{ asset('/assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 <script src="{{ asset('/assets/plugins/wizard/wizard.js') }}"></script>
 <script src="{{ asset('/assets/plugins/jquery-steps/jquery.steps.js') }}"></script>
-
-
+<script src="{{ asset('/assets/plugins/dropzone/dropzone.min.js') }}"></script>
 
 <script>
 $(document).on("ready", function(){
@@ -147,6 +157,16 @@ $(document).on("ready", function(){
         rules: {}
     });
 
+    $("div#dropzone").dropzone({
+        url: "/property/image",
+        maxFiles: 1,
+        init : function() {
+            this.on("maxfilesexceeded", function(file){
+                alert("Solo se permite un archivo por inmueble");
+            });
+        }
+    });
+
     /* ajax */
 
     var $countries = $("#country_id");
@@ -155,10 +175,12 @@ $(document).on("ready", function(){
 
 
     $.get('/api/country', function(data, textStatus, xhr) {
+        $countries.prop('disabled', true);
         $.each(data, function(index, val) {            
             var option = '<option value="' + val.id + '">' + val.name + '</option>';
             $countries.append(option);
         });
+        $countries.prop('disabled', false);
     }, 'json');
 
     $countries.on("change", function() {
@@ -173,6 +195,7 @@ $(document).on("ready", function(){
     }
 
     function loadEstates(id) {
+        $estates.prop('disabled', true);
         resetEstates();
 
         $.get('/api/country/' + id, function(data, textStatus, xhr) {
@@ -180,6 +203,7 @@ $(document).on("ready", function(){
                 var option = '<option value="' + val.id + '">' + val.name + '</option>';                
                 $estates.append(option);
             });
+            $estates.prop('disabled', false);
         }, 'json');
 
     }
@@ -196,6 +220,7 @@ $(document).on("ready", function(){
     }
 
     function loadCities(id) {
+        $cities.prop('disabled', true);
         resetCities();
 
         $.get('/api/estate/' + id, function(data, textStatus, xhr) {
@@ -203,6 +228,7 @@ $(document).on("ready", function(){
                 var option = '<option value="' + val.id + '">' + val.name + '</option>';                
                 $cities.append(option);
             });
+            $cities.prop('disabled', false);
         }, 'json');
 
     }

@@ -11,7 +11,7 @@ class BranchController extends BaseController {
 	public function index()
 	{
 		$branches = Branch::all();
-		return View::make('backend.generalmanager.branches.index', compact('branches'));
+		return View::make('backend.branches.index', compact('branches'));
 	}
 
 	/**
@@ -34,7 +34,7 @@ class BranchController extends BaseController {
 			$id['id'] = 1;
 		}
 
-		return View::make('backend.generalmanager.branches.create', compact('categories', 'cities', 'countries', 'id'));
+		return View::make('backend.branches.create', compact('categories', 'cities', 'countries', 'id'));
 	}
 
 	/**
@@ -72,7 +72,7 @@ class BranchController extends BaseController {
 		$services = Service::all();
 
 		$branch = branch::findOrFail($id);
-		return View::make('backend.generalmanager.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
+		return View::make('backend.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
 	}
 
 	/**

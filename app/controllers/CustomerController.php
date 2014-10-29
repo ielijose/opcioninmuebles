@@ -11,7 +11,7 @@ class CustomerController extends BaseController {
 	public function index()
 	{
 		$customers = Customer::all();
-		return View::make('backend.generalmanager.customers.index', compact('customers'));
+		return View::make('backend.customers.index', compact('customers'));
 	}
 
 	/**
@@ -31,7 +31,7 @@ class CustomerController extends BaseController {
 
 		$properties = Property::all();
 
-		return View::make('backend.generalmanager.customers.create', compact('categories', 'cities', 'portals', 'services', 'branches', 'properties'));
+		return View::make('backend.customers.create', compact('categories', 'cities', 'portals', 'services', 'branches', 'properties'));
 	}
 
 	/**
@@ -75,7 +75,7 @@ class CustomerController extends BaseController {
 		$services = Service::all();
 
 		$customer = Customer::findOrFail($id);
-		return View::make('backend.generalmanager.customers.show', compact('customer', 'categories', 'cities', 'portals', 'services'));
+		return View::make('backend.customers.show', compact('customer', 'categories', 'cities', 'portals', 'services'));
 	}
 
 	/**

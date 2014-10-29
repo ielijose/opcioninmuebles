@@ -7,7 +7,17 @@
 <head>
     <!-- BEGIN META SECTION -->
     <meta charset="utf-8">
-    <title>Receptionist - BackOffice Opción Inmuebles</title>
+
+    @if(Auth::user()->type == 'GeneralManager')
+        <title>General Manager - BackOffice Opción Inmuebles</title>
+    @elseif(Auth::user()->type == 'ManagerZone')
+        <title>Manager Zone - BackOffice Opción Inmuebles</title>
+    @elseif(Auth::user()->type == 'Agent')
+        <title>Agent - BackOffice Opción Inmuebles</title>
+    @elseif(Auth::user()->type == 'Receptionist')
+        <title>Receptionist - BackOffice Opción Inmuebles</title>
+    @endif
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="" name="description" />
     <meta content="themes-lab" name="author" />
@@ -28,12 +38,30 @@
 
 <body data-page="tables_dynamic">
     <!-- BEGIN TOP MENU -->
-    @include('backend.receptionist.layouts.navigation')
+    @if(Auth::user()->type == 'GeneralManager')
+        @include('backend.layouts.generalmanager.navigation')
+    @elseif(Auth::user()->type == 'ManagerZone')
+        @include('backend.layouts.managerzone.navigation')
+    @elseif(Auth::user()->type == 'Agent')
+        @include('backend.layouts.agent.navigation')
+    @elseif(Auth::user()->type == 'Receptionist')
+        @include('backend.layouts.receptionist.navigation')
+    @endif
+
+    
     <!-- END TOP MENU -->
     <!-- BEGIN WRAPPER -->
     <div id="wrapper">
         <!-- BEGIN MAIN SIDEBAR -->
-        @include('backend.receptionist.layouts.sidebar')
+        @if(Auth::user()->type == 'GeneralManager')
+        @include('backend.layouts.generalmanager.sidebar')
+        @elseif(Auth::user()->type == 'ManagerZone')
+        @include('backend.layouts.managerzone.sidebar')
+        @elseif(Auth::user()->type == 'Agent')
+        @include('backend.layouts.agent.sidebar')
+        @elseif(Auth::user()->type == 'Receptionist')
+        @include('backend.layouts.receptionist.sidebar')
+        @endif
         <!-- END MAIN SIDEBAR -->
         <!-- BEGIN MAIN CONTENT -->
         @yield('content')
