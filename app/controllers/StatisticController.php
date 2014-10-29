@@ -35,12 +35,18 @@ class StatisticController extends BaseController {
 	 */
 	public function show($id)
 	{
+
+		$start = (Input::get('start')) ? Input::get('start') : Carbon::now()->subMonth(1);
+		$end = (Input::get('end')) ? Input::get('end') : Carbon::now();
+
+
 		$property = Property::find($id);
 		if(isset($property->id)){
 			$statistics = DB::table('statistics')
 			->select(DB::raw('DATE(created_at) as date'), DB::raw('property_id, type'), DB::raw('count(*) as views'))
 			->groupBy('date', 'type')
 			->where('property_id', $id)
+			->whereBetween('created_at', array($start, $end))
 			->get();
 			$data = [];
 			foreach ($statistics as $key => $statistic) {

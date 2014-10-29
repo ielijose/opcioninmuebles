@@ -168,6 +168,7 @@
                                     <div class="graph-info p-r-10">
                                         <a href="javascript:void(0)" class="btn bg-green">Correos</a>
                                         <a href="javascript:void(0)" class="btn bg-blue">Visitas</a>
+                                        <a href="javascript:void(0)" class="btn bg-purple filter">Filtrar</a>
                                         <button href="#" id="bars" class="btn" disabled>
                                             <span></span>
                                         </button>
@@ -182,6 +183,8 @@
                                 </div>
                             </div>
                             <input type="hidden" id="chart-property-id" value="{{ $property->id }}">
+                            <input type="hidden" id="start" value="{{ Input::get('start') }}">
+                            <input type="hidden" id="end" value="{{ Input::get('end') }}">
                         </div>
                     </div>
                 </div>
@@ -196,6 +199,36 @@
         </div>
     </div>
 
+</div>
+
+
+<div class="modal fade" id="modal-filter" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel"><strong>Filtrar estadisticas</strong> </h4>
+                </div>
+                <div class="modal-body ">                   
+
+                    <div class="row" align="center">
+                        <h3>Desde:</h3>
+                        <div class="datepicker start" data-inline="true" data-date-format="yyyy-mm-dd"></div>
+                    </div>
+
+                    <div class="row" align="center">
+                        <h3>Hasta:</h3>
+                        <div class="datepicker end" data-inline="true" data-date-format="yyyy-mm-dd"></div>
+                    </div>
+
+                </div>        
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="filter-action">Filtrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 @stop
@@ -362,6 +395,34 @@ $(document).on("ready", function() {
 
     
 });
+</script>
+
+
+<script src="{{ asset('assets/plugins/datetimepicker/jquery.datetimepicker.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.date.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.time.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js')}}"></script>
+
+<script>
+    
+    /* Filtrado */
+
+    $(".filter").on("click", function(){
+        $("#modal-filter").modal();
+    });
+
+
+    $('#filter-action').on('click', function (e) {
+        var start = $('.start').data('date') || '';
+        var end = $('.end').data('date') || '';
+        location.href = "?start="+start+"&end="+end;
+    })
+
+
+
 </script>
 
 @stop

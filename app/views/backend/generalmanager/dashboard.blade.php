@@ -363,10 +363,7 @@
     $('#filter-action').on('click', function (e) {
         var start = $('.start').data('date') || '';
         var end = $('.end').data('date') || '';
-
         location.href = "?start="+start+"&end="+end;
-
-        console.log("start> "+start);
     })
 
 
