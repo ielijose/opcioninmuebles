@@ -1,5 +1,5 @@
 <?php
-
+use Carbon\Carbon;
 class StatisticController extends BaseController {
 	
 	/**
@@ -59,10 +59,22 @@ class StatisticController extends BaseController {
 	 */
 	public function statistics()
 	{
-		$statistics = DB::table('statistics')
+		/*$statistics = DB::table('statistics')
 		->select(DB::raw('DATE(created_at) as date'), DB::raw('property_id, type'), DB::raw('count(*) as views'))
 		->groupBy('date', 'type')
+		->get();*/
+
+		$start = (Input::get('start')) ? Input::get('start') : Carbon::now()->subMonth(1);
+		$end = (Input::get('end')) ? Input::get('end') : Carbon::now();
+
+
+		$statistics = DB::table('statistics')
+		->select(DB::raw('DATE(created_at) as date'), DB::raw('property_id, type'), DB::raw('count(*) as views'))
+		->whereBetween('created_at', array($start, $end))
+		->groupBy('date', 'type')
 		->get();
+
+
 		$data = [];
 		foreach ($statistics as $key => $statistic) {
 			$data[$statistic->date][$statistic->type] = $statistic->views;
@@ -72,6 +84,8 @@ class StatisticController extends BaseController {
 		return json_encode($data);
 
 	}
+
+	
 
 	
 	    

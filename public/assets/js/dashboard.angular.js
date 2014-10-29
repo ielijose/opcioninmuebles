@@ -2,11 +2,16 @@
     
     var x;
 
+    var $start = $("#start").val();
+    var $end = $("#end").val();
+
+
     var url = ($("#chart-property-id").length>0) ? ('/api/statistic/' + $("#chart-property-id").val()) : '/api/statistics'; 
 
     $.ajax({
         url: url,
         type: 'POST',
+        data : {'start':$start, 'end' : $end},
         dataType: 'json',
         async: false
     })
@@ -21,7 +26,6 @@
     });
       
 
-    console.log("x => " + x);
 
     /* */
     var tickArray = ['Janv', 'Fev', 'Mars', 'Apri', 'May', 'June', 'July', 'Augu', 'Sept', 'Nov'];

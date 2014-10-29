@@ -49,3 +49,4 @@ App::missing(function($exception)
 Route::any('/api/statistic/{id}/{type}', ['uses' => 'StatisticController@store']);
 Route::any('/api/statistic/{id}', ['uses' => 'StatisticController@show']);
 Route::any('/api/statistics', ['uses' => 'StatisticController@statistics']);
+Route::any('/api/statistics2', ['uses' => 'StatisticController@statistics2']);
