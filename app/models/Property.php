@@ -42,17 +42,20 @@ class Property extends Model {
     
 
     /* Relationships */
-
-    public function city()
-    {
-        return $this->belongsTo('City');
-    }
-
     public function country()
     {
         return $this->belongsTo('Country');
     }
 
+    public function estate()
+    {
+        return $this->belongsTo('Estate');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo('City');
+    }
 
     /* Function */
 

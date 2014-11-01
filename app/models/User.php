@@ -246,4 +246,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             return "";
         }
     }
+
+    public function isAdmin()
+    {
+        return $this->type == 'GeneralManager';
+    }
 }

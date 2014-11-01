@@ -8,7 +8,9 @@
 <div id="main-content">
             <div class="page-title"> <i class="icon-custom-left"></i>
                 <h2 class="pull-left">Usuarios <small> listado general</small></h2>
+                @if(Auth::user()->isAdmin())
                 <a href="/user/create" class="btn btn-success pull-right m-20"> Nuevo usuario </a>
+                @endif
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -31,7 +33,10 @@
                                                 @if($user->getBranch() != "")
                                                 <p><i class="fa fa-home c-blue p-r-10"></i> {{ $user->getBranch() }}</p>
                                                 @endif
+                                                @if(Auth::user()->isAdmin())
                                                 <p><button type="button" class="btn btn-danger delete-user" data-id="{{ $user->id }}"> Eliminar</button> </p>
+                                                @endif
+                                                
                                             </div>                                            
                                         </div>
                                     </div>

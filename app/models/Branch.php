@@ -31,6 +31,15 @@ class Branch extends Model {
     
 
     /* Relationships */
+    public function country()
+    {
+        return $this->belongsTo('Country');
+    }
+
+    public function estate()
+    {
+        return $this->belongsTo('Estate');
+    }
 
     public function city()
     {

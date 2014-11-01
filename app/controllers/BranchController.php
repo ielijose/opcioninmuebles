@@ -84,7 +84,13 @@ class BranchController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		$categories = Category::all();
+		$cities = City::all();
+		$portals = Portal::all();
+		$services = Service::all();
 
+		$branch = branch::findOrFail($id);
+		return View::make('backend.branches.edit', compact('branch', 'categories', 'cities', 'portals', 'services'));
 	}
 
 	/**

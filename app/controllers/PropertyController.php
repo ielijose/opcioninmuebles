@@ -56,7 +56,6 @@ class PropertyController extends BaseController {
 	 */
 	public function show($id)
 	{
-
 		$property = Property::findOrFail($id);
 		return View::make('backend.properties.show', compact('property'));
 	}
@@ -70,7 +69,8 @@ class PropertyController extends BaseController {
 	 */
 	public function edit($id)
 	{
-
+		$property = Property::findOrFail($id);
+		return View::make('backend.properties.edit', compact('property'));
 	}
 
 	/**

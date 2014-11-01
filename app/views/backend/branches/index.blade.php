@@ -12,7 +12,9 @@
     @include('backend.partials.alert')
     <div class="page-title"> <i class="icon-custom-left"></i>
         <h3 class="pull-left"><strong>Listado</strong> de sucursales</h3>
+        @if(Auth::user()->isAdmin())
         <a href="/branch/create" class="btn btn-success pull-right m-20"> Nueva sucursal </a>
+        @endif
     </div>
     <div class="row">
         <div class="col-md-12">
