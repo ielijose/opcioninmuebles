@@ -22,9 +22,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::resource('property', 'PropertyController');
 	Route::post('/property/image', ['uses' => 'PropertyController@add_image']);
 
-	
-
-	
 
 	/* Avatar de usuario */
 	Route::post('upload', ['uses' => 'UploadController@post_upload']);

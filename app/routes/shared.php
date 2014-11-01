@@ -40,4 +40,3 @@ Route::group(array('before' => 'auth'), function()
 
 /* API Property */
 	Route::get('/api/property', ['uses' => 'PropertyController@api_index']);
-	Route::post('/verify-user-email', ['uses' => 'UserController@verify']);

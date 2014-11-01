@@ -1,13 +1,11 @@
 
 - organizar las cuentas
-- filtrar estadisticas
 
 ----------------------
 
 Haciendo:
 ---------------------------------------------------------------------------------
 En inmuebles 
-2- poner un filtro desde hasta en las estadisticas
 
 ---------------------------------------------------------------------------------
 
