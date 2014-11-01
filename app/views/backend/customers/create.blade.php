@@ -163,10 +163,11 @@
                 <div class="row">
                     <div class="col-md-12" ng-repeat="property in properties | filter:query">
                         <div class="form-group">
-                            <label for="field-1" class="control-label"><strong>#@{{ property.plattformCode }} </strong>- @{{ property.address }}</label>
-                            <img src="@{{ property.image }} " alt="" class="image-responsive">
-                            <button class="btn btn-success select-property" data-id="@{{ property.id }}"  data-code="@{{ property.plattformCode }}">Seleccionar</button>
+                            <label for="field-1" class="control-label col-md-4"><strong>#@{{ property.plattformCode }} </strong>- @{{ property.address }}</label>
+                            <img src="@{{ property.image }} " alt="" class="image-responsive col-md-4">
+                            <button class="btn btn-success select-property col-md-4 m-t-30" data-id="@{{ property.id }}"  data-code="@{{ property.plattformCode }}">Seleccionar</button>
                         </div>
+                        <hr>
                     </div>  
                 </div>
                 

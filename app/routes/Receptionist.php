@@ -16,5 +16,6 @@ Route::group(array('before' => 'auth'), function()
 
 	/* Customer */
 	Route::resource('customer', 'CustomerController');
+	Route::post('/verify-email', ['uses' => 'CustomerController@verify']);
 
 });

@@ -37,3 +37,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/api/estate/{id}', ['uses' => 'UbicationController@city_index']);
 	Route::post('/api/city', ['uses' => 'UbicationController@city_store']);
 	Route::delete('/api/city/{id}', ['uses' => 'UbicationController@city_destroy']);
+
+/* API Property */
+	Route::get('/api/property', ['uses' => 'PropertyController@api_index']);
+	Route::post('/verify-user-email', ['uses' => 'UserController@verify']);

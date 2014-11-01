@@ -141,7 +141,6 @@
             }
         });
 
-console.log(line_chart);
     }
     lineCharts();
 

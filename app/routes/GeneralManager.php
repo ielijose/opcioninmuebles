@@ -6,7 +6,7 @@ Route::group(array('before' => 'auth'), function()
 
 	/* Customer */
 	Route::resource('customer', 'CustomerController');
-	Route::post('/verify-email', ['uses' => 'CustomerController@verify']);
+	
 	
 	/* Branch */
 	Route::resource('branch', 'BranchController');
@@ -24,8 +24,7 @@ Route::group(array('before' => 'auth'), function()
 
 	
 
-	/* API Property */
-	Route::get('/api/property', ['uses' => 'PropertyController@api_index']);
+	
 
 	/* Avatar de usuario */
 	Route::post('upload', ['uses' => 'UploadController@post_upload']);

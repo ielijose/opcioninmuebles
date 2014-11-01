@@ -14,7 +14,7 @@ $(function () {
     
 
 
-    //******************** DONUT CHART ********************//
+    /* ******************* DONUT CHART 
     new Morris.Donut({
         element: 'donut-chart1',
         data: [{
@@ -38,6 +38,7 @@ $(function () {
             return x + "%"
         }
     });
+    ******************* */
 
 
     //************** SPARKLINE SMALL CHART *****************//

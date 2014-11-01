@@ -334,10 +334,8 @@
 <script src="{{ asset('assets/plugins/charts-flot/jquery.flot.resize.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-flot/jquery.flot.time.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-morris/raphael.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/charts-morris/morris.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js') }}"></script>
 <script src="{{ asset('assets/js/calendar.js') }}"></script>
-<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 <script src="{{ asset('assets/js/dashboard.angular.js') }}"></script>
 
 
