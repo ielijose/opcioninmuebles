@@ -80,15 +80,7 @@
                                         <label for="code">Código del inmueble *</label>
                                         <input id="code" name="code" type="hidden" class="form-control required">
                                         <button class="btn btn-primary" id="code-select">Seleccionar</button>
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-                                        <label for="estado">Estado *</label>
-                                        <select class="form-control required" id="estado" name="estado">
-                                            <option selected="selected" disabled>-- Seleccione --</option>
-                                            <option value="prospecto">Prospecto</option>
-                                        </select>
-                                    </div>
+                                    </div>                                   
 
                                     <div class="form-group col-md-6">
                                         <label for="category_id">Categoría *</label>

@@ -44,6 +44,7 @@ class CustomerController extends BaseController {
 	{
 		$inputs = Input::all();
 		$inputs['user_id'] = Auth::user()->id;
+		$inputs['estado'] = 'prospecto';
 
 		$customer = new Customer($inputs);
 		if ($customer->save())
