@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('email', 100)->unique();
 			$table->string('phone', 50);				
 			$table->string('code', 100);	
-			$table->enum('estado', ['prospecto']);
+			$table->enum('estado', ['prospecto', 'asignado', 'interesado', 'negociacion', 'compro']);
 
 			$table->string('observation');
 
@@ -41,6 +41,8 @@ class CreateCustomersTable extends Migration {
 
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
+
+			$table->integer('manager_id')->unsigned()->nullable();
 				
 			$table->timestamps();
 		});

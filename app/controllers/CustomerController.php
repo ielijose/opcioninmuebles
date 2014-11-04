@@ -67,7 +67,9 @@ class CustomerController extends BaseController {
 	{
 		if(Input::has('ref') && Input::get('ref') == 'notify'){
 			$n = Notification::unread()->find((int) Input::get('n'));
-			$n->read();			
+			if($n){
+				$n->read();	
+			}					
 		}
 		
 		$categories = Category::all();
@@ -137,6 +139,24 @@ class CustomerController extends BaseController {
 		}	
 
 		return json_encode($available);
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 * PUT /customer/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function assign()
+	{
+		$inputs = Input::all();
+		extract($inputs);
+		
+		$customer = Customer::findOrFail($id);
+		$customer->assign($manager);
+		
+		return $customer->toJson();
 	}
 
 }

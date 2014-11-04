@@ -113,6 +113,53 @@ class Customer extends Model {
 
     /* Function */
 
+    public function assign($id)
+    {
+        $this->manager_id = $id;
+        $this->estado = 'asignado';
+        
+        if($this->save()){
+            $n = new Notification([
+                'notification' => "Tiene un potencial cliente asignado.", 
+                'type' => 'assigned', 
+                'type_id' => $this->id,
+                'user_id' => $this->manager_id, 
+                'sent_id' => Auth::user()->id
+                ]);
+            $n->save();
+
+            $manager = User::find($id);
+
+            /* Email */
+
+            $data = ['gm' => Auth::user()->full_name, 'id' => $this->id ,'cliente' => $this->name .' '. $this->lastname];
+
+            Mail::send('emails.notify.assigned', $data, function($message) use ($manager)
+            {
+                $message->from('noreply@opcioninmuebles.com', 'Cliente asignado');
+                $message->to($manager->email, $manager->full_name)->subject('Cliente asignado! - OpcionInmuebles.com');
+            });
+        }
+
+    }
+
+    public function getEstado()
+    {
+        switch ($this->estado) {
+            case 'prospecto':
+                return '<a href="#" class="btn btn-primary pull-right m-20"> Prospecto </a>';
+                break;
+
+            case 'asignado':
+                return '<a href="#" id="assigned" class="btn btn-success pull-right m-20"> Asignado </a>';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
 
      
 }

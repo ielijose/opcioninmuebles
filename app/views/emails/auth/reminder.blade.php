@@ -7,7 +7,7 @@
 		<h2>Reestablecer contraseña</h2>
 
 		<div>
-			Para resetear tu contraseña rellena el siguiente formulario:<br><br> {{ URL::to('auth/forgot', array($token)) }}.<br/><br/><br/>
+			Para resetear tu contraseña rellena el siguiente formulario:<br><br> {{ URL::to('auth/forgot', array($token)) }}<br/><br/><br/>
 			Este link expira en: {{ Config::get('auth.reminder.expire', 60) }} minutos.
 		</div>
 	</body>

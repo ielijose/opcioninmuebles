@@ -60,6 +60,10 @@ class Notification extends Model {
             case 'new_customer':
             return "/customer/" . $this->type_id . "?ref=notify&n=" . $this->id;
             break;
+
+            case 'assigned':
+            return "/customer/" . $this->type_id . "?ref=notify&n=" . $this->id;
+            break;
             
             default:
                 # code...

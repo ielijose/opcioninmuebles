@@ -6,7 +6,7 @@ Route::group(array('before' => 'auth'), function()
 
 	/* Customer */
 	Route::resource('customer', 'CustomerController');
-	
+	Route::post('/customer/assign', ['uses' => 'CustomerController@assign']);
 	
 	/* Branch */
 	Route::resource('branch', 'BranchController');
@@ -14,6 +14,7 @@ Route::group(array('before' => 'auth'), function()
 	/* User */
 	Route::resource('user', 'UserController');	
 	Route::post('/verify-user-email', ['uses' => 'UserController@verify']);
+
 	
 	/* Ubication */
 	Route::get('/ubication', ['uses' => 'UbicationController@index']);

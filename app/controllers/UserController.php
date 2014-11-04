@@ -139,4 +139,12 @@ class UserController extends BaseController {
 		return json_encode($available);
 	}
 
+	public function api_type($type)
+	{
+		$c = User::where('type', $type)->get();
+		return json_encode($c);
+	}
+
+	
+
 }

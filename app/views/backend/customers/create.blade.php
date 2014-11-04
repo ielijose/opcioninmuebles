@@ -141,8 +141,6 @@
     </div>
 </div>
 
-
-
 <div class="modal fade" id="modal" aria-hidden="true" style="display: none;" ng-controller="PropertyListCtrl">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

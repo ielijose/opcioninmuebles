@@ -40,3 +40,8 @@ Route::group(array('before' => 'auth'), function()
 
 /* API Property */
 	Route::get('/api/property', ['uses' => 'PropertyController@api_index']);
+/* Validar Email */	
+	Route::post('/verify-email', ['uses' => 'CustomerController@verify']);
+
+/* Users API*/
+	Route::get('/api/user/{type}', ['uses' => 'UserController@api_type']);
