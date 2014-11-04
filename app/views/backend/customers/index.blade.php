@@ -32,7 +32,8 @@
                                         <th>Nombres y Apellidos</th>
                                         <th>Email</th>
                                         <th>Teléfono</th>
-                                        <th>Acciones</th>
+                                        <th style="text-align:center">Estado</th>
+                                        <th style="text-align:center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +42,8 @@
                                         <td>{{ $customer->name }} {{ $customer->lastname }}</td>
                                         <td> {{ $customer->email }} </td>
                                         <td>{{ $customer->phone }}</td>
-                                        <td><a href="/customer/{{ $customer->id }}" class="btn btn-info">Ver mas</a></td>
+                                        <th style="text-align:center">{{ $customer->getEstado() }}</th>
+                                        <td style="text-align:center"><a href="/customer/{{ $customer->id }}" class="btn btn-info">Ver mas</a></td>
                                     </tr>
                                     @endforeach                                           
                                     

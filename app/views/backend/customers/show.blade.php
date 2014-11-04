@@ -9,6 +9,10 @@
 [class^="icon-"], [class*=" icon-"] {
     font-size: 30px; 
 }
+
+.big-icon{
+    font-size: 80px;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.5/angular.min.js"></script>
 <script src="{{ asset('/assets/js/assign-manager.angular.js')}}"></script>
@@ -254,6 +258,44 @@
             </div>
         </div>
     </div>
+
+    @elseif($customer->estado == 'negociacion')
+
+    <div class="modal fade" id="modal" aria-hidden="true" style="display: none;" ng-controller="AgentListCtrl">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title"><strong>Finalizar</strong> proceso de <strong>Negociación</strong> </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 portfolio-item text-center">
+                            <a href="#">
+                                <i class="fa fa-money big-icon"></i>
+                            </a>
+                            <h3>
+                                <a href="#">Interesado</a>
+                            </h3>                            
+                            <button class="btn btn-lg btn-info select-agent">Interesado</button>
+                        </div>
+
+
+                        <div class="col-md-6 portfolio-item text-center">
+                            <a href="#" style="color: #18a689">
+                                <i class="fa fa-legal big-icon" ></i>
+                            </a>
+                            <h3>
+                                <a href="#" style="color: #18a689">Compró</a>
+                            </h3>                            
+                            <button class="btn btn-lg btn-success select-agent">Compró</button>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+
     @endif
 </div>
 @stop
@@ -295,6 +337,10 @@ $(document).on("ready", function() {
     });
 
     $("#assigned").on("click", function(){
+        $("#modal").modal();
+    });
+
+    $("#negotiation").on("click", function(){
         $("#modal").modal();
     });
 
