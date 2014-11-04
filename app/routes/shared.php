@@ -45,3 +45,4 @@ Route::group(array('before' => 'auth'), function()
 
 /* Users API*/
 	Route::get('/api/user/{type}', ['uses' => 'UserController@api_type']);
+	Route::get('/api/user-current/{type}', ['uses' => 'UserController@api_current_type']);

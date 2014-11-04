@@ -143,6 +143,36 @@ class Customer extends Model {
 
     }
 
+    public function negotiate($id)
+    {
+        $this->manager_id = $id;
+        $this->estado = 'negociacion';
+        
+        if($this->save()){
+            $n = new Notification([
+                'notification' => "Tiene un potencial cliente asignado.", 
+                'type' => 'assigned', 
+                'type_id' => $this->id,
+                'user_id' => $this->manager_id, 
+                'sent_id' => Auth::user()->id
+                ]);
+            $n->save();
+
+            $manager = User::find($id);
+
+            /* Email */
+
+            $data = ['gz' => Auth::user()->full_name, 'id' => $this->id ,'cliente' => $this->name .' '. $this->lastname];
+
+            Mail::send('emails.notify.negotiation', $data, function($message) use ($manager)
+            {
+                $message->from('noreply@opcioninmuebles.com', 'Cliente para negociación');
+                $message->to($manager->email, $manager->full_name)->subject('Cliente para negociación! - OpcionInmuebles.com');
+            });
+        }
+
+    }
+
     public function getEstado()
     {
         switch ($this->estado) {
@@ -152,6 +182,10 @@ class Customer extends Model {
 
             case 'asignado':
                 return '<a href="#" id="assigned" class="btn btn-success pull-right m-20"> Asignado </a>';
+                break;
+
+            case 'negociacion':
+                return '<a href="#" id="negotiation" class="btn btn-info pull-right m-20"> En negociación </a>';
                 break;
             
             default:
