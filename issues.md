@@ -7,17 +7,7 @@ Haciendo:
 ---------------------------------------------------------------------------------
 En inmuebles 
 
----------------------------------------------------------------------------------
 
-En Clientes\Asignación de clientes crear pantalla
-
-1- traer los  gerentes de sucursales disponibles
-
-2- asignar el cliente que recibi de la recepcionista a un gerente de sucursal
-
-3- Saco la notificacion de la bandeja de notificaciones del general manager
-
-4- Mando Notificación al General Zone.
 
 --------------------------------------------------------------------------------
 
@@ -52,3 +42,16 @@ Hecho:
 
 
 1- poner una columna mas que muestre las estadisticas de visitas y correos 
+
+
+---------------------------------------------------------------------------------
+
+En Clientes\Asignación de clientes crear pantalla
+
+1- traer los  gerentes de sucursales disponibles
+
+2- asignar el cliente que recibi de la recepcionista a un gerente de sucursal
+
+3- Saco la notificacion de la bandeja de notificaciones del general manager
+
+4- Mando Notificación al General Zone.

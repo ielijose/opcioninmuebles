@@ -12,7 +12,9 @@
     @include('backend.partials.alert')
     <div class="page-title"> <i class="icon-custom-left"></i>
         <h3 class="pull-left"><strong>Listado</strong> de clientes</h3>
+        @if(Auth::user()->isCreator())
         <a href="/customer/create" class="btn btn-success pull-right m-20"> Nuevo cliente </a>
+        @endif
     </div>
     <div class="row">
         <div class="col-md-12">

@@ -17,11 +17,7 @@
                 </ul>
             </li>
             <li class="<?= Request::is('customer*') ? 'current' : '' ?>">
-                <a href="#"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span><span class="fa arrow"></span></a>
-                <ul class="submenu collapse">
-                    <li><a href="/customer"><span class="sidebar-text">Recepción</span></a></li>
-                    <li><a href="animations.html"><span class="sidebar-text">Asignacion de clientes</span></a></li>
-                </ul>
+                <a href="/customer"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span></a>                
             </li>
             <li>
                 <a href="#"><i class="glyph-icon flaticon-forms"></i><span class="sidebar-text">Listados</span><span class="fa arrow"></span></a>

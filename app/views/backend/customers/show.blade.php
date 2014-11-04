@@ -181,8 +181,10 @@
     <div class="row">
         <div class="col-md-12 m-t-20 m-b-40 align-center">
             <a href="/customer" class="btn btn-default m-r-10 m-t-10"><i class="fa fa-reply"></i> Volver</a>
+            @if(Auth::user()->isCreator())
             <a href="#" class="btn btn-danger delete-ad m-r-10 m-t-10"><i class="fa fa-times"></i> Eliminar cliente</a>
             <button class="btn btn-success m-t-10" id="submit-update"><i class="fa fa-check"></i> Guardar cambios</button>
+            @endif
         </div>
     </div>
 

@@ -12,9 +12,7 @@
             </li>
             
             <li class="<?= Request::is('customer*') ? 'current' : '' ?>">
-
-                <a href="/customer"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span></a>
-                
+                <a href="/customer"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span></a>                
             </li>
             <li>
                 <a href="#"><i class="glyph-icon flaticon-forms"></i><span class="sidebar-text">Listados</span><span class="fa arrow"></span></a>

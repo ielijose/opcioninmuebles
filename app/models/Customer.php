@@ -160,6 +160,9 @@ class Customer extends Model {
         }
     }
 
-
+    public function scopeCurrent($query, $id)
+    {
+        return $query->where('branch_id', $id);
+    } 
      
 }
