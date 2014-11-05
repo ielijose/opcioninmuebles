@@ -261,4 +261,5 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $query->where('branch_id', $id);
     } 
+
 }

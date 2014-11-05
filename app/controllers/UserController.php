@@ -150,9 +150,11 @@ class UserController extends BaseController {
 		$users = User::current(Auth::user()->branch_id)->where('type', $type)->get();
 		$self = Auth::user();
 		$data = [];
+		$self->profile_picture = $self->getProfilePicture();
 		array_push($data, $self);
 
 		foreach ($users as $key => $user) {
+			$user->profile_picture = $user->getProfilePicture();
 			array_push($data, $user);
 		}
 		
