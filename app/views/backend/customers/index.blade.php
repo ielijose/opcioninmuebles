@@ -42,7 +42,7 @@
                                         <td>{{ $customer->name }} {{ $customer->lastname }}</td>
                                         <td> {{ $customer->email }} </td>
                                         <td>{{ $customer->phone }}</td>
-                                        <th style="text-align:center">{{ $customer->getEstado() }}</th>
+                                        <th style="text-align:center">{{ $customer->getEstadoLabel() }}</th>
                                         <td style="text-align:center"><a href="/customer/{{ $customer->id }}" class="btn btn-info">Ver mas</a></td>
                                     </tr>
                                     @endforeach                                           
