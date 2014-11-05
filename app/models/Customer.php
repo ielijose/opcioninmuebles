@@ -194,6 +194,29 @@ class Customer extends Model {
         }
     }
 
+    public function getEstadoLabel()
+    {
+        switch ($this->estado) {
+            case 'prospecto':
+                return '<span class="label label-primary">Prospecto</span>';
+                break;
+
+            case 'asignado':
+                return '<span class="label label-success">Asignado</span>';
+                break;
+
+            case 'negociacion':
+                return '<span class="label label-info">En negociación</span>';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
+    
+
     public function scopeCurrent($query, $id)
     {
         return $query->where('branch_id', $id);
