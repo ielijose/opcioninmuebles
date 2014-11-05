@@ -12,9 +12,11 @@ assignManagerApp.controller('ManagerZoneListCtrl', function ($scope, $http) {
     });
 
     $scope.assign = function(id, manager) {
+        $("#modal").modal('hide');
+        $(".font-animation").removeClass('hide');
         $http.post('/customer/assign', {'id' : id, 'manager' : manager})
         .success(function(data) {
-            $("#modal").modal('hide');
+            $(".font-animation").addClass('hide');
             $("#assign").text('Asignado').removeClass('btn-primary').addClass('btn-success').prop('id', 'assigned');
         })
         .error(function(data) {
@@ -37,9 +39,12 @@ assignManagerApp.controller('AgentListCtrl', function ($scope, $http) {
     });
 
     $scope.nogotiate = function(id, manager) {
+        $("#modal").modal('hide');
+        
+        $(".font-animation").removeClass('hide');
         $http.post('/customer/negotiate/now', {'id' : id, 'manager' : manager})
         .success(function(data) {
-            $("#modal").modal('hide');
+            $(".font-animation").addClass('hide');
             $("#assigned").text('En negociación').removeClass('btn-success').addClass('btn-info').prop('id', 'assigned');
         })
         .error(function(data) {

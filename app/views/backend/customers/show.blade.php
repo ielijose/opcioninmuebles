@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('/assets/plugins/magnific/magnific-popup.css') }}">    
 <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables/dataTables.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables/dataTables.tableTools.css') }}">
+<link rel="stylesheet" href="{{ asset('/assets/plugins/font-awesome-animation/font-awesome-animation.min.css') }}">
 
 <style>
 [class^="icon-"], [class*=" icon-"] {
@@ -32,6 +33,10 @@
             @if($customer->manager_id != NULL)
             {{ $customer->getEstado() }}
             @endif
+
+            <div class="font-animation pull-right hide">
+                <i class="fa fa-spinner faa-spin animated" style="display: inline-block; font-size:2em;border:none;"></i> 
+            </div>
 
             <br>
 

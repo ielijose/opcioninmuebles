@@ -147,7 +147,15 @@ class UserController extends BaseController {
 
 	public function api_current_type($type)
 	{
-		$c = User::current(Auth::user()->branch_id)->where('type', $type)->get();
-		return json_encode($c);
+		$users = User::current(Auth::user()->branch_id)->where('type', $type)->get();
+		$self = Auth::user();
+		$data = [];
+		array_push($data, $self);
+
+		foreach ($users as $key => $user) {
+			array_push($data, $user);
+		}
+		
+		return json_encode($data);
 	}
 }
