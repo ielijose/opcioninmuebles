@@ -8,14 +8,14 @@ class UserTableSeeder extends Seeder {
 			'full_name' => 'Abdeel Maussa',
 			'email'     => 'jcvaldes.ingenieria@gmail.com',
 			'password'  => '123456',
-			'type'      => 'ManagerZone'
+			'type'      => 'GeneralManager'
 		]);
 
 		User::create([
 			'full_name' => 'Eli José ',
 			'email'     => 'ielijose@gmail.com',
 			'password'  => '1234',
-			'type'      => 'GeneralManager'
+			'type'      => 'ManagerZone'
 		]);
 	
 		User::create([
@@ -23,6 +23,13 @@ class UserTableSeeder extends Seeder {
 			'email'     => 'rolo27281@gmail.com',
 			'password'  => '1234',
 			'type'      => 'Agent'
+		]);
+		
+		User::create([
+		'full_name' => 'Eliete da Costa',
+		'email'     => 'eliete_dacosta@hotmail.com',
+		'password'  => '1234',
+		'type'      => 'ManagerZone'
 		]);
 		
 		User::create([

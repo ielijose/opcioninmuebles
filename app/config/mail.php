@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'port' => 587,
+	'port' => 465,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'noreply@opcioninmuebles.com', 'name' => 'Opción Inmuebles'),
+	'from' => array('address' => 'info@opcioninmuebles.com', 'name' => 'Opción Inmuebles'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'tls',
+	'encryption' => 'ssl',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'mailserderservice@gmail.com',
+	'username' => 'jcvaldes.ingenieria@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,8 +93,8 @@ return array(
 	|
 	*/
 
-	'password' => 'mailserderservice2014',
-
+	'password' => 'joaquinramiro',
+		
 	/*
 	|--------------------------------------------------------------------------
 	| Sendmail System Path
