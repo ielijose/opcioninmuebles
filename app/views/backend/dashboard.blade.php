@@ -1,175 +1,110 @@
 @extends('backend.layouts.master')
 
 @section('css')
-    <link href="/assets/plugins/datetimepicker/jquery.datetimepicker.css" rel="stylesheet">
-    <link href="/assets/plugins/pickadate/themes/default.css" rel="stylesheet">
-    <link href="/assets/plugins/pickadate/themes/default.date.css" rel="stylesheet">
-    <link href="/assets/plugins/pickadate/themes/default.time.css" rel="stylesheet">
+<link href="/assets/plugins/datetimepicker/jquery.datetimepicker.css" rel="stylesheet">
+<link href="/assets/plugins/pickadate/themes/default.css" rel="stylesheet">
+<link href="/assets/plugins/pickadate/themes/default.date.css" rel="stylesheet">
+<link href="/assets/plugins/pickadate/themes/default.time.css" rel="stylesheet">
 @endsection
 
 @section('content')
 
 <div id="main-content" class="dashboard">
-    {{--<div class="row m-t-20">
-        <div class="col-md-3 col-sm-12">
-            <div class="panel no-bd bd-3 panel-stat">
-                <div class="panel-body bg-blue p-15">
-                    <div class="row m-b-10">
-                        <div class="col-xs-3">
-                            <i class="glyph-icon flaticon-visitors"></i>
+    @if(isset($data))
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="panel no-bd bd-9 panel-stat">
+                    <div class="panel-body bg-dark">
+                        <div class="icon"><i class="fa fa-archive"></i>
                         </div>
-                        <div class="col-xs-9">
-                            <div class="live-tile" data-mode="carousel"
-                                data-direction="vertical" data-delay="3500" data-height="56">
-                                <div>
-                                    <small class="stat-title">Visits today</small>
-                                    <h1 class="m-0 w-300">25 610</h1>
-                                </div>
-                                <div>
-                                    <small class="stat-title">Visits yesterday</small>
-                                    <h1 class="m-0 w-300">22 420</h1>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="stat-num">{{ $data['total'] }}</div>
+                                <a href="/customer"><h3>Clientes</h3></a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <small class="stat-title">New Visitors</small>
-                            <div class="live-tile" data-mode="carousel"
-                                data-direction="vertical" data-delay="3500" data-height="30">
-                                <div>
-                                    <h3 class="m-0 w-300">37.5%</h3>
-                                </div>
-                                <div>
-                                    <h3 class="m-0 w-300">34.2%</h3>
-                                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="panel no-bd bd-9 panel-stat">
+                    <div class="panel-body bg-blue">
+                        <div class="icon"><i class="fa fa-question"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="stat-num">{{ $data['prospecto'] }}</div>
+                                <a href="/customer?estado=prospecto"><h3>Prospectos</h3></a>
+
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <small class="stat-title">Bounce Rate</small>
-                            <div class="live-tile" data-mode="carousel"
-                                data-direction="vertical" data-delay="3500" data-height="30">
-                                <div>
-                                    <h3 class="m-0 w-500">5.6%</h3>
-                                </div>
-                                <div>
-                                    <h3 class="m-0 w-500">7.4%</h3>
-                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="panel no-bd bd-9 panel-stat">
+                    <div class="panel-body bg-green">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="stat-num">{{ $data['asignado'] }}</div>
+                                <a href="/customer?estado=asignado"><h3>Asignados</h3></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="panel no-bd bd-9 panel-stat">
+                    <div class="panel-body bg-red">
+                        <div class="icon"><i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="stat-num">{{ $data['negociacion'] }}</div>
+                                <a href="/customer?estado=negociacion"><h3>Negociación</h3></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="panel no-bd bd-9 panel-stat">
+                    <div class="panel-body bg-orange">
+                        <div class="icon"><i class="fa fa-money"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="stat-num">{{ $data['interesado'] }}</div>
+                                <a href="/customer?estado=interesado"><h3>Interesados</h3></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="panel no-bd bd-9 panel-stat">
+                    <div class="panel-body bg-purple">
+                        <div class="icon"><i class="fa fa-legal"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="stat-num">{{ $data['compro'] }}</div>
+                                <a href="/customer?estado=compro"><h3>Compró</h3></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 col-sm-12">
-            <div class="panel no-bd bd-3 panel-stat">
-                <div class="panel-body bg-red p-15">
-                    <div class="row m-b-6">
-                        <div class="col-xs-3">
-                            <i class="glyph-icon flaticon-educational"></i>
-                        </div>
-                        <div class="col-xs-9">
-                            <small class="stat-title">PAGES VIEW</small>
-                            <h1 class="m-0 w-500">201k</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <small class="stat-title">Duration</small>
-                            <h3 class="m-0 w-500">18:25</h3>
-                        </div>
-                        <div class="col-xs-6">
-                            <small class="stat-title">Pages / visits</small>
-                            <h3 class="m-0 w-500">21</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-12">
-            <div class="panel no-bd bd-3 panel-stat">
-                <div class="panel-body bg-green p-15">
-                    <div class="row m-b-0">
-                        <div class="col-xs-3">
-                            <i class="glyph-icon flaticon-orders"></i>
-                        </div>
-                        <div class="col-xs-9">
-                            <small class="stat-title">ORDERS THIS MONTH</small>
-                            <div class="live-tile" data-delay="4000"
-                                data-animation-easing="fade" data-height="47">
-                                <div>
-                                    <h1 class="m-0 w-500 bg-green">148</h1>
-                                </div>
-                                <div>
-                                    <h1 class="m-0 w-500 bg-green">+28%</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <small class="stat-title">Last month</small>
-                            <div class="live-tile" data-delay="4000"
-                                data-animation-easing="fade" data-height="30">
-                                <div class="bg-green">
-                                    <h3 class="m-0 w-500">126</h3>
-                                </div>
-                                <div class="bg-green">
-                                    <h3 class="m-0 w-500">$12,545</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <small class="stat-title">Last week</small>
-                            <div class="live-tile" data-delay="4000"
-                                data-animation-easing="fade" data-height="30">
-                                <div class="bg-green">
-                                    <h3 class="m-0 w-500">41</h3>
-                                </div>
-                                <div class="bg-green">
-                                    <h3 class="m-0 w-500">$4,237</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-12">
-            <div class="panel no-bd bd-3 panel-stat">
-                <div class="panel-body bg-dark p-15">
-                    <div class="row m-b-6">
-                        <div class="col-xs-3">
-                            <i class="glyph-icon flaticon-incomes"></i>
-                        </div>
-                        <div class="col-xs-9">
-                            <small class="stat-title">INCOMES THIS MONTH</small>
-                            <h1 class="m-0 w-500">
-                                $<span class="animate-number" data-value="42567"
-                                    data-animation-duration="1400">0</span>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <small class="stat-title">Last month</small>
-                            <h3 class="m-0 w-500">
-                                $<span class="animate-number" data-value="38547"
-                                    data-animation-duration="1400">0</span>
-                            </h3>
-                        </div>
-                        <div class="col-xs-6">
-                            <small class="stat-title">Last week</small>
-                            <h3 class="m-0 w-500">
-                                $<span class="animate-number" data-value="8754"
-                                    data-animation-duration="1400">0</span>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--}}
+       
+        
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="panel">
@@ -290,33 +225,33 @@
 
 
 <div class="modal fade" id="modal-filter" aria-hidden="true">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <form action="#">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel"><strong>Filtrar estadisticas</strong> </h4>
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel"><strong>Filtrar estadisticas</strong> </h4>
+                </div>
+                <div class="modal-body ">                   
+
+                    <div class="row" align="center">
+                        <h3>Desde:</h3>
+                        <div class="datepicker start" data-inline="true" data-date-format="yyyy-mm-dd"></div>
                     </div>
-                    <div class="modal-body ">                   
 
-                        <div class="row" align="center">
-                            <h3>Desde:</h3>
-                            <div class="datepicker start" data-inline="true" data-date-format="yyyy-mm-dd"></div>
-                        </div>
-
-                        <div class="row" align="center">
-                            <h3>Hasta:</h3>
-                            <div class="datepicker end" data-inline="true" data-date-format="yyyy-mm-dd"></div>
-                        </div>
-
-                    </div>        
-                    <div class="modal-footer text-center">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="filter-action">Filtrar</button>
+                    <div class="row" align="center">
+                        <h3>Hasta:</h3>
+                        <div class="datepicker end" data-inline="true" data-date-format="yyyy-mm-dd"></div>
                     </div>
-                </form>
-            </div>
+
+                </div>        
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="filter-action">Filtrar</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 @endsection
 
@@ -350,19 +285,19 @@
 <script src="{{ asset('assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js')}}"></script>
 
 <script>
-    
-    /* Filtrado */
 
-    $(".filter").on("click", function(){
-        $("#modal-filter").modal();
-    });
+/* Filtrado */
+
+$(".filter").on("click", function(){
+    $("#modal-filter").modal();
+});
 
 
-    $('#filter-action').on('click', function (e) {
-        var start = $('.start').data('date') || '';
-        var end = $('.end').data('date') || '';
-        location.href = "?start="+start+"&end="+end;
-    })
+$('#filter-action').on('click', function (e) {
+    var start = $('.start').data('date') || '';
+    var end = $('.end').data('date') || '';
+    location.href = "?start="+start+"&end="+end;
+})
 
 
 

@@ -220,6 +220,11 @@ class Customer extends Model {
     public function scopeCurrent($query, $id)
     {
         return $query->where('branch_id', $id);
+    }
+
+    public function scopeEstado($query, $estado)
+    {
+        return $query->where('estado', $estado);
     } 
      
 }

@@ -10,7 +10,13 @@ class CustomerController extends BaseController {
 	 */        
 	public function index()
 	{
-		$customers = Customer::all();
+		if(Input::has('estado')){
+			$customers = Customer::estado(Input::get('estado'))->get();			
+		}else{
+			$customers = Customer::all();
+		}
+
+		
 		return View::make('backend.customers.index', compact('customers'));
 	}
 
