@@ -72,70 +72,70 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Cód. de Plataforma: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->plattformCode }}
                                     </div>
                                 </div>  
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Dirección: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->address }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Pais: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->country->name }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Provincia: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->estate->name }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Ciudad: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->city->name }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Código postal:</label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->zipcode }}
                                     </div>
                                 </div> 
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Estrato: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->stratus }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Valor Comercial: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->valor_comercial }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Valor Oportunidad: <span class="asterisk">*</span></label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->valor_oportunidad }}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Descripción:</label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7 m-t-10">
                                         {{ $property->description }}
                                     </div>
                                 </div>                                   

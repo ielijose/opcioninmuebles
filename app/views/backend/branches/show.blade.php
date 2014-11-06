@@ -37,7 +37,7 @@
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Pais: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-7  m-t-10">
                                             {{ $branch->country->name }}
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Provincia: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-7  m-t-10">
                                             {{ $branch->estate->name }}
                                         </div>
                                     </div>
@@ -53,28 +53,28 @@
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Ciudad: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-7  m-t-10">
                                             {{ $branch->city->name }}
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Dirección: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-7  m-t-10">
                                             {{ $branch->address }}
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Código postal: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-7  m-t-10">
                                             {{ $branch->zipcode }}
                                         </div>
                                     </div>                                    
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Teléfono: <span class="asterisk">*</span></label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-7  m-t-10">
                                             {{ $branch->phone }}
                                         </div>
                                     </div> 
