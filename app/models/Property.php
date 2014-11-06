@@ -92,9 +92,7 @@ class Property extends Model {
                 $val = $sta->views;
             }
         }
-
-
-        return json_encode($val);
+        return json_encode($val); 
     }
     
 }

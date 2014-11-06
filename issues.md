@@ -1,6 +1,5 @@
 3- Agregar estos 2 ultimos campos en Inmuebles costo de la casa (valor comercial y valor oportunidad de frontend) en inmuebles
 
-1- El general manager estaria bueno que pueda editar los datos de los usuarios
 
 
 
@@ -62,6 +61,7 @@ Nombre, Apellido, Estado (en negociacion, interesado, compró) , Inmueble en el 
 
 ----------------------
 
+1- El general manager estaria bueno que pueda editar los datos de los usuarios
 
 2- En la bandeja de notificaciones el link ver todas las notificaciones no funcionas
 
