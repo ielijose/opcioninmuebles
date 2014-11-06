@@ -19,9 +19,19 @@ class Notification extends Model {
         return $this->belongsTo('User');
     }
 
+    public function customer()
+    {
+        return $this->hasOne('Customer', 'id', 'type_id');
+    }
+
     public function scopeUnread($query)
     {
         return $query->where('is_read', '=', 0)->where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC');
+    }
+
+    public function scopeCurrent($query)
+    {
+        return $query->where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC');
     }
 
     public function scopeCustomer($query, $id)
@@ -114,6 +124,32 @@ class Notification extends Model {
     {
         $this->is_read = 1;
         return $this->save();
+    }
+
+    /* */
+
+    public function getDay()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->day;
+    }
+
+    public function getMonth()
+    {
+        $m = Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->month;
+        $meses = array('','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+        return $meses[$m];
+    }
+
+    public function getYear()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->year;
+    }
+
+    public function getNameDay()
+    {
+        $d = Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->dayOfWeek;
+        $dias = array('Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sábado');
+        return $dias[$d];
     }
 
 }

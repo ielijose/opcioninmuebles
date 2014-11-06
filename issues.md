@@ -1,7 +1,6 @@
 1- El general zone estaria bueno que pueda editar los datos de los usuarios
 2- En la bandeja de notificaciones el link ver todas las notificaciones no funcionas
-3- cuadro de estadiscas de barras no se ven las visitas.
-5- Cuando se hace una asignacion no aparece la foto del usuario y queda demasiado espacio
+
 
 
 Hecho:
@@ -63,9 +62,10 @@ Nombre, Apellido, Estado (en negociacion, interesado, compró) , Inmueble en el 
 
 
 
-
+3- cuadro de estadiscas de barras no se ven las visitas.
 4- Cuando se hace una asignacion al Manager zone/agente poner un loading para que el usuario
 observe que se esta haciendo algo 
+5- Cuando se hace una asignacion no aparece la foto del usuario y queda demasiado espacio
 6- El Manager Zone deberia poder asignar el clientes a los agentes o a si mismo.
 
 

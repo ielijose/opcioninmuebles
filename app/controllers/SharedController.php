@@ -2,9 +2,11 @@
 
 class SharedController extends BaseController {
 
-	public function product_question($id)
+	public function notifications()
 	{
-		
+		$notifications = Notification::current()->get();
+		//return $notifications->toJson();
+		return View::make('backend.shared.notifications', compact('notifications'));
 	}		
 
 	public function profile()

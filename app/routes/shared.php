@@ -7,6 +7,8 @@ Route::group(array('before' => 'auth'), function()
 {
 	Route::get('profile', ['uses' => 'SharedController@profile']);
 	Route::post('profile', ['uses' => 'SharedController@post_profile']);
+
+	Route::get('notifications', ['uses' => 'SharedController@notifications']);
 	
 	/* Avatar de usuario */
 	Route::post('avatar', ['uses' => 'UploadController@post_avatar']);

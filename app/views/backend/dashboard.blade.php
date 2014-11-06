@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="panel no-bd bd-9 panel-stat">
                     <div class="panel-body bg-dark">
                         <div class="icon"><i class="fa fa-archive"></i>
@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="panel no-bd bd-9 panel-stat">
                     <div class="panel-body bg-blue">
                         <div class="icon"><i class="fa fa-question"></i>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="panel no-bd bd-9 panel-stat">
                     <div class="panel-body bg-green">
                         <div class="icon"><i class="fa fa-check"></i></div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="panel no-bd bd-9 panel-stat">
                     <div class="panel-body bg-red">
                         <div class="icon"><i class="fa fa-envelope"></i>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="panel no-bd bd-9 panel-stat">
                     <div class="panel-body bg-orange">
                         <div class="icon"><i class="fa fa-money"></i>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="panel no-bd bd-9 panel-stat">
                     <div class="panel-body bg-purple">
                         <div class="icon"><i class="fa fa-legal"></i>
@@ -258,30 +258,17 @@
 @section('javascript')
 
 <script src="{{ asset('assets/plugins/metrojs/metrojs.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/fullcalendar/moment.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/simple-weather/jquery.simpleWeather.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/google-maps/markerclusterer.js') }}"></script>
-<script src="{{ asset('http://maps.google.com/maps/api/js?sensor=true') }}"></script>
-<script src="{{ asset('assets/plugins/google-maps/gmaps.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-flot/jquery.flot.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-flot/jquery.flot.animator.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-flot/jquery.flot.resize.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-flot/jquery.flot.time.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/charts-morris/raphael.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js') }}"></script>
-<script src="{{ asset('assets/js/calendar.js') }}"></script>
 <script src="{{ asset('assets/js/dashboard.angular.js') }}"></script>
 
 
-
-
-<script src="{{ asset('assets/plugins/datetimepicker/jquery.datetimepicker.js')}}"></script>
 <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
-<script src="{{ asset('assets/plugins/pickadate/picker.js')}}"></script>
-<script src="{{ asset('assets/plugins/pickadate/picker.date.js')}}"></script>
-<script src="{{ asset('assets/plugins/pickadate/picker.time.js')}}"></script>
-<script src="{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.js')}}"></script>
 <script src="{{ asset('assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js')}}"></script>
 
 <script>
