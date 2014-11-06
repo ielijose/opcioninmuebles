@@ -166,8 +166,14 @@ class UserController extends BaseController {
 
 	public function api_type($type)
 	{
-		$c = User::where('type', $type)->get();
-		return json_encode($c);
+		$users = User::where('type', $type)->get();
+		$data = [];
+		foreach ($users as $key => $user) {
+			$user->profile_picture = $user->getProfilePicture();
+			array_push($data, $user);
+		}
+
+		return json_encode($data);
 	}
 
 	public function api_current_type($type)
