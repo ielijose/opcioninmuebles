@@ -50,8 +50,8 @@
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="phone">Teléfono</label>
-                                        <input id="phone" name="phone" type="text" class="form-control">
+                                        <label for="phone">Teléfono *</label>
+                                        <input id="phone" name="phone" type="text" class="form-control required">
                                     </div>
 
                                     <div class="form-group col-md-6">
