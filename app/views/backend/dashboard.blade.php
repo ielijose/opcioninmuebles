@@ -122,7 +122,7 @@
                                     <a href="javascript:void(0)" class="btn bg-green">Correos</a>
                                     <a href="javascript:void(0)" class="btn bg-blue">Visitas</a>
 
-                                    <a href="javascript:void(0)" class="btn bg-purple filter">Filtrar</a>
+                                    <a href="javascript:void(0)" class="btn bg-purple filter">Filtrar</a> 
                                     <button href="#" id="bars" class="btn" disabled>
                                         <span></span>
                                     </button>
@@ -281,8 +281,10 @@ $(".filter").on("click", function(){
 
 
 $('#filter-action').on('click', function (e) {
-    var start = $('.start').data('date') || '';
-    var end = $('.end').data('date') || '';
+    var d = new Date();
+    var defaultDate = d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate(); 
+    var start = $('.start').data('date') || defaultDate;
+    var end = $('.end').data('date') || defaultDate;
     location.href = "?start="+start+"&end="+end;
 })
 
