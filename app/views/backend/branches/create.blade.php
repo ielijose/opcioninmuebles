@@ -66,8 +66,8 @@
 
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="zipcode">Código Postal *</label>
-                                        <input id="zipcode" name="zipcode" type="text" class="form-control required">
+                                        <label for="zipcode">Código Postal</label>
+                                        <input id="zipcode" name="zipcode" type="text" class="form-control">
                                     </div>		
 
                                     
@@ -155,10 +155,12 @@ $(document).on("ready", function(){
 
 
     $.get('/api/country', function(data, textStatus, xhr) {
+        $countries.prop('disabled', true);
         $.each(data, function(index, val) {            
             var option = '<option value="' + val.id + '">' + val.name + '</option>';
             $countries.append(option);
         });
+        $countries.prop('disabled', false);
     }, 'json');
 
     $countries.on("change", function() {
@@ -173,6 +175,7 @@ $(document).on("ready", function(){
     }
 
     function loadEstates(id) {
+        $estates.prop('disabled', true);
         resetEstates();
 
         $.get('/api/country/' + id, function(data, textStatus, xhr) {
@@ -180,6 +183,7 @@ $(document).on("ready", function(){
                 var option = '<option value="' + val.id + '">' + val.name + '</option>';                
                 $estates.append(option);
             });
+            $estates.prop('disabled', false);
         }, 'json');
 
     }
@@ -196,6 +200,7 @@ $(document).on("ready", function(){
     }
 
     function loadCities(id) {
+        $cities.prop('disabled', true);
         resetCities();
 
         $.get('/api/estate/' + id, function(data, textStatus, xhr) {
@@ -203,6 +208,7 @@ $(document).on("ready", function(){
                 var option = '<option value="' + val.id + '">' + val.name + '</option>';                
                 $cities.append(option);
             });
+            $cities.prop('disabled', false);
         }, 'json');
 
     }

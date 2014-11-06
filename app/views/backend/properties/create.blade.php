@@ -67,8 +67,8 @@
                                     </div>   
 
                                     <div class="form-group col-md-6">
-                                        <label for="zipcode">Código Postal *</label>
-                                        <input id="zipcode" name="zipcode" type="text" class="form-control required">
+                                        <label for="zipcode">Código Postal</label>
+                                        <input id="zipcode" name="zipcode" type="text" class="form-control">
                                     </div>		
                                     
                                     <div class="form-group col-md-6">
