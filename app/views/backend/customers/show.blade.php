@@ -282,10 +282,9 @@
                             <h3>
                                 <a href="#">Interesado</a>
                             </h3>                            
-                            <button class="btn btn-lg btn-info select-agent">Interesado</button>
+                            <button class="btn btn-lg btn-info select-agent" data-estado="interesado">Interesado</button>
                         </div>
-
-
+                        
                         <div class="col-md-6 portfolio-item text-center">
                             <a href="#" style="color: #18a689">
                                 <i class="fa fa-legal big-icon" ></i>
@@ -293,7 +292,7 @@
                             <h3>
                                 <a href="#" style="color: #18a689">Compró</a>
                             </h3>                            
-                            <button class="btn btn-lg btn-success select-agent">Compró</button>
+                            <button class="btn btn-lg btn-success select-agent" data-estado="compro">Compró</button>
                         </div>
                     </div>
                 </div>            

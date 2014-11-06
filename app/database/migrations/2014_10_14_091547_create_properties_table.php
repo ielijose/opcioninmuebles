@@ -34,11 +34,11 @@ class CreatePropertiesTable extends Migration {
 			$table->foreign('country_id')->references('id')->on('countries');
 			$table->foreign('city_id')->references('id')->on('cities');
 			$table->foreign('estate_id')->references('id')->on('estates');
-
-			$statement = "ALTER TABLE properties AUTO_INCREMENT = 10;";
-			DB::unprepared($statement);
 				
 		});
+
+		$statement = "ALTER TABLE properties AUTO_INCREMENT = 10;";
+		DB::unprepared($statement);
 	}
 
 
