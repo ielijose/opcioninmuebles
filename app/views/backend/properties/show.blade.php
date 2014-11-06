@@ -120,6 +120,20 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Valor Comercial: <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        {{ $property->valor_comercial }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Valor Oportunidad: <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        {{ $property->valor_oportunidad }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Descripción: <span class="asterisk">*</span></label>
                                     <div class="col-sm-7">
                                         {{ $property->description }}

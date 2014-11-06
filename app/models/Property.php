@@ -5,7 +5,8 @@ class Property extends Model {
     protected $table = 'properties';
     public $timestamp = true;
 
-    protected $fillable = ['plattformCode','address','country_id', 'estate_id','city_id','zipcode','description','stratus','image'];
+    protected $fillable = ['plattformCode','address','country_id', 'estate_id','city_id','zipcode',
+    'description','stratus','image','valor_comercial','valor_oportunidad',];
 
 
 	protected static $rules = [
@@ -14,7 +15,9 @@ class Property extends Model {
 		'country_id' => 'required',		
 		'estate_id' => 'required',
 		'city_id' => 'required',	
-        'stratus' => 'required'        
+        'stratus' => 'required',
+        'valor_comercial' => 'required',
+        'valor_oportunidad' => 'required',
     ];
 
     //Use this for custom messages
@@ -24,7 +27,9 @@ class Property extends Model {
         'country_id.required' => 'Campo obligatorio.',
         'estate_id.required' => 'Campo obligatorio.',        
         'city_id.required' => 'Campo obligatorio.',
-        'stratus.required' => 'Campo obligatorio.',            
+        'stratus.required' => 'Campo obligatorio.', 
+        'valor_comercial' => 'Campo obligatorio.',
+        'valor_oportunidad' => 'Campo obligatorio.',
 	];
 
     public static function boot()

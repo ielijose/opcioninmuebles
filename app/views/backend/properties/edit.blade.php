@@ -135,6 +135,20 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Valor comercial: <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input id="valor_comercial" name="valor_comercial" type="text" class="form-control required" value="{{ $property->valor_comercial }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Valor oportunidad: <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input id="valor_oportunidad" name="valor_oportunidad" type="text" class="form-control required" value="{{ $property->valor_oportunidad }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Descripción: <span class="asterisk">*</span></label>
                                     <div class="col-sm-7">
                                         <textarea name="description" rows="5" class="form-control" placeholder="">{{ $property->description }}</textarea>

@@ -25,12 +25,18 @@ class CreatePropertiesTable extends Migration {
 			$table->text('description');
 			$table->integer('stratus')->unsigned(); //estrato
 			$table->string('image'); //foto de la propiedad
+
+			$table->string('valor_comercial');
+			$table->string('valor_oportunidad');
 			
 			$table->timestamps();
 			
 			$table->foreign('country_id')->references('id')->on('countries');
 			$table->foreign('city_id')->references('id')->on('cities');
 			$table->foreign('estate_id')->references('id')->on('estates');
+
+			$statement = "ALTER TABLE properties AUTO_INCREMENT = 10;";
+			DB::unprepared($statement);
 				
 		});
 	}

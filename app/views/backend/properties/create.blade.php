@@ -8,7 +8,7 @@
 <style>
 .wizard-inline > .content
 {
-    min-height: 34em !important;
+    min-height: 39em !important;
 }
 .wizard-inline > .steps > ul > li
 {
@@ -35,7 +35,7 @@
                                 <section>                                   	
                                     <div class="form-group col-md-6">
                                         <label for="plattformCode">Código de Plataforma</label>
-                                        <input id="plattformCode" name="plattformCode" type="text" class="form-control">
+                                        <input id="plattformCode" name="plattformCode" type="text" class="form-control required">
                                     </div>   
 
                                     <div class="form-group col-md-6">
@@ -74,6 +74,17 @@
                                     <div class="form-group col-md-6">
                                         <label for="address">Dirección *</label>
                                         <input id="address" name="address" type="text" class="form-control required">
+                                    </div> 
+
+
+                                    <div class="form-group col-md-6">
+                                        <label for="valor_comercial">Valor Comercial *</label>
+                                        <input id="valor_comercial" name="valor_comercial" type="text" class="form-control required">
+                                    </div>      
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="valor_oportunidad">Valor Oportunidad *</label>
+                                        <input id="valor_oportunidad" name="valor_oportunidad" type="text" class="form-control required">
                                     </div> 
                                     
 
