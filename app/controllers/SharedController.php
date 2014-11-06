@@ -4,9 +4,9 @@ class SharedController extends BaseController {
 
 	public function notifications()
 	{
-		$notifications = Notification::current()->get();
+		$notifications = Notification::current()->paginate(3);
 		//return $notifications->toJson();
-		return View::make('backend.shared.notifications', compact('notifications'));
+		return View::make('backend.shared.notifications', ['notifications' => $notifications]);
 	}		
 
 	public function profile()

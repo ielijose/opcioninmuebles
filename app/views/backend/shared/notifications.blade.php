@@ -43,10 +43,15 @@
                 </li>
 
                 @endforeach
+
+
                 
             </ul>
         </div>
     </div>
+</div>
+<div class="pull-right m-20 m-r-20">
+   <?php echo $notifications->links(); ?> 
 </div>
 @stop
 
