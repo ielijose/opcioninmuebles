@@ -88,7 +88,8 @@ class UserController extends BaseController {
 	 */
 	public function edit($id)
 	{
-
+ 		$user = User::find($id);
+		return View::make('backend.users.manage', compact('user'));
 	}
 
 	/**
@@ -100,15 +101,39 @@ class UserController extends BaseController {
 	 */
 	public function update($id)
 	{
+
+
 		$inputs = Input::all();
-		$branch = branch::findOrFail($id);
-		$branch->fill($inputs);
-		if ($branch->save())
+		//dd($inputs);
+
+		$rules = User::$rules;
+		$messages = User::$messages;
+
+		if($inputs['password'] == ''){
+			unset($rules['password']);
+			unset($inputs['password']);
+
+			unset($rules['password_confirmation']);
+			unset($inputs['password_confirmation']);
+		}else{
+			$rules['password'] .= '|confirmed';			
+		}
+
+		unset($rules['type']);
+		$rules['email'] .= ',email,' . $id;
+		
+		$v = Validator::make($inputs, $rules, $messages);
+		
+		if ($v->passes())
 		{
-			return Redirect::to('/branch/' . $id)->with('alert', ['type' => 'success', 'message' => 'Datos guardados.']);			
-		}        
-		dd($branch->getErrors());
-        return Redirect::to('/branch/' . $id)->with('alert', ['type' => 'danger', 'message' => 'Ocurrio un error, intenta mas tarde.']);
+			$user = User::find($id);
+			$user->fill($inputs);
+			if ($user->save()){
+				return Redirect::to('/user/' . $id . '/edit')->with('alert', ['type' => 'success', 'message' => 'Su perfil se ha actualizado.']);
+			}
+			
+		}
+		return Redirect::back()->withInput()->withErrors($v->messages());
 	}
 
 	/**

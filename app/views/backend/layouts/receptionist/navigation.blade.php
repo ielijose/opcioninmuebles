@@ -109,9 +109,9 @@
 
                             @else
 
-                                <a href="#">
-                                    Sin notificaciones.
-                                </a>
+                            <a href="#">
+                                Sin notificaciones.
+                            </a>
 
                             @endif
                         </li>
@@ -132,31 +132,17 @@
                         <span class="username">{{ Auth::user()->full_name }} {{ Auth::user()->getTypeName() }}</span>
                         <i class="fa fa-angle-down p-r-10"></i>
                     </a>
-
-
-
-
                     <ul class="dropdown-menu">
                         <li>
                             <a href="/profile">
                                 <i class="glyph-icon flaticon-account"></i> Mi Perfil
                             </a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="glyph-icon flaticon-calendar"></i> Calendario
-                            </a>
-                        </li>
-                        <li>
-                            <a href="profil_edit.html">
-                                <i class="glyph-icon flaticon-settings21"></i> Configuración
-                            </a>
-                        </li>
+                        </li>                        
                         <li class="dropdown-footer clearfix">
                             <a href="javascript:;" class="toggle_fullscreen" title="Pantalla completa">
                                 <i class="glyph-icon flaticon-fullscreen3"></i>
                             </a>
-                            <a href="lockscreen.html" title="Bloquear pantalla">
+                            <a href="#" title="Bloquear pantalla">
                                 <i class="glyph-icon flaticon-padlock23"></i>
                             </a>
                             <a href="/logout" title="Salir">
@@ -164,12 +150,8 @@
                             </a>
                         </li>
                     </ul>
-
-
-
                 </li>
-                <!-- END USER DROPDOWN -->
-                
+                <!-- END USER DROPDOWN -->                
             </ul>
             <!-- END TOP NAVIGATION MENU -->
         </div>

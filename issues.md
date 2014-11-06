@@ -1,6 +1,6 @@
 3- Agregar estos 2 ultimos campos en Inmuebles costo de la casa (valor comercial y valor oportunidad de frontend) en inmuebles
 
-1- El general zone estaria bueno que pueda editar los datos de los usuarios
+1- El general manager estaria bueno que pueda editar los datos de los usuarios
 
 
 

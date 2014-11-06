@@ -9,18 +9,14 @@
             </li>
             <li class="<?= Request::is('user*') ? 'current' : '' ?>">
                 <a href="/user"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Usuarios</span></a>
-            </li>
-            
+            </li>            
             <li class="<?= Request::is('customer*') ? 'current' : '' ?>">
                 <a href="/customer"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span></a>                
             </li>
-            
-            
             <li class="<?= Request::is('property*') ? 'current' : '' ?>">
                 <a href="/property"><i class="fa fa-home"></i><span class="sidebar-text">Inmuebles</span></a>
             </li>
             <br>
-
         </ul>
     </div>
 </nav>

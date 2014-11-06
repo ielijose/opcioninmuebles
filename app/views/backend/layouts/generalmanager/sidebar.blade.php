@@ -9,23 +9,10 @@
             </li>
             <li class="<?= Request::is('user*') ? 'current' : '' ?>">
                 <a href="/user"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Usuarios</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-male"></i><span class="sidebar-text">Agente Comercial</span><span class="fa arrow"></span></a>
-                <ul class="submenu collapse">
-                    <li><a href="lockscreen.html"><span class="sidebar-text">Asignación Gerente</span></a></li>
-                </ul>
-            </li>
+            </li>            
             <li class="<?= Request::is('customer*') ? 'current' : '' ?>">
                 <a href="/customer"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span></a>                
-            </li>
-            <li>
-                <a href="#"><i class="glyph-icon flaticon-forms"></i><span class="sidebar-text">Listados</span><span class="fa arrow"></span></a>
-                <ul class="submenu collapse">
-                    <li><a href="forms.html"><span class="sidebar-text">Listar clientes asignados a empleados</span></a></li>
-                    <li><a href="form_validation.html"><span class="sidebar-text">Listar total de clientes x sucursal</span></a></li>
-                </ul>
-            </li>
+            </li>            
             <li class="<?= Request::is('ubication*') ? 'current' : '' ?>">
                 <a href="/ubication"><i class="fa fa-globe"></i><span class="sidebar-text">Ubicaciones</span></a>
             </li>
@@ -33,7 +20,6 @@
                 <a href="/property"><i class="fa fa-home"></i><span class="sidebar-text">Inmuebles</span></a>
             </li>
             <br>
-
         </ul>
     </div>
 </nav>

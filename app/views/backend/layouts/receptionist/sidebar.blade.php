@@ -9,24 +9,14 @@
             </li>
             <li class="<?= Request::is('user*') ? 'current' : '' ?>">
                 <a href="/user"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text">Usuarios</span></a>
-            </li>
-            
+            </li>            
             <li class="<?= Request::is('customer*') ? 'current' : '' ?>">
                 <a href="/customer"><i class="glyph-icon flaticon-ui-elements2"></i><span class="sidebar-text">Clientes</span></a>                
-            </li>
-            <li>
-                <a href="#"><i class="glyph-icon flaticon-forms"></i><span class="sidebar-text">Listados</span><span class="fa arrow"></span></a>
-                <ul class="submenu collapse">
-                    <li><a href="forms.html"><span class="sidebar-text">Listar clientes asignados a empleados</span></a></li>
-                    <li><a href="form_validation.html"><span class="sidebar-text">Listar total de clientes x sucursal</span></a></li>
-                </ul>
-            </li>
-      
+            </li>            
             <li class="<?= Request::is('property*') ? 'current' : '' ?>">
                 <a href="/property"><i class="fa fa-home"></i><span class="sidebar-text">Inmuebles</span></a>
             </li>
             <br>
-
         </ul>
     </div>
 </nav>
