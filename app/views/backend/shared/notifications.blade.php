@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ asset('/assets/plugins/dropzone/dropzone.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/plugins/jcrop/jquery.Jcrop.min.css') }}">
 <link rel="stylesheet" href="{{ asset('/assets/css/profile.min.css') }}">
+<script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
 @stop
 
 @section('content')
@@ -92,7 +93,6 @@
 <script src="{{ asset('/assets/plugins/google-maps/gmaps.js') }}"></script>
 <script src="{{ asset('/assets/js/timeline.js') }}"></script>
 
-<script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
 <script src="{{ asset('assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js')}}"></script>
 
 <script type="text/javascript">
