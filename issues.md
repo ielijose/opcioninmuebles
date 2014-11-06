@@ -1,5 +1,6 @@
+3- Agregar estos 2 ultimos campos en Inmuebles costo de la casa (valor comercial y valor oportunidad de frontend) en inmuebles
+
 1- El general zone estaria bueno que pueda editar los datos de los usuarios
-2- En la bandeja de notificaciones el link ver todas las notificaciones no funcionas
 
 
 
@@ -57,10 +58,12 @@ hacer filtro por estados
 Nombre, Apellido, Estado (en negociacion, interesado, compró) , Inmueble en el que esta intereasado, sucursal asignada, nombre del gerente, nombre del agente
 
 
+2- buscar por id el inmueble.
 
 ----------------------
 
 
+2- En la bandeja de notificaciones el link ver todas las notificaciones no funcionas
 
 3- cuadro de estadiscas de barras no se ven las visitas.
 4- Cuando se hace una asignacion al Manager zone/agente poner un loading para que el usuario

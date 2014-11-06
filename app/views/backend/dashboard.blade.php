@@ -224,25 +224,27 @@
 </div>
 
 
-<div class="modal fade" id="modal-filter" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+<div class="modal" id="modal-filter">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="#">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel"><strong>Filtrar estadisticas</strong> </h4>
+                    <h4 class="modal-title" id="myModalLabel"><strong>Filtrar notificaciones</strong> </h4>
                 </div>
-                <div class="modal-body ">                   
+                <div class="modal-body ">   
 
-                    <div class="row" align="center">
+                <div class="row">
+                    <div class="col-md-6" align="center">
                         <h3>Desde:</h3>
                         <div class="datepicker start" data-inline="true" data-date-format="yyyy-mm-dd"></div>
                     </div>
 
-                    <div class="row" align="center">
+                    <div class="col-md-6" align="center">
                         <h3>Hasta:</h3>
                         <div class="datepicker end" data-inline="true" data-date-format="yyyy-mm-dd"></div>
-                    </div>
+                    </div>                    
+                </div> 
 
                 </div>        
                 <div class="modal-footer text-center">
@@ -268,29 +270,33 @@
 <script src="{{ asset('assets/js/dashboard.angular.js') }}"></script>
 
 
+<script src="{{ asset('assets/plugins/datetimepicker/jquery.datetimepicker.js')}}"></script>
 <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.date.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.time.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.js')}}"></script>
 <script src="{{ asset('assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js')}}"></script>
 
 <script>
-
-/* Filtrado */
-
-$(".filter").on("click", function(){
+$(document).on("ready", function(){
+    /* Filtrado */
     $("#modal-filter").modal();
+    $("#modal-filter").modal('hide');
+
+    $(".filter").on("click", function(){
+        $("#modal-filter").modal();
+    });
+
+
+    $('#filter-action').on('click', function (e) {
+        var d = new Date();
+        var defaultDate = d.getFullYear() +"-"+ ('0' + (d.getMonth()+1)).slice(-2) +"-"+ ('0' + d.getDate()).slice(-2);
+        var start = $('.start').data('date') || defaultDate;
+        var end = $('.end').data('date') || defaultDate;
+        location.href = "?start="+start+"&end="+end;
+    })
 });
-
-
-$('#filter-action').on('click', function (e) {
-    var d = new Date();
-    var defaultDate = d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate(); 
-    var start = $('.start').data('date') || defaultDate;
-    var end = $('.end').data('date') || defaultDate;
-    location.href = "?start="+start+"&end="+end;
-})
-
-
-
 </script>
-
-@endsection
+@stop
 

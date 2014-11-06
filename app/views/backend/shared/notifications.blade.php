@@ -1,11 +1,10 @@
 @extends('backend.layouts.master')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('/assets/plugins/font-awesome-animation/font-awesome-animation.min.css') }}">
-<link rel="stylesheet" href="{{ asset('/assets/plugins/dropzone/dropzone.css') }}">
-<link rel="stylesheet" href="{{ asset('/assets/plugins/jcrop/jquery.Jcrop.min.css') }}">
-<link rel="stylesheet" href="{{ asset('/assets/css/profile.min.css') }}">
-<script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
+<link href="{{ asset('/assets/plugins/datetimepicker/jquery.datetimepicker.css') }}" rel="stylesheet">
+<link href="{{ asset('/assets/plugins/pickadate/themes/default.css') }}" rel="stylesheet">
+<link href="{{ asset('/assets/plugins/pickadate/themes/default.date.css') }}" rel="stylesheet">
+<link href="{{ asset('/assets/plugins/pickadate/themes/default.time.css') }}" rel="stylesheet">
 @stop
 
 @section('content')
@@ -58,25 +57,29 @@
  <?php echo $notifications->links(); ?> 
 </div>
 
-<div class="modal fade" id="modal-filter" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+<div class="modal" id="modal-filter">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="#">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title" id="myModalLabel"><strong>Filtrar notificaciones</strong> </h4>
                 </div>
-                <div class="modal-body ">                   
+                <div class="modal-body ">   
 
-                    <div class="row" align="center">
+                <div class="row">
+                    <div class="col-md-6" align="center">
                         <h3>Desde:</h3>
                         <div class="datepicker start" data-inline="true" data-date-format="yyyy-mm-dd"></div>
                     </div>
 
-                    <div class="row" align="center">
+                    <div class="col-md-6" align="center">
                         <h3>Hasta:</h3>
                         <div class="datepicker end" data-inline="true" data-date-format="yyyy-mm-dd"></div>
-                    </div>
+                    </div>                    
+                </div>                
+
+                    
 
                 </div>        
                 <div class="modal-footer text-center">
@@ -86,18 +89,23 @@
         </div>
     </div>
 </div>
+
 @stop
 
 @section('javascript')
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="{{ asset('/assets/plugins/google-maps/gmaps.js') }}"></script>
-<script src="{{ asset('/assets/js/timeline.js') }}"></script>
-
+<script src="{{ asset('assets/plugins/datetimepicker/jquery.datetimepicker.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.date.js')}}"></script>
+<script src="{{ asset('assets/plugins/pickadate/picker.time.js')}}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-switch/bootstrap-switch.js')}}"></script>
 <script src="{{ asset('assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js')}}"></script>
 
 <script type="text/javascript">
 $(document).on("ready", function(){
     /* Filtrado */
+    $("#modal-filter").modal();
+    $("#modal-filter").modal('hide');
 
     $(".filter").on("click", function(){
         $("#modal-filter").modal();
