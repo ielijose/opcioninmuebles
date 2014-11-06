@@ -6,6 +6,7 @@ Route::group(array('before' => 'auth'), function()
 
 	/* Customer */
 	Route::get('/customer', 'AgentController@customer');
+	Route::any('/customer/finish/md', ['uses' => 'CustomerController@finish']);
 	Route::any('/customer/negotiate/now', ['uses' => 'CustomerController@negotiate']);
 	Route::get('/customer/{id}', 'CustomerController@show');
 

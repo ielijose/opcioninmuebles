@@ -13,8 +13,6 @@ class Branch extends Model {
 		'country_id' => 'required',
 		'estate_id' => 'required',
 		'city_id' => 'required',
-		'zipcode' => 'required',
-		'phone' => 'required',
     ];
 
     //Use this for custom messages
@@ -23,8 +21,6 @@ class Branch extends Model {
         'country_id.required' => 'Campo obligatorio.',
         'estate_id.required' => 'Campo obligatorio.',
         'city_id.required' => 'Campo obligatorio.',
-        'zipcode.required' => 'Campo obligatorio.',
-        'phone.required' => 'Campo obligatorio.',
     ];
 
     /* Scopes */

@@ -351,6 +351,13 @@ $(document).on("ready", function() {
     $(".select-finish").on("click", function(){
         var estado = $(this).data('estado');
 
+        $.post('/customer/finish/md', {id: id, 'estado': estado}, function(data, textStatus, xhr) {
+            if(estado == 'interesado'){
+                $("#negotiation").text('Interesado').removeClass('btn-info').addClass('btn-default');
+            }else if(estado == 'compro'){
+                $("#negotiation").text('Compró').removeClass('btn-info').addClass('btn-success');
+            }
+        });
     });
 
     /*$(document).on("click", '.select-manager', function(){

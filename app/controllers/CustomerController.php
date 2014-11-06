@@ -183,4 +183,22 @@ class CustomerController extends BaseController {
 		return $customer->toJson();
 	}
 
+	/**
+	 * Update the specified resource in storage.
+	 * PUT /customer/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function finish()
+	{
+		$inputs = Input::all();
+		extract($inputs);
+		
+		$customer = Customer::findOrFail($id);
+		$customer->finish($estado);
+		
+		return $customer->toJson();
+	}
+
 }

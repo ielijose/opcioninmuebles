@@ -106,7 +106,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">Código postal: <span class="asterisk">*</span></label>
+                                    <label class="col-sm-2 control-label">Código postal:</label>
                                     <div class="col-sm-7">
                                         {{ $property->zipcode }}
                                     </div>
@@ -134,7 +134,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">Descripción: <span class="asterisk">*</span></label>
+                                    <label class="col-sm-2 control-label">Descripción:</label>
                                     <div class="col-sm-7">
                                         {{ $property->description }}
                                     </div>
