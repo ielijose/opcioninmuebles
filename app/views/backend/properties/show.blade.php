@@ -71,7 +71,7 @@
 
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">Código de Plataforma: <span class="asterisk">*</span></label>
+                                    <label class="col-sm-2 control-label">Cód. de Plataforma: <span class="asterisk">*</span></label>
                                     <div class="col-sm-7">
                                         {{ $property->plattformCode }}
                                     </div>
