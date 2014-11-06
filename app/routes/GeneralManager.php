@@ -34,5 +34,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/property/image/{id}', ['uses' => 'PropertyController@post_image']);
 	Route::get('/property/image/{id}', ['uses' => 'PropertyController@get_image']);	
 	Route::any('/property/image/{id}/crop', ['uses' => 'PropertyController@image_crop']);
+
+
+	/* Avatar de usuario al editar */
+	Route::post('admin-avatar/{id}', ['uses' => 'GeneralmanagerController@post_avatar']);
+	Route::get('admin-avatar/{id}', ['uses' => 'GeneralmanagerController@get_avatar']);	
+	Route::any('admin-avatar/crop/{id}', ['uses' => 'GeneralmanagerController@post_avatar_crop']);
+	Route::any('admin-avatar/rotate/{id}', ['uses' => 'GeneralmanagerController@post_avatar_rotate']);
 	
 });

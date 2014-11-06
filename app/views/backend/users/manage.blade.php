@@ -36,7 +36,7 @@
                                                         <p>Cambiar imagen</p>
                                                         <i class="fa fa-rotate-right rotate"></i>
                                                     </figcaption>
-                                                    
+
                                                 </figure>
                                                 <div class="font-animation">
                                                     <i class="fa fa-spinner faa-spin animated" style="display: inline-block; font-size:2em"></i> 
@@ -48,7 +48,7 @@
                                                 <div class="col-md-12 profile-info">
 
                                                     <h1>{{ $user->full_name }}</h1>
-                                                    
+
                                                     
                                                     <div class="m-t-10"></div>
                                                     <ul class="list-unstyled list-inline">
@@ -73,7 +73,7 @@
                                                     <div class="control-label col-md-3 p-t-0">Miembro desde:</div> 
                                                     <div class="col-md-6">{{ $user->getHumanDate() }}</div>
                                                 </div>
-                                                
+
                                                 <div class="row">
                                                     <div class="control-label col-md-3">Nombre:</div> 
                                                     <div class="col-md-6">
@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row profile-classic">
                                     <div class="col-md-12">
                                         <div class="panel">
@@ -117,8 +117,8 @@
                                     </div>
                                 </div>
 
-                                
-                                
+
+
                                 <div class="col-sm-12">
                                     <div class="align-center">
                                         <button class="btn btn-primary m-r-20 save-profile">Guardar</button>
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!--END TABS-->
@@ -150,7 +150,7 @@
 
                         <div class="row">
                             <div class="col-md-12 text-center" id="image-body">
-                                
+
                             </div>
                         </div>
 
@@ -184,6 +184,8 @@
 $(document).on("ready", function(){
     var crop;
 
+    var id = '{{$user->id}}';
+
     var h = $( window ).height();
     h = (h/100) *60;
     $("#avatar figcaption i").on("click", function(){
@@ -196,23 +198,20 @@ $(document).on("ready", function(){
 
         // post
 
-        $.post('/avatar/rotate',{ angle : angle }, function(data, textStatus, xhr) {
+        $.post('/admin-avatar/rotate/'+id,{ angle : angle }, function(data, textStatus, xhr) {
             $("#avatar img").prop('src', data.avatar+'?nocahe='+Math.random());
-            $("#user-header img").prop('src', data.avatar+'?nocahe='+Math.random());
         }, 'json');
     });
 
     $("#avatar, #avatar figcaption, #avatar p").dropzone({
-        url: "/avatar/",
+        url: "/admin-avatar/"+id,
         createImageThumbnails : false,
         init: function() {
 
             this.on("success", function(file) { 
-                $(".font-animation").css('display', 'none');
-                
+                $(".font-animation").css('display', 'none');                
 
-                $.get('/avatar', function(data) {                    
-                    //$("#avatar img").prop('src', data.avatar);
+                $.get('/admin-avatar/'+id, function(data) {                    
 
                     $("#image-body").html('<img src="" id="image_crop2" style="max-width:100%"/>');
 
@@ -239,44 +238,43 @@ $(document).on("ready", function(){
                             });
                             crop_2.ui.selection.addClass('jcrop-selection');
                         });
-                    })
+                    });
 
-}, 'json');
+                }, 'json');
 
 
-});
+            });
 
-this.on("addedfile", function(file) { 
-    $(".font-animation").css('display', 'inline-block');
-});
-}
-});
+            this.on("addedfile", function(file) { 
+                $(".font-animation").css('display', 'inline-block');
+            });
+        }
+    });
 
-function updateCoords(c)
-{
-    jQuery('#x').val(c.x);
-    jQuery('#y').val(c.y);
-    jQuery('#w').val(c.w);
-    jQuery('#h').val(c.h);
-};
+    function updateCoords(c)
+    {
+        jQuery('#x').val(c.x);
+        jQuery('#y').val(c.y);
+        jQuery('#w').val(c.w);
+        jQuery('#h').val(c.h);
+    };
 
 /* SAVE CROP */
 
-$("#save-crop").on("click", function(){
-    var options = {
-        x : $("#x").val(), 
-        y : $("#y").val(), 
-        w : $("#w").val(), 
-        h : $("#h").val(),
-        i : img_width
-    }
-    $.post('/avatar/crop',options, function(data, textStatus, xhr) {
-        console.log(data);
-        $("#avatar img").prop('src', data.avatar+'?nocahe='+Math.random());
-        $("#user-header img").prop('src', data.avatar+'?nocahe='+Math.random());
-        crop.destroy();
-    }, 'json');
-})
+    $("#save-crop").on("click", function(){
+        var options = {
+            x : $("#x").val(), 
+            y : $("#y").val(), 
+            w : $("#w").val(), 
+            h : $("#h").val(),
+            i : img_width
+        }
+        $.post('/admin-avatar/crop/'+id,options, function(data, textStatus, xhr) {
+            console.log(data);
+            $("#avatar img").prop('src', data.avatar+'?nocahe='+Math.random());
+            crop.destroy();
+        }, 'json');
+    })
 
 
 });
