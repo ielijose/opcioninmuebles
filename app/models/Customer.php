@@ -175,11 +175,10 @@ class Customer extends Model {
 
     public function finish($estado)
     {
-        $this->manager_id = $id;
-        $this->estado = 'negociacion';
+        $this->estado = $estado;
         
         if($this->save()){
-            $n = new Notification([
+            /*$n = new Notification([
                 'notification' => "Tiene un potencial cliente asignado.", 
                 'type' => 'assigned', 
                 'type_id' => $this->id,
@@ -190,7 +189,7 @@ class Customer extends Model {
 
             $manager = User::find($id);
 
-            /* Email */
+            /* Email *
 
             $data = ['gz' => Auth::user()->full_name, 'id' => $this->id ,'cliente' => $this->name .' '. $this->lastname];
 
@@ -198,7 +197,7 @@ class Customer extends Model {
             {
                 $message->from('noreply@opcioninmuebles.com', 'Cliente para negociación');
                 $message->to($manager->email, $manager->full_name)->subject('Cliente para negociación! - OpcionInmuebles.com');
-            });
+            });*/
         }
 
     }

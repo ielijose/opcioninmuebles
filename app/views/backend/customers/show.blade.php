@@ -266,7 +266,7 @@
 
     @elseif($customer->estado == 'negociacion')
 
-    <div class="modal fade" id="modal" aria-hidden="true" style="display: none;" ng-controller="AgentListCtrl">
+    <div class="modal fade modal-hd" id="modal" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -350,6 +350,8 @@ $(document).on("ready", function() {
 
     $(".select-finish").on("click", function(){
         var estado = $(this).data('estado');
+        $(".modal-hd").modal('hide');
+        $(".font-animation").removeClass('hide');
 
         $.post('/customer/finish/md', {id: id, 'estado': estado}, function(data, textStatus, xhr) {
             if(estado == 'interesado'){
@@ -357,6 +359,7 @@ $(document).on("ready", function() {
             }else if(estado == 'compro'){
                 $("#negotiation").text('Compró').removeClass('btn-info').addClass('btn-success');
             }
+            $(".font-animation").addClass('hide');
         });
     });
 
