@@ -153,7 +153,10 @@ $inpage_menu=vibe_inpagemenu();
   </div>
 </section>   
 <script>    
+  // PARA LOCAL
   var url = "//localhost:8001";
+  // PARA EL SERVIDOR 
+  // var url = "//backend.opcioninmuebles.com";
   /* obtenemos el ID */
   <?php echo "var id = '" . getPostMeta($post->ID,'vibe_property-id')."';"; ?>
   /* al cargar la pagina contamos una visita */
