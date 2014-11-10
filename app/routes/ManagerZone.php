@@ -2,7 +2,7 @@
 
 Route::group(array('before' => 'auth'), function()
 {
-	Route::get('/', ['uses' => 'ManagerZoneController@dashboard']);
+	Route::get('/', ['uses' => 'ManagerzoneController@dashboard']);
 
 	/* Customer */
 	Route::get('/customer', 'ManagerzoneController@customer');

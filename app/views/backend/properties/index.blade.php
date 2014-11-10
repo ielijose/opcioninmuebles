@@ -34,8 +34,8 @@
                                         <th>Ciudad</th>
                                         <th>País</th>
                                         <th>Imagen</th>
-                                        <th align="center">Visitas</th>
-                                        <th align="center">Correos</th>
+                                        <th align="center">Visitas / Correos</th>
+                                        <th align="center">Valor comercial <br> Valor oportunidad</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -48,20 +48,17 @@
                                         <td>{{ $property->country->name }}</td>
                                         <td><img src="{{ $property->image }} " alt=""></td>
                                         <td align="center" style="font-size:18px">
-                                            @if($property->getStatistic('visit') > 0)
-                                            <img class="img-responsive" src='http://placehold.it/80/ffffff/000000&text={{ $property->getStatistic('visit')}}' alt="">
-                                            @else 
-                                            <img class="img-responsive" src='http://placehold.it/80/ffffff/000000&text=00' alt="">
-                                            @endif
+                                            
+                                            <?php $visit = ((int)$property->getStatistic('visit') > 0) ? $property->getStatistic('visit') : '00'; ?>
+                                            <?php $mail = ((int)$property->getStatistic('mail') > 0) ? $property->getStatistic('mail') : '00'; ?> 
+                                          
+                                            <img class="img-responsive" src='http://placehold.it/200x100/ffffff/000000&text={{ $visit }} / {{ $mail }}' alt="">
+                                           
                                         </td>
                                         <td align="center" style="font-size:18px">
-                                            @if($property->getStatistic('visit') > 0)
-                                            <img class="img-responsive" src='http://placehold.it/80/ffffff/000000&text={{ $property->getStatistic('mail')}}' alt="">
-                                            @else 
-                                            <img class="img-responsive" src='http://placehold.it/80/ffffff/000000&text=00' alt="">
-                                            @endif
+                                            {{ $property->valor_comercial }} <br> {{ $property->valor_oportunidad }}
                                         </td>
-                                        <td><a href="/property/{{ $property->id }}" class="btn btn-info">Ver mas</a></td>
+                                        <td><a href="/property/{{ $property->id }}" class="btn btn-info">Ver</a></td>
                                     </tr>
                                     @endforeach                                           
                                     
