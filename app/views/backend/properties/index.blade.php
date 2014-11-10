@@ -35,7 +35,7 @@
                                         <th>País</th>
                                         <th>Imagen</th>
                                         <th align="center">Visitas / Correos</th>
-                                        <th align="center">Valor comercial <br> Valor oportunidad</th>
+                                        <th align="center">V. comercial <br> V. oportunidad</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -56,7 +56,8 @@
                                            
                                         </td>
                                         <td align="center" style="font-size:18px">
-                                            {{ $property->valor_comercial }} <br> {{ $property->valor_oportunidad }}
+                                            <img class="img-responsive" src='http://placehold.it/160x60/ffffff/000000&text={{ $property->valor_comercial }}' alt="">
+                                            <img class="img-responsive" src='http://placehold.it/160x60/ffffff/000000&text={{ $property->valor_oportunidad }}' alt="">
                                         </td>
                                         <td><a href="/property/{{ $property->id }}" class="btn btn-info">Ver</a></td>
                                     </tr>
