@@ -19,6 +19,11 @@
             <li class="<?= Request::is('property*') ? 'current' : '' ?>">
                 <a href="/property"><i class="fa fa-home"></i><span class="sidebar-text">Inmuebles</span></a>
             </li>
+
+            <li class="<?= Request::is('operator*') ? 'current' : '' ?>">
+                <a href="/operator"><i class="fa fa-user"></i><span class="sidebar-text">Operadores</span></a>
+            </li>
+
             <br>
         </ul>
     </div>

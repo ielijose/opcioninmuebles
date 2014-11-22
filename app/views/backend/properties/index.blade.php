@@ -3,7 +3,6 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables/dataTables.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables/dataTables.tableTools.css') }}">
-    
 @stop
 
 @section('content')
@@ -61,7 +60,7 @@
                                         </td>
                                         <td><a href="/property/{{ $property->id }}" class="btn btn-info">Ver</a></td>
                                     </tr>
-                                    @endforeach                                           
+                                    @endforeach                                          
                                     
                                 </tbody>
                             </table>
@@ -72,9 +71,7 @@
         </div>
     </div>
 </div>
-
 @stop
-
 @section('javascript')
     <script src="{{ asset('/assets/plugins/bootstrap-switch/bootstrap-switch.js') }}"></script>
     <script src="{{ asset('/assets/plugins/bootstrap-progressbar/bootstrap-progressbar.js') }}"></script>

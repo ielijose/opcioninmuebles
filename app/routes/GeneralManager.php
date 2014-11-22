@@ -11,6 +11,9 @@ Route::group(array('before' => 'auth'), function()
 	/* Branch */
 	Route::resource('branch', 'BranchController');
 
+	/* Operator */
+	Route::resource('operator', 'OperatorController');
+
 	/* User */
 	Route::resource('user', 'UserController');	
 	Route::post('/verify-user-email', ['uses' => 'UserController@verify']);
