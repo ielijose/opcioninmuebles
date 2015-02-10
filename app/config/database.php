@@ -55,8 +55,8 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'opcionin_backend',
-			'username'  => 'opcionin_backend',
+			'database'  => 'grupopre_backend',
+			'username'  => 'grupopre_backend',
 			'password'  => 'v4CE}A0;!2Bof0LNF@',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
