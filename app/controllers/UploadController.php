@@ -6,6 +6,7 @@ class UploadController extends BaseController {
     {
         $file = Input::file('file');
         $destinationPath = public_path() . '/uploads/';
+
         $filename = str_random(16)."_".$file->getClientOriginalName();
         $upload_success = Input::file('file')->move($destinationPath, $filename);
 

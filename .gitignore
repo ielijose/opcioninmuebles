@@ -9,6 +9,6 @@
 app/config/local/database.php
 .DS_Store
 Thumbs.db
-public/uploads/properties/*.jpg
-public/uploads/avatar/*.jpg
+#public/uploads/properties/*.jpg
+#public/uploads/avatar/*.jpg
 backup/*

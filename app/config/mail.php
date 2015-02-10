@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.gmail.com',
+	'host' => 'alojamientowebseguro.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'port' => 465,
+	'port' => 25,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'info@opcioninmuebles.com', 'name' => 'OpciÃ³n Inmuebles'),
+	'from' => array('address' => 'info@opcioninmuebles.com', 'name' => 'Opci¨®n Inmuebles'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'ssl',
+	'encryption' => 'tls',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'jcvaldes.ingenieria@gmail.com',
+	'username' => 'info@opcioninmuebles.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'joaquinramiro',
+	'password' => 'D7L0Ie,Iwx6_{1.FQU',
 		
 	/*
 	|--------------------------------------------------------------------------
