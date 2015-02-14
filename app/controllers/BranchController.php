@@ -71,7 +71,7 @@ class BranchController extends BaseController {
 		$portals = Portal::all();
 		$services = Service::all();
 
-		$branch = branch::findOrFail($id);
+		$branch = Branch::findOrFail($id);
 		return View::make('backend.branches.show', compact('branch', 'categories', 'cities', 'portals', 'services'));
 	}
 
