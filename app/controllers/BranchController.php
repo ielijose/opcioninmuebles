@@ -103,7 +103,7 @@ class BranchController extends BaseController {
 	public function update($id)
 	{
 		$inputs = Input::all();
-		$branch = branch::findOrFail($id);
+		$branch = Branch::findOrFail($id);
 		$branch->fill($inputs);
 		if ($branch->save())
 		{
@@ -122,7 +122,7 @@ class BranchController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		branch::destroy($id);
+		Branch::destroy($id);
 		return Redirect::to('/branch')->with('alert', ['type' => 'success', 'message' => 'La sucursal ha sido borrada.']);
 	}	
 
